@@ -1,0 +1,19 @@
+{
+  "appTitle": "MviewerPlus",
+  "openFile": "Abrir Archivo",
+  "copyContent": "Copiar Contenido",
+  "copiedToClipboard": "Contenido copiado al portapapeles",
+  "errorLoadingFile": "Error al cargar el archivo",
+  "emptyCsv": "CSV vacío",
+  "subtitle": "El Lector Universal de Archivos",
+  "supportsHint": "Soporta .txt, .json, .csv, .xml, .sql, .log y más",
+  "privacyPolicy": "Política de Privacidad",
+  "settings": "Configuración",
+  "premium": "Premium",
+  "goPremium": "Hazte Premium",
+  "premiumDesc": "Desbloquea acceso ilimitado y elimina anuncios.",
+  "restorePurchases": "Restaurar Compras",
+  "termsOfService": "Términos de Servicio",
+  "language": "Idioma",
+  "theme": "Tema"
+}
