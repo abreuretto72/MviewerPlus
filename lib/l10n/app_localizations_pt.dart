@@ -62,61 +62,61 @@ class AppLocalizationsPt extends AppLocalizations {
   String get theme => 'Tema';
 
   @override
-  String get apiKey => 'AI API Key';
+  String get apiKey => 'Chave de API da IA';
 
   @override
-  String get enterApiKey => 'Enter your Groq API Key';
+  String get enterApiKey => 'Insira sua Chave de API da Groq';
 
   @override
-  String get apiKeyDesc => 'Get free API Key';
+  String get apiKeyDesc => 'Obter a chave gratuita';
 
   @override
-  String get save => 'Save';
+  String get save => 'Salvar';
 
   @override
-  String get getApiKeyHelpBtn => 'How to get a key? (Tap here)';
+  String get getApiKeyHelpBtn => 'Como obter uma chave? (Toque aqui)';
 
   @override
-  String get getApiKeyDialogTitle => 'Getting a Groq API Key';
+  String get getApiKeyDialogTitle => 'Obtendo uma Chave de API da Groq';
 
   @override
   String get getApiKeyDialogContent =>
-      '1. Go to console.groq.com\n2. Sign up or log in\n3. Go to \"API Keys\" section\n4. Create a new key and copy it here.';
+      '1. Acesse console.groq.com\n2. Cadastre-se ou faça login\n3. Vá para a seção \"API Keys\"\n4. Crie uma nova chave e copie-a aqui.';
 
   @override
-  String get close => 'Close';
+  String get close => 'Fechar';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'Cancelar';
 
   @override
-  String get aiAssistant => 'AI Assistant';
+  String get aiAssistant => 'Assistente IA';
 
   @override
-  String get askAboutFile => 'Ask about the file...';
+  String get askAboutFile => 'Pergunte sobre o arquivo...';
 
   @override
-  String get systemNote => 'System Note';
+  String get systemNote => 'Nota do Sistema';
 
   @override
   String analyzedFile(Object fileName) {
-    return 'I have analyzed $fileName. Ask me anything about its content!';
+    return 'Analisei $fileName. Pergunte-me qualquer coisa sobre o conteúdo!';
   }
 
   @override
   String get fileTooLarge =>
-      'File is too large. Content has truncated for analysis.';
+      'Arquivo muito grande. Conteúdo truncado para análise.';
 
   @override
   String get privacyPolicyContent =>
-      'Last updated: December 2025\n\nThis Privacy Policy describes how MviewerPlus collects, uses, and discloses your information when you use our Service.\n\n1. Data Collection\nWe do not collect any personal data. Files opened in this application are processed locally on your device and are not uploaded to any server.\n\n2. Permissions\nThe app requires storage permissions only to read the files you explicitly select.\n\n3. Third-Party Services\nIf you opt for the Free version, we may use third-party advertising services (e.g., AdMob) which may collect device identifiers to show relevant ads. In the Premium version, no ads are displayed.\n\n4. Contact Us\nIf you have any questions about this Privacy Policy, please contact us.';
+      'Última atualização: Dezembro de 2025\n\nEsta Política de Privacidade descreve como o MviewerPlus coleta, usa e divulga suas informações quando você utiliza nosso Serviço.\n\n1. Coleta de Dados\nNão coletamos dados pessoais. Os arquivos abertos neste aplicativo são processados localmente no seu dispositivo e não são enviados para nenhum servidor.\n\n2. Permissões\nO aplicativo requer permissões de armazenamento apenas para ler os arquivos que você selecionar explicitamente.\n\n3. Serviços de Terceiros\nSe você optar pela versão Gratuita, podemos usar serviços de publicidade de terceiros (ex: AdMob) que podem coletar identificadores de dispositivo para exibir anúncios relevantes. Na versão Premium, nenhum anúncio é exibido.\n\n4. Contate-nos\nSe tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco.';
 
   @override
   String get termsContent =>
-      'Terms of Service\n\nBy using MviewerPlus, you agree to these terms.\n\n1. Usage\nYou are responsible for the content you access using this viewer.\n\n2. Liability\nThe developer is not liable for any data loss or issues arising from using this software.\n\n3. Updates\nThese terms may change at any time.';
+      'Termos de Uso\n\nAo usar o MviewerPlus, você concorda com estes termos.\n\n1. Uso\nVocê é responsável pelo conteúdo que acessa usando este visualizador.\n\n2. Responsabilidade\nO desenvolvedor não se responsabiliza por qualquer perda de dados ou problemas decorrentes do uso deste software.\n\n3. Atualizações\nEstes termos podem mudar a qualquer momento.';
 
   @override
-  String get about => 'About';
+  String get about => 'Sobre';
 
   @override
   String get companyName => 'Multiverso Digital';
@@ -125,93 +125,156 @@ class AppLocalizationsPt extends AppLocalizations {
   String get contactEmail => 'contato@multiversodigital.com.br';
 
   @override
-  String get appVersion => 'Version 1.0.0';
+  String get appVersion => 'Versão 1.0.0';
 
   @override
-  String get copyMessage => 'Copy Message';
+  String get copyMessage => 'Copiar Mensagem';
 
   @override
-  String get exportPdf => 'Export to PDF';
+  String get exportPdf => 'Exportar para PDF';
 
   @override
-  String get pdfGenerated => 'PDF generated successfully';
+  String get pdfGenerated => 'PDF gerado com sucesso';
 
   @override
-  String get errorGeneratingPdf => 'Error generating PDF';
+  String get errorGeneratingPdf => 'Erro ao gerar PDF';
 
   @override
-  String get exportOptionsTitle => 'Export Options';
+  String get exportOptionsTitle => 'Opções de Exportação';
 
   @override
   String get exportOptionsContent =>
-      'Do you also want to generate a PDF for the original file?';
+      'Você quer também gerar um PDF do arquivo original?';
 
   @override
-  String get exportChatOnly => 'Chat Only';
+  String get exportChatOnly => 'Apenas Chat';
 
   @override
-  String get exportBoth => 'Chat & File';
+  String get exportBoth => 'Chat e Arquivo';
 
   @override
-  String get print => 'Print';
+  String get print => 'Imprimir';
 
   @override
-  String get share => 'Share';
+  String get share => 'Compartilhar';
 
   @override
-  String get saveChangesTitle => 'Save Copy?';
+  String get saveChangesTitle => 'Salvar Cópia?';
 
   @override
   String get saveChangesContent =>
-      'This will save a copy of the edit file. The original file will be preserved.';
+      'Isso salvará uma cópia do arquivo editado. O arquivo original será preservado.';
 
   @override
   String saveCopySuccess(Object path) {
-    return 'File copy saved at: $path';
+    return 'Cópia salva em: $path';
   }
 
   @override
-  String get savedFiles => 'Saved Files';
+  String get savedFiles => 'Arquivos Salvos';
 
   @override
-  String get noSavedFiles => 'No saved files found';
+  String get noSavedFiles => 'Nenhum arquivo salvo encontrado';
 
   @override
-  String get history => 'History';
+  String get history => 'Histórico';
 
   @override
-  String get deleteTitle => 'Confirm Deletion';
+  String get deleteTitle => 'Confirmar Exclusão';
 
   @override
-  String get deleteContent => 'Are you sure you want to remove this item?';
+  String get deleteContent => 'Tem certeza que deseja remover este item?';
 
   @override
-  String get delete => 'Delete';
+  String get delete => 'Excluir';
 
   @override
-  String get find => 'Find';
+  String get find => 'Localizar';
 
   @override
-  String get replace => 'Replace';
+  String get replace => 'Substituir';
 
   @override
-  String get replaceAll => 'Replace All';
+  String get replaceAll => 'Substituir Tudo';
 
   @override
   String replacedSuccess(Object count) {
-    return 'Replaced $count occurrences';
+    return '$count ocorrências substituídas';
   }
 
   @override
-  String get includeOriginal => 'Include File Content';
+  String get includeOriginal => 'Incluir Conteúdo do Arquivo';
 
   @override
-  String get processing => 'Processing...';
+  String get processing => 'Processando...';
 
   @override
   String processingColumns(Object columns) {
-    return 'Analyzing $columns columns...';
+    return 'Analisando $columns colunas...';
   }
+
+  @override
+  String get pdfReportTitle => 'Relatório MviewerPlus';
+
+  @override
+  String get pdfGeneratedLabel => 'Gerado em:';
+
+  @override
+  String get pdfFileLabel => 'Arquivo:';
+
+  @override
+  String get pdfSizeLabel => 'Tamanho:';
+
+  @override
+  String get pdfRecordsLabel => 'Registros:';
+
+  @override
+  String get pdfPage => 'Página';
+
+  @override
+  String get pdfOf => 'de';
+
+  @override
+  String get rows => 'linhas';
+
+  @override
+  String get files => 'arquivos';
+
+  @override
+  String get lines => 'linhas';
+
+  @override
+  String get archiveBadge => 'ARQUIVO';
+
+  @override
+  String get zipEmpty => 'Arquivo ZIP vazio ou inválido';
+
+  @override
+  String zipArchiveInfo(Object count) {
+    return 'Arquivo ZIP ($count arquivos)';
+  }
+
+  @override
+  String get fileName => 'Nome do Arquivo';
+
+  @override
+  String get fileType => 'Tipo';
+
+  @override
+  String get fileSizeCol => 'Tamanho (KB)';
+
+  @override
+  String get searchNotAvailableZip =>
+      'Busca não disponível para arquivos compactados.';
+
+  @override
+  String get readOnlyFormat => 'Este formato é apenas para leitura.';
+
+  @override
+  String get processingWait => 'Lendo arquivo, aguarde.';
+
+  @override
+  String get loadingTitle => 'Carregando...';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -422,6 +485,69 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String processingColumns(Object columns) {
     return 'Analisando $columns colunas...';
   }
+
+  @override
+  String get pdfReportTitle => 'Relatório MviewerPlus';
+
+  @override
+  String get pdfGeneratedLabel => 'Gerado em:';
+
+  @override
+  String get pdfFileLabel => 'Arquivo:';
+
+  @override
+  String get pdfSizeLabel => 'Tamanho:';
+
+  @override
+  String get pdfRecordsLabel => 'Registros:';
+
+  @override
+  String get pdfPage => 'Página';
+
+  @override
+  String get pdfOf => 'de';
+
+  @override
+  String get rows => 'linhas';
+
+  @override
+  String get files => 'arquivos';
+
+  @override
+  String get lines => 'linhas';
+
+  @override
+  String get archiveBadge => 'ARQUIVO';
+
+  @override
+  String get zipEmpty => 'Arquivo ZIP vazio ou inválido';
+
+  @override
+  String zipArchiveInfo(Object count) {
+    return 'Arquivo ZIP ($count arquivos)';
+  }
+
+  @override
+  String get fileName => 'Nome do Arquivo';
+
+  @override
+  String get fileType => 'Tipo';
+
+  @override
+  String get fileSizeCol => 'Tamanho (KB)';
+
+  @override
+  String get searchNotAvailableZip =>
+      'Busca não disponível para arquivos compactados.';
+
+  @override
+  String get readOnlyFormat => 'Este formato é apenas para leitura.';
+
+  @override
+  String get processingWait => 'Lendo arquivo, aguarde.';
+
+  @override
+  String get loadingTitle => 'Carregando...';
 }
 
 /// The translations for Portuguese, as used in Portugal (`pt_PT`).
@@ -632,4 +758,67 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
   String processingColumns(Object columns) {
     return 'A analisar $columns colunas...';
   }
+
+  @override
+  String get pdfReportTitle => 'Relatório MviewerPlus';
+
+  @override
+  String get pdfGeneratedLabel => 'Gerado em:';
+
+  @override
+  String get pdfFileLabel => 'Ficheiro:';
+
+  @override
+  String get pdfSizeLabel => 'Tamanho:';
+
+  @override
+  String get pdfRecordsLabel => 'Registos:';
+
+  @override
+  String get pdfPage => 'Página';
+
+  @override
+  String get pdfOf => 'de';
+
+  @override
+  String get rows => 'linhas';
+
+  @override
+  String get files => 'ficheiros';
+
+  @override
+  String get lines => 'linhas';
+
+  @override
+  String get archiveBadge => 'ARQUIVO';
+
+  @override
+  String get zipEmpty => 'Ficheiro ZIP vazio ou inválido';
+
+  @override
+  String zipArchiveInfo(Object count) {
+    return 'Ficheiro ZIP ($count ficheiros)';
+  }
+
+  @override
+  String get fileName => 'Nome do Ficheiro';
+
+  @override
+  String get fileType => 'Tipo';
+
+  @override
+  String get fileSizeCol => 'Tamanho (KB)';
+
+  @override
+  String get searchNotAvailableZip =>
+      'Pesquisa não disponível para ficheiros compactados.';
+
+  @override
+  String get readOnlyFormat => 'Este formato é apenas de leitura.';
+
+  @override
+  String get processingWait => 'A ler ficheiro, aguarde.';
+
+  @override
+  String get loadingTitle => 'A carregar...';
 }

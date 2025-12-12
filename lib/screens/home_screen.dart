@@ -17,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
+  bool _isOpeningFile = false;
 
   @override
   void initState() {
@@ -41,18 +42,25 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       FilePickerResult? result = await FilePicker.platform.pickFiles();
 
       if (result != null && result.files.single.path != null) {
-        String filePath = result.files.single.path!;
         if (!mounted) return;
-        Navigator.push(
+        setState(() => _isOpeningFile = true);
+        
+        String filePath = result.files.single.path!;
+        
+        await Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => ViewerScreen(file: File(filePath)),
           ),
         );
+        
+        if (mounted) setState(() => _isOpeningFile = false);
       } else {
         // User canceled the picker
       }
     } catch (e) {
+      if (mounted) setState(() => _isOpeningFile = false);
+      
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -84,7 +92,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ),
         ],
       ),
-      body: Container(
+      body: Stack(
+        children: [
+          Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
@@ -201,6 +211,50 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             ),
           ),
         ),
+          ),
+          if (_isOpeningFile)
+            Container(
+              color: Colors.black.withOpacity(0.8),
+              child: Center(
+                child: Container(
+                  padding: const EdgeInsets.all(32),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF2D2D2D),
+                    borderRadius: BorderRadius.circular(24),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        blurRadius: 30,
+                        spreadRadius: 5,
+                      )
+                    ],
+                    border: Border.all(color: Colors.white10),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                       SizedBox(
+                         width: 50, height: 50,
+                         child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.primary),
+                            strokeWidth: 3,
+                         ),
+                       ),
+                       const SizedBox(height: 24),
+                       Text(
+                         t.loadingTitle,
+                         style: GoogleFonts.outfit(
+                            fontSize: 18, 
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white
+                         ),
+                       ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }

@@ -212,4 +212,67 @@ class AppLocalizationsEs extends AppLocalizations {
   String processingColumns(Object columns) {
     return 'Analizando $columns columnas...';
   }
+
+  @override
+  String get pdfReportTitle => 'Reporte MviewerPlus';
+
+  @override
+  String get pdfGeneratedLabel => 'Generado:';
+
+  @override
+  String get pdfFileLabel => 'Archivo:';
+
+  @override
+  String get pdfSizeLabel => 'Tamaño:';
+
+  @override
+  String get pdfRecordsLabel => 'Registros:';
+
+  @override
+  String get pdfPage => 'Página';
+
+  @override
+  String get pdfOf => 'de';
+
+  @override
+  String get rows => 'filas';
+
+  @override
+  String get files => 'archivos';
+
+  @override
+  String get lines => 'líneas';
+
+  @override
+  String get archiveBadge => 'ARCHIVO';
+
+  @override
+  String get zipEmpty => 'Archivo ZIP vacío o inválido';
+
+  @override
+  String zipArchiveInfo(Object count) {
+    return 'Archivo ZIP ($count archivos)';
+  }
+
+  @override
+  String get fileName => 'Nombre del Archivo';
+
+  @override
+  String get fileType => 'Tipo';
+
+  @override
+  String get fileSizeCol => 'Tamaño (KB)';
+
+  @override
+  String get searchNotAvailableZip =>
+      'Búsqueda no disponible para archivos comprimidos.';
+
+  @override
+  String get readOnlyFormat => 'Este formato es de solo lectura.';
+
+  @override
+  String get processingWait => 'Leyendo archivo, espera.';
+
+  @override
+  String get loadingTitle => 'Cargando...';
 }

@@ -479,6 +479,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Analyzing {columns} columns...'**
   String processingColumns(Object columns);
+
+  /// No description provided for @pdfReportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'MviewerPlus Report'**
+  String get pdfReportTitle;
+
+  /// No description provided for @pdfGeneratedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated:'**
+  String get pdfGeneratedLabel;
+
+  /// No description provided for @pdfFileLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'File:'**
+  String get pdfFileLabel;
+
+  /// No description provided for @pdfSizeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Size:'**
+  String get pdfSizeLabel;
+
+  /// No description provided for @pdfRecordsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Records:'**
+  String get pdfRecordsLabel;
+
+  /// No description provided for @pdfPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Page'**
+  String get pdfPage;
+
+  /// No description provided for @pdfOf.
+  ///
+  /// In en, this message translates to:
+  /// **'of'**
+  String get pdfOf;
+
+  /// No description provided for @rows.
+  ///
+  /// In en, this message translates to:
+  /// **'rows'**
+  String get rows;
+
+  /// No description provided for @files.
+  ///
+  /// In en, this message translates to:
+  /// **'files'**
+  String get files;
+
+  /// No description provided for @lines.
+  ///
+  /// In en, this message translates to:
+  /// **'lines'**
+  String get lines;
+
+  /// No description provided for @archiveBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'ARCHIVE'**
+  String get archiveBadge;
+
+  /// No description provided for @zipEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty or invalid ZIP archive'**
+  String get zipEmpty;
+
+  /// No description provided for @zipArchiveInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Zip Archive ({count} files)'**
+  String zipArchiveInfo(Object count);
+
+  /// No description provided for @fileName.
+  ///
+  /// In en, this message translates to:
+  /// **'File Name'**
+  String get fileName;
+
+  /// No description provided for @fileType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get fileType;
+
+  /// No description provided for @fileSizeCol.
+  ///
+  /// In en, this message translates to:
+  /// **'Size (KB)'**
+  String get fileSizeCol;
+
+  /// No description provided for @searchNotAvailableZip.
+  ///
+  /// In en, this message translates to:
+  /// **'Search not available for archive files.'**
+  String get searchNotAvailableZip;
+
+  /// No description provided for @readOnlyFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'This format is read-only.'**
+  String get readOnlyFormat;
+
+  /// No description provided for @processingWait.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading file, please wait.'**
+  String get processingWait;
+
+  /// No description provided for @loadingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loadingTitle;
 }
 
 class _AppLocalizationsDelegate

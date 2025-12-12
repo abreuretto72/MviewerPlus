@@ -2,21 +2,164 @@
 
 > **Advanced File Viewer with AI-Powered Analysis**
 
-A powerful Flutter application for viewing, analyzing, and exporting various file formats with intelligent CSV optimization and AI assistance.
+A powerful, **completely free and open-source** Flutter application for viewing, analyzing, and exporting various file formats with intelligent CSV optimization and AI assistance.
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.10+-blue.svg)](https://flutter.dev/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS%20%7C%20Web-lightgrey.svg)](https://github.com/abreuretto72/MviewerPlus)
+[![Free](https://img.shields.io/badge/price-FREE-success.svg)](https://github.com/abreuretto72/MviewerPlus)
+
+## 💚 Free & Open Source
+
+**MviewerPlus is 100% free with no ads, no subscriptions, and no hidden costs.**
+
+- ✅ All features available to everyone
+- ✅ No advertisements
+- ✅ No premium tiers or paywalls
+- ✅ Open-source and community-driven
+- ✅ Privacy-focused - your data stays on your device
 
 ## ✨ Features
 
-### 📄 File Viewing
-- **Multi-format Support**: View CSV, JSON, XML, TXT, code files, and more
-- **Syntax Highlighting**: Beautiful code highlighting for multiple programming languages
-- **Smart CSV Handling**: Intelligent data cleaning and optimization
-  - Automatic removal of empty columns and rows
-  - Detection and removal of header/footer junk
-  - Support for files with 250+ columns and thousands of rows
+### 📄 File Viewing & Format Support
+
+**MviewerPlus supports 60+ file formats across multiple categories:**
+
+#### 📊 Data & Tables
+- **CSV** - Advanced table view with sorting, filtering, and smart data cleaning
+  - Automatic delimiter detection (comma, semicolon)
+  - Handles 250+ columns and thousands of rows
+  - Export to PDF with automatic table splitting
+- **Excel** (.xlsx, .xls) - Multi-sheet support
+  - View data in tabular format
+  - Toggle between sheets
+  - Background processing for large files
+- **ZIP Archive** (.zip) - Archive explorer
+  - View contents (files/folders)
+  - Inspect file types and sizes
+  - Restricted search/edit for data integrity
+  - Clean PDF reports of archive contents
+
+#### 📝 Markup & Documentation
+- **Markdown** (.md, .markdown) - Beautiful rendered view with:
+  - Formatted headings, lists, and links
+  - Code blocks with syntax highlighting
+  - Tables, blockquotes, and horizontal rules
+  - Toggle between rendered and raw view
+- **JSON** - Syntax highlighted with proper formatting
+- **XML** - Structured view with color coding
+- **YAML** (.yaml, .yml) - Configuration file support
+- **HTML/HTM** - Web markup with syntax highlighting
+
+#### 💻 Programming Languages (Syntax Highlighting)
+**Web Development:**
+- JavaScript (.js, .jsx)
+- TypeScript (.ts, .tsx)
+- CSS (.css, .scss, .sass, .less)
+
+**Mobile & App Development:**
+- Dart (.dart)
+- Java (.java)
+- Kotlin (.kt, .kts)
+- Swift (.swift)
+
+**Systems Programming:**
+- C (.c)
+- C++ (.cpp, .cc, .cxx, .h, .hpp)
+- C# (.cs)
+- Go (.go)
+- Rust (.rs)
+
+**Scripting Languages:**
+- Python (.py)
+- Ruby (.rb)
+- PHP (.php)
+- Perl (.pl)
+- Bash (.sh, .bash)
+- PowerShell (.ps1)
+
+**Database:**
+- SQL (.sql) - Custom Dracula theme with:
+  - Pink keywords (SELECT, FROM, WHERE)
+  - Cyan functions (COUNT, SUM, AVG)
+  - Yellow strings
+  - Purple numbers
+  - Italic comments
+
+**Other Languages:**
+- R (.r)
+- Scala (.scala)
+- Lua (.lua)
+- Vim Script (.vim)
+- Elisp (.el)
+- Clojure (.clj)
+- Elixir (.ex, .exs)
+
+**Configuration Files:**
+- INI (.ini, .cfg) - Custom syntax highlighting
+- TOML (.toml) - Custom syntax highlighting
+- Properties (.properties) - Custom syntax highlighting
+- Environment (.env) - Bash-style highlighting
+- Config (.conf) - Nginx-style highlighting
+- XML Config (.config) - XML highlighting
+
+#### 📄 Plain Text Files
+- TXT
+- ASC (ASCII)
+
+#### 📋 Log Files
+- LOG - Custom syntax highlighting with:
+  - ERROR/FATAL → Red (bold)
+  - WARN/WARNING → Orange (semi-bold)
+  - INFO → Cyan
+  - DEBUG/TRACE → Gray
+  - SUCCESS/OK → Green (semi-bold)
+  - Timestamps → Purple
+
+### 🎨 Viewing Features
+
+#### Syntax Highlighting
+- **40+ Programming Languages** with Dracula theme
+- **Custom SQL Highlighter** with:
+  - Pink keywords (SELECT, FROM, WHERE)
+  - Cyan functions (COUNT, SUM, AVG)
+  - Yellow strings
+  - Purple numbers
+  - Italic blue-gray comments
+- **Custom Config File Highlighter** with:
+  - Pink sections ([section])
+  - Cyan keys
+  - Purple separators (= or :)
+  - Yellow values
+  - Italic blue-gray comments
+- **Custom Log File Highlighter** with severity-based colors
+
+#### Markdown Rendering
+- **Rich Text Formatting** with toggle Raw ↔ Rendered
+- Formatted headings with theme colors
+- Code blocks with syntax highlighting
+- Tables, blockquotes, and horizontal rules
+- Links and images support
+
+#### CSV Tables
+- **Smart Data Cleaning**: Automatic removal of empty columns/rows
+- **Sortable Columns**: Click headers to sort
+- **Search & Filter**: Find data across all cells
+- **Dynamic Column Widths**: Auto-sized based on content
+- **Alternating Row Colors**: Better readability
+- **Info Display**: Shows rows × columns count
+
+#### PDF Export
+- **Automatic Pagination**: Handles files of any size
+- **CSV Table Splitting**: 
+  - Horizontal: 15 columns per section
+  - Vertical: 10 rows per section (with indicators)
+  - First column repeated for context
+- **Professional Formatting**:
+  - Landscape mode for wide tables
+  - Clean headers and borders
+  - Alternating row colors
+- **No Size Limits**: Supports thousands of lines
 
 ### 🚀 Performance Optimizations
 - **Background Processing**: CSV parsing in separate isolates for smooth UI
@@ -25,12 +168,18 @@ A powerful Flutter application for viewing, analyzing, and exporting various fil
 - **Smart Delimiter Detection**: Fast and accurate CSV delimiter identification
 
 ### 🤖 AI Integration
-- **AI-Powered Analysis**: Ask questions about your files using AI
-- **Context-Aware Responses**: Get insights based on file content
-- **Export Conversations**: Save AI chat sessions as PDF
+- **Groq Power ⚡**: Uses Llama 3 70b via Groq for high-speed analysis.
+- **Context-Aware**: Understands file structure (CSV stats, Code logic, Logs patterns).
+- **Zero Cost**: Built for free tier API usage (easy setup guide included).
+- **Export Conversations**: Save AI chat sessions as PDF.
 
 ### 📊 Export & Sharing
 - **PDF Export**: Convert files and AI chats to formatted PDFs
+  - **Comprehensive Reports**: Headers with file name, type, size, and row/file count.
+  - **Automatic Pagination**: "Page X of Y" footer on every page.
+  - **Smart Table Splitting**: Wide CSV tables divided into readable sections.
+  - **Archive Reports**: Generates detailed content lists for ZIP files.
+  - **Professional Layout**: Clean formatting with headers and borders.
 - **Table Formatting**: CSV files exported as professional tables
 - **Print & Share**: Easy sharing with customizable options
 
@@ -55,10 +204,10 @@ A powerful Flutter application for viewing, analyzing, and exporting various fil
 
 ### Key Technologies
 - **Flutter**: Cross-platform UI framework
-- **Google Generative AI**: AI-powered file analysis
-- **PDF Generation**: Professional PDF export with `pdf` and `printing` packages
-- **CSV Parsing**: Optimized CSV handling with intelligent cleaning
-- **Syntax Highlighting**: Code display with `flutter_highlight`
+- **Groq API**: High-performance AI analysis (Llama 3)
+- **PDF Generation**: `pdf` and `printing` packages
+- **File Parsing**: `csv`, `spreadsheet_decoder` (Excel), `archive` (ZIP)
+- **Syntax Highlighting**: `flutter_highlight`
 
 ### Performance Features
 - Background CSV parsing with `compute()`
@@ -91,10 +240,8 @@ flutter pub get
 ```
 
 3. **Configure AI (Optional)**
-Create a `.env` file in the root directory:
-```env
-GEMINI_API_KEY=your_api_key_here
-```
+No environment variables required. Get a free Groq API Key at [console.groq.com](https://console.groq.com/keys).
+Enter your key directly in the app: **Settings > AI API Key**.
 
 4. **Run the app**
 ```bash

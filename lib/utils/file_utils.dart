@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:csv/csv.dart';
+import 'package:spreadsheet_decoder/spreadsheet_decoder.dart';
+import 'package:archive/archive.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
 
@@ -33,27 +35,126 @@ class FileUtils {
     return await compute(_parseCsvInBackground, content);
   }
 
+  static Future<Map<String, List<List<dynamic>>>> parseExcel(File file) async {
+    // Parse Excel in background
+    final bytes = await file.readAsBytes();
+    return await compute(_parseExcelInBackground, bytes);
+  }
+
+  static Future<List<Map<String, dynamic>>> parseZip(File file) async {
+    final bytes = await file.readAsBytes();
+    return await compute(_parseZipInBackground, bytes);
+  }
+
   static FileType getFileType(String extension) {
     switch (extension) {
+      // Data formats
       case 'json':
       case 'xml':
-      case 'sql':
       case 'yaml':
       case 'yml':
-      case 'dart':
-      case 'js':
-      case 'html':
-      case 'css':
-      case 'py':
+      case 'ascx': // ASP.NET User Control
+      case 'aspx': // ASP.NET Web Form  
+      case 'asmx': // ASP.NET Web Service
+      case 'doc':
+      case 'docx': // Microsoft Word documents
         return FileType.code;
+      
+      // Database
+      case 'sql':
+        return FileType.code;
+      
+      // Email
+      case 'eml': // Email message (MIME format)
+        return FileType.code;
+      
+      // Web
+      case 'html':
+      case 'htm':
+      case 'css':
+      case 'scss':
+      case 'sass':
+      case 'less':
+      case 'js':
+      case 'jsx':
+      case 'ts':
+      case 'tsx':
+        return FileType.code;
+      
+      // Mobile/App Development
+      case 'dart':
+      case 'java':
+      case 'kt':
+      case 'kts':
+      case 'swift':
+        return FileType.code;
+      
+      // Systems Programming
+      case 'c':
+      case 'cpp':
+      case 'cc':
+      case 'cxx':
+      case 'h':
+      case 'hpp':
+      case 'cs':
+      case 'go':
+      case 'rs':
+        return FileType.code;
+      
+      // Scripting
+      case 'py':
+      case 'rb':
+      case 'php':
+      case 'pl':
+      case 'sh':
+      case 'bash':
+      case 'ps1':
+        return FileType.code;
+      
+      // Other programming languages
+      case 'r':
+      case 'scala':
+      case 'lua':
+      case 'vim':
+      case 'el':
+      case 'clj':
+      case 'ex':
+      case 'exs':
+        return FileType.code;
+      
+      // Markup
+      case 'md':
+      case 'markdown':
+        return FileType.markdown;
+      
+      // Table
       case 'csv':
+      case 'xlsx':
+      case 'xls':
         return FileType.table;
-      case 'txt':
-      case 'log':
+      
+      // Archive
+      case 'zip':
+        return FileType.archive;
+
+      // Configuration files (now with syntax highlighting)
       case 'conf':
+      case 'config':
       case 'env':
       case 'ini':
+      case 'cfg':
+      case 'properties':
+      case 'toml':
+        return FileType.code;
+      
+      // Log files (now with syntax highlighting)
+      case 'log':
+        return FileType.code;
+      
+      // Plain text
+      case 'txt':
         return FileType.text;
+      
       default:
         return FileType.text;
     }
@@ -76,8 +177,40 @@ List<List<dynamic>> _parseCsvInBackground(String content) {
     delimiter = ';';
   }
   
-  // Parse CSV
-  List<List<dynamic>> rawData = const CsvToListConverter().convert(content, fieldDelimiter: delimiter);
+  // Parse CSV with proper handling of quoted fields
+  List<List<dynamic>> rawData;
+  try {
+    // Use convertSyncAllowMalformed for better handling of complex CSVs
+    rawData = const CsvToListConverter(
+      shouldParseNumbers: false, // Keep everything as strings initially
+      allowInvalid: true,        // Don't fail on malformed rows
+    ).convert(
+      content, 
+      fieldDelimiter: delimiter,
+      textDelimiter: '"',
+      textEndDelimiter: '"',
+      eol: '\n',
+    );
+    
+    debugPrint('CSV Parser: Successfully parsed ${rawData.length} rows');
+    if (rawData.isNotEmpty) {
+      debugPrint('CSV Parser: First row has ${rawData.first.length} columns');
+      if (rawData.length > 1) {
+        debugPrint('CSV Parser: Second row has ${rawData[1].length} columns');
+      }
+    }
+  } catch (e) {
+    debugPrint('CSV Parser Error: $e');
+    // Fallback: try with default settings
+    try {
+      rawData = const CsvToListConverter().convert(content);
+      debugPrint('CSV Parser: Fallback parsing succeeded - ${rawData.length} rows');
+    } catch (e2) {
+      debugPrint('CSV Parser Fallback Error: $e2');
+      // Last resort: return empty
+      return [];
+    }
+  }
   
   if (rawData.isEmpty) return rawData;
   
@@ -89,10 +222,11 @@ List<List<dynamic>> _parseCsvInBackground(String content) {
   if (rawData.isEmpty) return rawData;
   
   // STEP 2: Find the header row (first row with substantial data)
+  // Reduced from 3 to 2 cells to be less aggressive
   int headerIndex = 0;
   for (int i = 0; i < rawData.length; i++) {
     final nonEmptyCells = rawData[i].where((cell) => cell.toString().trim().isNotEmpty).length;
-    if (nonEmptyCells >= 3) { // At least 3 non-empty cells to be considered a header
+    if (nonEmptyCells >= 2) { // Changed from 3 to 2
       headerIndex = i;
       break;
     }
@@ -105,10 +239,10 @@ List<List<dynamic>> _parseCsvInBackground(String content) {
   
   if (rawData.isEmpty) return rawData;
   
-  // STEP 3: Identify and remove empty columns
+  // STEP 3: Identify and remove ONLY completely empty columns
   final maxColumns = rawData.map((row) => row.length).reduce((a, b) => a > b ? a : b);
   
-  // Check which columns have at least one non-empty value
+  // Check which columns have at least one non-empty value across ALL rows
   List<bool> columnHasData = List.filled(maxColumns, false);
   
   for (var row in rawData) {
@@ -119,7 +253,7 @@ List<List<dynamic>> _parseCsvInBackground(String content) {
     }
   }
   
-  // Get indices of columns that have data
+  // Get indices of columns that have at least some data
   List<int> validColumnIndices = [];
   for (int i = 0; i < columnHasData.length; i++) {
     if (columnHasData[i]) {
@@ -127,8 +261,11 @@ List<List<dynamic>> _parseCsvInBackground(String content) {
     }
   }
   
-  // If no valid columns found, return original data
-  if (validColumnIndices.isEmpty) return rawData;
+  // If no valid columns found, return original data (don't remove anything)
+  if (validColumnIndices.isEmpty) {
+    debugPrint('CSV Parser: No valid columns found, returning original data');
+    return rawData;
+  }
   
   // STEP 4: Rebuild data with only valid columns
   List<List<dynamic>> cleanedData = [];
@@ -144,8 +281,8 @@ List<List<dynamic>> _parseCsvInBackground(String content) {
     cleanedData.add(cleanedRow);
   }
   
-  // STEP 5: Remove trailing empty rows (footer junk)
-  while (cleanedData.length > 1) {
+  // STEP 5: Remove trailing empty rows (footer junk) - but keep at least 1 data row
+  while (cleanedData.length > 2) { // Changed from 1 to 2 to keep at least header + 1 row
     final lastRow = cleanedData.last;
     final hasData = lastRow.any((cell) => cell.toString().trim().isNotEmpty);
     if (!hasData) {
@@ -155,11 +292,52 @@ List<List<dynamic>> _parseCsvInBackground(String content) {
     }
   }
   
+  debugPrint('CSV Parser: Final data - ${cleanedData.length} rows, ${cleanedData.isNotEmpty ? cleanedData.first.length : 0} columns');
+  
   return cleanedData;
+}
+
+Map<String, List<List<dynamic>>> _parseExcelInBackground(List<int> bytes) {
+  try {
+    var decoder = SpreadsheetDecoder.decodeBytes(bytes, update: true);
+    Map<String, List<List<dynamic>>> sheets = {};
+    
+    for (var tableName in decoder.tables.keys) {
+      var table = decoder.tables[tableName];
+      if (table != null) {
+        List<List<dynamic>> rows = [];
+        for (var row in table.rows) {
+           rows.add(row.map((cell) => cell?.toString() ?? '').toList());
+        }
+        sheets[tableName] = rows;
+      }
+    }
+    
+    return sheets;
+  } catch (e) {
+    debugPrint('Excel parsing error: $e');
+    return {};
+  }
+}
+
+List<Map<String, dynamic>> _parseZipInBackground(List<int> bytes) {
+  try {
+     final archive = ZipDecoder().decodeBytes(bytes);
+     return archive.files.map((file) => {
+       'name': file.name,
+       'size': file.size,
+       'isFile': file.isFile,
+     }).toList();
+  } catch (e) {
+     debugPrint('Zip parsing error: $e');
+     return [];
+  }
 }
 
 enum FileType {
   text,
   code,
   table,
+  markdown,
+  archive,
 }
