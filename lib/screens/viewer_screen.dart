@@ -5,6 +5,10 @@ import 'package:flutter/foundation.dart';
 import 'package:file_viewer/screens/ai_chat_screen.dart';
 import 'package:docx_to_text/docx_to_text.dart';
 import 'package:file_viewer/screens/pdf_viewer_screen.dart';
+import 'package:printing/printing.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 import 'package:file_viewer/utils/file_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,6 +31,16 @@ class ViewerScreen extends StatefulWidget {
 }
 
 class _ViewerScreenState extends State<ViewerScreen> {
+  // Audio
+  late AudioPlayer _audioPlayer;
+  bool _isPlaying = false;
+  Duration _duration = Duration.zero;
+  Duration _position = Duration.zero;
+
+  // Video
+  VideoPlayerController? _videoPlayerController;
+  ChewieController? _chewieController;
+
   String _content = '';
   List<List<dynamic>> _csvData = [];
   Map<String, List<List<dynamic>>> _excelSheets = {};
@@ -58,7 +72,29 @@ class _ViewerScreenState extends State<ViewerScreen> {
   @override
   void initState() {
     super.initState();
+    _audioPlayer = AudioPlayer();
+    _audioPlayer.onPlayerStateChanged.listen((state) {
+      if (mounted) setState(() => _isPlaying = state == PlayerState.playing);
+    });
+    _audioPlayer.onDurationChanged.listen((newDuration) {
+      if (mounted) setState(() => _duration = newDuration);
+    });
+    _audioPlayer.onPositionChanged.listen((newPosition) {
+      if (mounted) setState(() => _position = newPosition);
+    });
     _loadContent();
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    _videoPlayerController?.dispose();
+    _chewieController?.dispose();
+    _searchController.dispose();
+    _editController.dispose();
+    _replaceController.dispose();
+    _horizontalScrollController.dispose();
+    super.dispose();
   }
 
   Future<void> _loadContent() async {
@@ -77,9 +113,14 @@ class _ViewerScreenState extends State<ViewerScreen> {
         } else {
           try {
             final bytes = await widget.file.readAsBytes();
-            extractedText = docxToText(bytes);
-            if (extractedText.isEmpty) {
-              extractedText = 'O arquivo parece vazio ou o texto não pôde ser extraído.\n\nNota: Imagens e formatações complexas não são exibidas.';
+            // Check if it's a valid ZIP (DOCX is XML inside ZIP) - Magic bytes: PK (0x50, 0x4B)
+            if (bytes.length > 2 && bytes[0] == 0x50 && bytes[1] == 0x4B) {
+               extractedText = docxToText(bytes);
+               if (extractedText.isEmpty) {
+                 extractedText = 'O arquivo parece vazio ou o texto não pôde ser extraído.\n\nNota: Imagens e formatações complexas não são exibidas.';
+               }
+            } else {
+               extractedText = 'Erro de Formato:\nEste arquivo não é um DOCX válido.\n1. Pode ser um arquivo .doc antigo (Word 97-2003) renomeado manualmente.\n2. Pode estar corrompido.\n\nSolução: Abra no Word e use "Salvar Como" -> ".docx".';
             }
           } catch (e) {
             extractedText = 'Erro ao ler o documento DOCX:\n$e';
@@ -124,6 +165,51 @@ class _ViewerScreenState extends State<ViewerScreen> {
             _isLoading = false;
           });
         }
+        return;
+      }
+
+      // Special handling for Images
+      if (_fileType == FileType.image) {
+        if (mounted) {
+          setState(() {
+            _content = ''; // Content not needed for Image widget
+            _isLoading = false;
+          });
+        }
+        return;
+      }
+
+      // Special handling for PDF
+      if (_fileType == FileType.pdf) {
+        if (mounted) {
+          setState(() {
+            _content = '';
+            _isLoading = false;
+          });
+        }
+        return;
+      }
+
+      // Special handling for Audio
+      if (_fileType == FileType.audio) {
+        if (mounted) {
+          setState(() {
+            _content = ''; // not used
+            _isLoading = false;
+          });
+        }
+        return;
+      }
+
+      // Special handling for Video
+      if (_fileType == FileType.video) {
+        if (mounted) {
+          setState(() {
+            _content = ''; // not used
+            _isLoading = true; // Still loading video player
+          });
+        }
+        _initializeVideoPlayer();
         return;
       }
 
@@ -437,17 +523,26 @@ class _ViewerScreenState extends State<ViewerScreen> {
               icon: Icon(_isRaw ? Icons.code_off : Icons.code),
               onPressed: _toggleView,
             ),
+            if (_fileType != FileType.pdf && _fileType != FileType.audio && _fileType != FileType.video)
             IconButton(
               icon: const Icon(Icons.picture_as_pdf),
               tooltip: t.exportPdf,
               onPressed: () async {
-                int fileSize = 0;
+                // Determine file size string
+                String fileSize = 'Unknown';
                 try {
-                  fileSize = await widget.file.length();
+                  final size = await widget.file.length();
+                  if (size < 1024) {
+                    fileSize = '$size B';
+                  } else if (size < 1024 * 1024) {
+                    fileSize = '${(size / 1024).toStringAsFixed(2)} KB';
+                  } else {
+                    fileSize = '${(size / (1024 * 1024)).toStringAsFixed(2)} MB';
+                  }
                 } catch (e) {
                   debugPrint('Error getting file size: $e');
                 }
-                
+
                 if (!mounted) return;
 
                 Navigator.push(
@@ -456,10 +551,10 @@ class _ViewerScreenState extends State<ViewerScreen> {
                     builder: (context) => PdfViewerScreen(
                       fileName: FileUtils.getFileName(widget.file),
                       content: _content,
-                      isDirectFileView: true,
                       csvData: _fileType == FileType.table ? _csvData : null,
                       zipFiles: _fileType == FileType.archive ? _zipFiles : null,
-                      fileSize: fileSize,
+                      fileSize: widget.file.lengthSync(), // Use sync for simplicity here or pass async var
+                      filePath: widget.file.path,
                     ),
                   ),
                 );
@@ -468,7 +563,7 @@ class _ViewerScreenState extends State<ViewerScreen> {
             IconButton(
               icon: const Icon(Icons.edit),
               onPressed: () {
-                if (['xlsx', 'xls', 'doc', 'zip', 'pdf'].contains(_extension)) {
+                if (['xlsx', 'xls', 'doc', 'zip', 'pdf'].contains(_extension) || _fileType == FileType.image || _fileType == FileType.audio || _fileType == FileType.video) {
                    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(AppLocalizations.of(context)!.readOnlyFormat)),
                    );
@@ -481,8 +576,8 @@ class _ViewerScreenState extends State<ViewerScreen> {
         ],
       ),
       body: _buildBody(t),
-      floatingActionButton: (!_isLoading && _error == null && _content.isNotEmpty)
-          ? FloatingActionButton.extended(
+      floatingActionButton: (!_isLoading && _error == null && (_content.isNotEmpty || _fileType == FileType.image || _fileType == FileType.pdf))
+          ? FloatingActionButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -495,10 +590,9 @@ class _ViewerScreenState extends State<ViewerScreen> {
                   ),
                 );
               },
-              icon: const Icon(Icons.auto_awesome),
-              label: const Text('Ask AI'),
               backgroundColor: Theme.of(context).colorScheme.secondary,
               foregroundColor: Colors.black,
+              child: const Icon(Icons.auto_awesome),
             )
           : null,
     );
@@ -602,9 +696,174 @@ class _ViewerScreenState extends State<ViewerScreen> {
         return _buildMarkdownView();
       case FileType.archive:
         return _buildZipView();
+      case FileType.image:
+        return _buildImageView();
+      case FileType.pdf:
+        return _buildPdfView();
+      case FileType.audio:
+        return _buildAudioPlayer();
+      case FileType.video:
+        return _buildVideoPlayer();
       default:
         return _buildRawView();
     }
+  }
+
+  Widget _buildImageView() {
+    return Container(
+      color: Colors.black,
+      child: InteractiveViewer(
+        minScale: 0.1,
+        maxScale: 5.0,
+        child: Center(
+          child: Image.file(
+            widget.file,
+            errorBuilder: (context, error, stackTrace) {
+              return Column(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                    const Icon(Icons.broken_image, size: 64, color: Colors.white54),
+                    const SizedBox(height: 16),
+                    Text(
+                      AppLocalizations.of(context)!.errorLoadingFile,
+                      style: const TextStyle(color: Colors.white54),
+                    )
+                 ],
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPdfView() {
+    return PdfPreview(
+      build: (format) => widget.file.readAsBytes(),
+      allowPrinting: true,
+      allowSharing: true,
+      canChangeOrientation: false, 
+      canChangePageFormat: false,
+    );
+  }
+
+  Future<void> _initializeVideoPlayer() async {
+    try {
+      _videoPlayerController = VideoPlayerController.file(widget.file);
+      await _videoPlayerController!.initialize();
+      
+      _chewieController = ChewieController(
+        videoPlayerController: _videoPlayerController!,
+        autoPlay: false,
+        looping: false,
+        aspectRatio: _videoPlayerController!.value.aspectRatio,
+        errorBuilder: (context, errorMessage) {
+          return Center(
+            child: Text(
+              'Erro ao reproduzir vídeo: $errorMessage',
+              style: const TextStyle(color: Colors.white),
+            ),
+          );
+        },
+      );
+    } catch (e) {
+      debugPrint('Error initializing video player: $e');
+    }
+
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  Widget _buildVideoPlayer() {
+    if (_chewieController != null && _videoPlayerController != null && _videoPlayerController!.value.isInitialized) {
+       return Center(
+         child: AspectRatio(
+            aspectRatio: _videoPlayerController!.value.aspectRatio,
+            child: Chewie(controller: _chewieController!),
+         ),
+       );
+    } else {
+       if (!_isLoading) return const Center(child: Text("Falha ao carregar vídeo", style: TextStyle(color: Colors.white)));
+       return const Center(child: CircularProgressIndicator());
+    }
+  }
+
+  Widget _buildAudioPlayer() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.audiotrack, size: 80, color: Theme.of(context).colorScheme.primary),
+          const SizedBox(height: 24),
+          Text(
+            FileUtils.getFileName(widget.file), 
+            style: const TextStyle(fontSize: 18, color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 24),
+          SizedBox(
+            width: double.infinity,
+            child: Slider(
+              min: 0,
+              max: _duration.inSeconds.toDouble(),
+              value: (_position.inSeconds.toDouble()).clamp(0, _duration.inSeconds.toDouble()),
+              onChanged: (value) async {
+                final position = Duration(seconds: value.toInt());
+                await _audioPlayer.seek(position);
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(_formatDuration(_position), style: const TextStyle(color: Colors.white70)),
+                Text(_formatDuration(_duration), style: const TextStyle(color: Colors.white70)),
+              ],
+            ),
+          ),
+          const SizedBox(height: 24),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                iconSize: 64,
+                icon: Icon(_isPlaying ? Icons.pause_circle_filled : Icons.play_circle_filled),
+                color: Theme.of(context).colorScheme.primary,
+                onPressed: () async {
+                  if (_isPlaying) {
+                    await _audioPlayer.pause();
+                  } else {
+                    await _audioPlayer.play(DeviceFileSource(widget.file.path));
+                  }
+                },
+              ),
+              const SizedBox(width: 20),
+               IconButton(
+                iconSize: 48,
+                icon: const Icon(Icons.stop_circle_outlined),
+                color: Colors.white70,
+                onPressed: () async {
+                  await _audioPlayer.stop();
+                  setState(() => _position = Duration.zero);
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  
+  String _formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+    return '$minutes:$seconds';
   }
 
   Widget _buildRawView() {

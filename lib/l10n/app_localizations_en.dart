@@ -40,18 +40,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings => 'Settings';
 
   @override
-  String get premium => 'Premium';
-
-  @override
-  String get goPremium => 'Go Premium';
-
-  @override
-  String get premiumDesc => 'Unlock unlimited access and remove ads.';
-
-  @override
-  String get restorePurchases => 'Restore Purchases';
-
-  @override
   String get termsOfService => 'Terms of Service';
 
   @override
@@ -108,7 +96,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get privacyPolicyContent =>
-      'Last updated: December 2025\n\nThis Privacy Policy describes how MviewerPlus collects, uses, and discloses your information when you use our Service.\n\n1. Data Collection\nWe do not collect any personal data. Files opened in this application are processed locally on your device and are not uploaded to any server.\n\n2. Permissions\nThe app requires storage permissions only to read the files you explicitly select.\n\n3. Third-Party Services\nIf you opt for the Free version, we may use third-party advertising services (e.g., AdMob) which may collect device identifiers to show relevant ads. In the Premium version, no ads are displayed.\n\n4. Contact Us\nIf you have any questions about this Privacy Policy, please contact us.';
+      'Last updated: December 2025\n\nThis Privacy Policy describes how MviewerPlus handles your information.\n\n1. Data Collection\nWe do not collect personal data. File processing is local.\n\n2. AI Features (Groq)\nWhen using the AI assistant, file content is sent to Groq API using your personal API Key. No data is stored by us.\n\n3. Free Model\nThis app is 100% free, open-source, and does not display ads.\n\n4. Contact\nFor questions, please contact: contato@multiversodigital.com.br';
 
   @override
   String get termsContent =>
@@ -273,4 +261,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loadingTitle => 'Loading...';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get helpTitle => 'Help Guide';
+
+  @override
+  String get featuresSection => 'Key Features';
+
+  @override
+  String get featuresContent =>
+      '• Quick View: Open large files instantly.\n• Edit & Search: Edit text, find and replace terms.\n• Export & Share: Generate PDFs, print, and share your files.\n• Smart Tables: View CSV and Excel with filters and sorting.\n• Code Editor: Syntax highlighting for 30+ languages.\n• AI Analysis: Enter your Groq API Key to let AI analyze file content.\n• ZIP Archives: Explore compressed file contents.';
+
+  @override
+  String get formatsSection => 'Supported Formats';
+
+  @override
+  String get exit => 'Exit';
+
+  @override
+  String get exitConfirm => 'Do you want to close the app?';
+
+  @override
+  String get formatsContent =>
+      '• Text: .txt, .md, .log, .rtf\n• Data: .csv, .json, .xml, .xlsx, .xls\n• Code: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Images: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Other: .zip, .apk';
 }

@@ -1,5 +1,4 @@
 import 'package:file_viewer/screens/home_screen.dart';
-import 'package:file_viewer/services/premium_service.dart';
 import 'package:file_viewer/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -13,7 +12,6 @@ Future<void> main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => PremiumService()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
       child: const MyApp(),

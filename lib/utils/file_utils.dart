@@ -135,7 +135,42 @@ class FileUtils {
       
       // Archive
       case 'zip':
+      case 'apk':
+      case 'jar':
         return FileType.archive;
+
+      case 'pdf':
+        return FileType.pdf;
+      
+      // Audio
+      case 'mp3':
+      case 'wav':
+      case 'ogg':
+      case 'm4a':
+      case 'aac':
+      case 'flac':
+        return FileType.audio;
+
+      // Video
+      case 'mp4':
+      case 'mov':
+      case 'avi':
+      case 'mkv':
+      case 'webm':
+      case 'wmv':
+      case 'flv':
+      case '3gp':
+      case 'm4v':
+        return FileType.video;
+
+      // Images
+      case 'png':
+      case 'jpg':
+      case 'jpeg':
+      case 'gif':
+      case 'webp':
+      case 'bmp':
+        return FileType.image;
 
       // Configuration files (now with syntax highlighting)
       case 'conf':
@@ -340,4 +375,8 @@ enum FileType {
   table,
   markdown,
   archive,
+  image,
+  pdf,
+  audio,
+  video,
 }

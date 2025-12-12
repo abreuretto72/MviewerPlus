@@ -40,18 +40,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settings => 'Configuración';
 
   @override
-  String get premium => 'Premium';
-
-  @override
-  String get goPremium => 'Hazte Premium';
-
-  @override
-  String get premiumDesc => 'Desbloquea acceso ilimitado y elimina anuncios.';
-
-  @override
-  String get restorePurchases => 'Restaurar Compras';
-
-  @override
   String get termsOfService => 'Términos de Servicio';
 
   @override
@@ -108,7 +96,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get privacyPolicyContent =>
-      'Última actualización: Diciembre de 2025\n\nEsta Política de Privacidad describe cómo MviewerPlus recopila, usa y divulga su información cuando utiliza nuestro Servicio.\n\n1. Recopilación de Datos\nNo recopilamos datos personales. Los archivos abiertos en esta aplicación se procesan localmente en su dispositivo y no se cargan en ningún servidor.\n\n2. Permisos\nLa aplicación requiere permisos de almacenamiento solo para leer los archivos que selecciona explícitamente.\n\n3. Servicios de Terceros\nSi opta por la versión Gratuita, podemos utilizar servicios de publicidad de terceros (ej: AdMob) que pueden recopilar identificadores de dispositivos para mostrar anuncios relevantes. En la versión Premium, no se muestran anuncios.\n\n4. Contáctenos\nSi tiene alguna pregunta sobre esta Política de Privacidad, contáctenos.';
+      'Última actualización: Diciembre de 2025\n\nEsta Política de Privacidad describe cómo MviewerPlus maneja su información.\n\n1. Recopilación de Datos\nNo recopilamos datos personales. El procesamiento es local.\n\n2. Funciones de IA\nAl usar el asistente de IA, el contenido se envía a la API de Groq usando su Clave API personal. No almacenamos datos.\n\n3. Modelo Gratuito\nEsta aplicación es 100% gratuita, de código abierto y sin anuncios.\n\n4. Contacto\nSi tiene dudas, contáctenos: contato@multiversodigital.com.br';
 
   @override
   String get termsContent =>
@@ -275,4 +263,30 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get loadingTitle => 'Cargando...';
+
+  @override
+  String get help => 'Ayuda';
+
+  @override
+  String get helpTitle => 'Guía de Ayuda';
+
+  @override
+  String get featuresSection => 'Funcionalidades Principales';
+
+  @override
+  String get featuresContent =>
+      '• Vista Rápida: Abre archivos grandes al instante.\n• Edición y Búsqueda: Edite texto, busque y reemplace términos.\n• Exportar y Compartir: Genere PDF, imprima y comparta archivos.\n• Tablas Inteligentes: Visualice CSV y Excel con filtros y ordenación.\n• Editor de Código: Resaltado de sintaxis para más de 30 lenguajes.\n• Análisis de IA: Ingrese su Clave API Groq para que la IA analice el contenido y responda preguntas.\n• Archivos ZIP: Explore archivos comprimidos.';
+
+  @override
+  String get formatsSection => 'Formatos Soportados';
+
+  @override
+  String get exit => 'Salir';
+
+  @override
+  String get exitConfirm => '¿Desea cerrar la aplicación?';
+
+  @override
+  String get formatsContent =>
+      '• Texto: .txt, .md, .log, .rtf\n• Datos: .csv, .json, .xml, .xlsx, .xls\n• Código: .dart, .js, .ts, .py, .java, .c, .cpp, .h, .kt, .swift, .html, .css, .sql y muchos más.\n• Imágenes: .png, .jpg, .jpeg, .gif\n• Otros: .zip, .apk, .jar';
 }

@@ -1,4 +1,4 @@
-package com.example.file_viewer
+package com.multiversodigital.mviewerplus
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,10 +1,10 @@
 import 'package:file_viewer/l10n/app_localizations.dart';
+import 'package:flutter/services.dart';
 import 'package:file_viewer/providers/locale_provider.dart';
-import 'package:file_viewer/screens/settings/premium_screen.dart';
+import 'package:file_viewer/screens/settings/help_screen.dart';
 import 'package:file_viewer/screens/settings/privacy_screen.dart';
 import 'package:file_viewer/screens/settings/saved_files_screen.dart';
 import 'package:file_viewer/screens/settings/terms_screen.dart';
-import 'package:file_viewer/services/premium_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,26 +15,11 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-    final isPremium = context.watch<PremiumService>().isPremium;
 
     return Scaffold(
       appBar: AppBar(title: Text(t.settings)),
       body: ListView(
         children: [
-          if (!isPremium) ...[
-            ListTile(
-              leading: const Icon(Icons.star, color: Color(0xFFFFD700)),
-              title: Text(t.goPremium),
-              subtitle: Text(t.premiumDesc),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const PremiumScreen()),
-                );
-              },
-            ),
-            const Divider(),
-          ],
           ListTile(
             leading: const Icon(Icons.language),
             title: Text(t.language),
@@ -80,24 +65,76 @@ class SettingsScreen extends StatelessWidget {
           ),
           const Divider(),
           ListTile(
+            leading: const Icon(Icons.help_outline),
+            title: Text(t.help),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HelpScreen()),
+              );
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.info),
             title: Text(t.about),
             onTap: () {
-              showAboutDialog(
+              showDialog(
                 context: context,
-                applicationName: t.appTitle,
-                applicationVersion: t.appVersion,
-                applicationIcon: const Icon(Icons.folder_open, size: 48),
-                children: [
-                   const SizedBox(height: 16),
-                   Text(t.companyName, style: const TextStyle(fontWeight: FontWeight.bold)),
-                   const SizedBox(height: 8),
-                   SelectableText(t.contactEmail),
-                ],
+                builder: (context) => AlertDialog(
+                  title: Row(
+                    children: [
+                       const Icon(Icons.folder_open, size: 24),
+                       const SizedBox(width: 12),
+                       Text(t.about),
+                    ],
+                  ),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(t.appTitle, style: Theme.of(context).textTheme.titleLarge),
+                      Text(t.appVersion, style: Theme.of(context).textTheme.bodyMedium),
+                      const SizedBox(height: 16),
+                      Text(t.companyName, style: const TextStyle(fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 4),
+                      SelectableText(t.contactEmail),
+                    ],
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text(t.close),
+                    ),
+                  ],
+                ),
               );
             },
           ),
 
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app, color: Colors.redAccent),
+            title: Text(t.exit, style: const TextStyle(color: Colors.redAccent)),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text(t.exit),
+                  content: Text(t.exitConfirm),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text(t.cancel),
+                    ),
+                    TextButton(
+                      onPressed: () => SystemNavigator.pop(),
+                      child: Text(t.exit, style: const TextStyle(color: Colors.red)),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ],
       ),
     );

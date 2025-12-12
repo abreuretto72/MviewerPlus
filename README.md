@@ -34,7 +34,7 @@ A powerful, **completely free and open-source** Flutter application for viewing,
   - View data in tabular format
   - Toggle between sheets
   - Background processing for large files
-- **ZIP Archive** (.zip) - Archive explorer
+- **Archives** (.zip, .apk, .jar) - Archive explorer
   - View contents (files/folders)
   - Inspect file types and sizes
   - Restricted search/edit for data integrity

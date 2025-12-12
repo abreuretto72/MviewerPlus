@@ -162,30 +162,6 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get settings;
 
-  /// No description provided for @premium.
-  ///
-  /// In en, this message translates to:
-  /// **'Premium'**
-  String get premium;
-
-  /// No description provided for @goPremium.
-  ///
-  /// In en, this message translates to:
-  /// **'Go Premium'**
-  String get goPremium;
-
-  /// No description provided for @premiumDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock unlimited access and remove ads.'**
-  String get premiumDesc;
-
-  /// No description provided for @restorePurchases.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore Purchases'**
-  String get restorePurchases;
-
   /// No description provided for @termsOfService.
   ///
   /// In en, this message translates to:
@@ -291,7 +267,7 @@ abstract class AppLocalizations {
   /// No description provided for @privacyPolicyContent.
   ///
   /// In en, this message translates to:
-  /// **'Last updated: December 2025\n\nThis Privacy Policy describes how MviewerPlus collects, uses, and discloses your information when you use our Service.\n\n1. Data Collection\nWe do not collect any personal data. Files opened in this application are processed locally on your device and are not uploaded to any server.\n\n2. Permissions\nThe app requires storage permissions only to read the files you explicitly select.\n\n3. Third-Party Services\nIf you opt for the Free version, we may use third-party advertising services (e.g., AdMob) which may collect device identifiers to show relevant ads. In the Premium version, no ads are displayed.\n\n4. Contact Us\nIf you have any questions about this Privacy Policy, please contact us.'**
+  /// **'Last updated: December 2025\n\nThis Privacy Policy describes how MviewerPlus handles your information.\n\n1. Data Collection\nWe do not collect personal data. File processing is local.\n\n2. AI Features (Groq)\nWhen using the AI assistant, file content is sent to Groq API using your personal API Key. No data is stored by us.\n\n3. Free Model\nThis app is 100% free, open-source, and does not display ads.\n\n4. Contact\nFor questions, please contact: contato@multiversodigital.com.br'**
   String get privacyPolicyContent;
 
   /// No description provided for @termsContent.
@@ -599,6 +575,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading...'**
   String get loadingTitle;
+
+  /// No description provided for @help.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get help;
+
+  /// No description provided for @helpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help Guide'**
+  String get helpTitle;
+
+  /// No description provided for @featuresSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Key Features'**
+  String get featuresSection;
+
+  /// No description provided for @featuresContent.
+  ///
+  /// In en, this message translates to:
+  /// **'• Quick View: Open large files instantly.\n• Edit & Search: Edit text, find and replace terms.\n• Export & Share: Generate PDFs, print, and share your files.\n• Smart Tables: View CSV and Excel with filters and sorting.\n• Code Editor: Syntax highlighting for 30+ languages.\n• AI Analysis: Enter your Groq API Key to let AI analyze file content.\n• ZIP Archives: Explore compressed file contents.'**
+  String get featuresContent;
+
+  /// No description provided for @formatsSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Supported Formats'**
+  String get formatsSection;
+
+  /// No description provided for @exit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
+
+  /// No description provided for @exitConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to close the app?'**
+  String get exitConfirm;
+
+  /// No description provided for @formatsContent.
+  ///
+  /// In en, this message translates to:
+  /// **'• Text: .txt, .md, .log, .rtf\n• Data: .csv, .json, .xml, .xlsx, .xls\n• Code: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Images: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Other: .zip, .apk'**
+  String get formatsContent;
 }
 
 class _AppLocalizationsDelegate

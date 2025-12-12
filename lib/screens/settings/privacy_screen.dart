@@ -17,7 +17,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Privacy Policy',
+              AppLocalizations.of(context)!.privacyPolicy,
               style: GoogleFonts.outfit(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),

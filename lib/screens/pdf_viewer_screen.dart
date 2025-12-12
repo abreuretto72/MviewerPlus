@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -14,6 +15,7 @@ class PdfViewerScreen extends StatefulWidget {
   final List<List<dynamic>>? csvData;
   final List<Map<String, dynamic>>? zipFiles;
   final int? fileSize;
+  final String? filePath;
 
   const PdfViewerScreen({
     super.key,
@@ -24,6 +26,7 @@ class PdfViewerScreen extends StatefulWidget {
     this.csvData,
     this.zipFiles,
     this.fileSize,
+    this.filePath,
   });
 
   @override
@@ -35,6 +38,7 @@ class _PdfViewerScreenState extends State<PdfViewerScreen> {
   late bool _isDirectFileView;
   late bool _isCsvFile;
   late bool _isZipFile;
+  late bool _isImageFile;
   Key _previewKey = UniqueKey();
 
   @override
@@ -48,7 +52,11 @@ class _PdfViewerScreenState extends State<PdfViewerScreen> {
     if (_isDirectFileView) {
       _includeOriginal = true;
     }
-    debugPrint('PDF Debug: isCsv=$_isCsvFile, isZip=$_isZipFile, zipFilesCount=${widget.zipFiles?.length}');
+    
+    final ext = widget.fileName.split('.').last.toLowerCase();
+    _isImageFile = ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'heic'].contains(ext);
+
+    debugPrint('PDF Debug: isCsv=$_isCsvFile, isZip=$_isZipFile, isImage=$_isImageFile');
   }
 
   Future<Uint8List> _generatePdf(PdfPageFormat format) async {
@@ -188,6 +196,20 @@ class _PdfViewerScreenState extends State<PdfViewerScreen> {
                 ..._buildCsvTable(widget.csvData!, font, boldFont, monoFont)
               else if (_isZipFile)
                 _buildZipTable(widget.zipFiles!, font, boldFont, monoFont, t)
+              else if (_isImageFile && widget.filePath != null)
+                pw.Center(
+                  child: pw.ConstrainedBox(
+                    constraints: pw.BoxConstraints(
+                      maxHeight: format.availableHeight - 150, // Ensure it fits within page with header/footer
+                    ),
+                    child: pw.Image(
+                      pw.MemoryImage(
+                        File(widget.filePath!).readAsBytesSync(),
+                      ),
+                      fit: pw.BoxFit.contain,
+                    ),
+                  ),
+                )
               else
                 pw.Paragraph(
                   text: widget.content,

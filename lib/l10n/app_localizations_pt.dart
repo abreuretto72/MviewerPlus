@@ -41,18 +41,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get settings => 'Configurações';
 
   @override
-  String get premium => 'Premium';
-
-  @override
-  String get goPremium => 'Seja Premium';
-
-  @override
-  String get premiumDesc => 'Desbloqueie acesso ilimitado e remova anúncios.';
-
-  @override
-  String get restorePurchases => 'Restaurar Compras';
-
-  @override
   String get termsOfService => 'Termos de Uso';
 
   @override
@@ -275,6 +263,32 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get loadingTitle => 'Carregando...';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get helpTitle => 'Help Guide';
+
+  @override
+  String get featuresSection => 'Key Features';
+
+  @override
+  String get featuresContent =>
+      '• Quick View: Open large files instantly.\n• Edit & Search: Edit text, find and replace terms.\n• Export & Share: Generate PDFs, print, and share your files.\n• Smart Tables: View CSV and Excel with filters and sorting.\n• Code Editor: Syntax highlighting for 30+ languages.\n• AI Analysis: Enter your Groq API Key to let AI analyze file content.\n• ZIP Archives: Explore compressed file contents.';
+
+  @override
+  String get formatsSection => 'Supported Formats';
+
+  @override
+  String get exit => 'Exit';
+
+  @override
+  String get exitConfirm => 'Do you want to close the app?';
+
+  @override
+  String get formatsContent =>
+      '• Text: .txt, .md, .log, .rtf\n• Data: .csv, .json, .xml, .xlsx, .xls\n• Code: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Images: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Other: .zip, .apk';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -314,18 +328,6 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get settings => 'Configurações';
 
   @override
-  String get premium => 'Premium';
-
-  @override
-  String get goPremium => 'Seja Premium';
-
-  @override
-  String get premiumDesc => 'Desbloqueie acesso ilimitado e remova anúncios.';
-
-  @override
-  String get restorePurchases => 'Restaurar Compras';
-
-  @override
   String get termsOfService => 'Termos de Uso';
 
   @override
@@ -382,7 +384,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get privacyPolicyContent =>
-      'Última atualização: Dezembro de 2025\n\nEsta Política de Privacidade descreve como o MviewerPlus coleta, usa e divulga suas informações quando você utiliza nosso Serviço.\n\n1. Coleta de Dados\nNão coletamos dados pessoais. Os arquivos abertos neste aplicativo são processados localmente no seu dispositivo e não são enviados para nenhum servidor.\n\n2. Permissões\nO aplicativo requer permissões de armazenamento apenas para ler os arquivos que você selecionar explicitamente.\n\n3. Serviços de Terceiros\nSe você optar pela versão Gratuita, podemos usar serviços de publicidade de terceiros (ex: AdMob) que podem coletar identificadores de dispositivo para exibir anúncios relevantes. Na versão Premium, nenhum anúncio é exibido.\n\n4. Contate-nos\nSe tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco.';
+      'Última atualização: Dezembro de 2025\n\nEsta Política de Privacidade descreve como o MviewerPlus trata suas informações.\n\n1. Coleta e Processamento\nNão coletamos dados pessoais. O processamento de arquivos é local no seu dispositivo.\n\n2. Recursos de IA\nAo usar o assistente de IA, o conteúdo do arquivo é enviado para a API da Groq usando sua Chave de API pessoal. Nenhum dado é armazenado por nós.\n\n3. Modelo Gratuito\nEste aplicativo é 100% gratuito, open-source e não exibe anúncios.\n\n4. Contato\nEm caso de dúvidas, entre em contato: contato@multiversodigital.com.br';
 
   @override
   String get termsContent =>
@@ -548,6 +550,32 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get loadingTitle => 'Carregando...';
+
+  @override
+  String get help => 'Ajuda';
+
+  @override
+  String get helpTitle => 'Guia de Ajuda';
+
+  @override
+  String get featuresSection => 'Funcionalidades Principais';
+
+  @override
+  String get featuresContent =>
+      '• Visualização Rápida: Abra arquivos grandes instantaneamente.\n• Edição e Busca: Edite o texto, localize e substitua termos.\n• Exportação: Gere PDFs, imprima e compartilhe seus arquivos.\n• Tabelas Inteligentes: Visualize CSV e Excel com filtros e ordenação.\n• Editor de Código: Sintaxe colorida para mais de 30 linguagens.\n• Análise com IA: Insira sua Chave API Groq para permitir que a IA analise o conteúdo dos arquivos.\n• Arquivos ZIP: Explore o conteúdo de arquivos compactados.';
+
+  @override
+  String get formatsSection => 'Formatos Suportados';
+
+  @override
+  String get exit => 'Sair';
+
+  @override
+  String get exitConfirm => 'Deseja fechar o aplicativo?';
+
+  @override
+  String get formatsContent =>
+      '• Texto: .txt, .md, .log, .rtf\n• Dados: .csv, .json, .xml, .xlsx, .xls\n• Código: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Imagens: .png, .jpg, .gif\n• Multimídia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Outros: .zip, .apk';
 }
 
 /// The translations for Portuguese, as used in Portugal (`pt_PT`).
@@ -585,18 +613,6 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
 
   @override
   String get settings => 'Definições';
-
-  @override
-  String get premium => 'Premium';
-
-  @override
-  String get goPremium => 'Obter Premium';
-
-  @override
-  String get premiumDesc => 'Desbloqueie acesso ilimitado e remova anúncios.';
-
-  @override
-  String get restorePurchases => 'Restaurar Compras';
 
   @override
   String get termsOfService => 'Termos de Serviço';
@@ -655,7 +671,7 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
 
   @override
   String get privacyPolicyContent =>
-      'Última atualização: Dezembro de 2025\n\nEsta Política de Privacidade descreve como o MviewerPlus recolhe, usa e divulga as suas informações quando utiliza o nosso Serviço.\n\n1. Recolha de Dados\nNão recolhemos dados pessoais. Os ficheiros abertos nesta aplicação são processados localmente no seu dispositivo e não são enviados para nenhum servidor.\n\n2. Permissões\nA aplicação requer permissões de armazenamento apenas para ler os ficheiros que selecionar explicitamente.\n\n3. Serviços de Terceiros\nSe optar pela versão Gratuita, podemos usar serviços de publicidade de terceiros (ex: AdMob) que podem recolher identificadores de dispositivo para exibir anúncios relevantes. Na versão Premium, nenhum anúncio é exibido.\n\n4. Contacte-nos\nSe tiver dúvidas sobre esta Política de Privacidade, contacte-nos.';
+      'Última atualização: Dezembro de 2025\n\nEsta Política de Privacidade descreve como o MviewerPlus trata as suas informações.\n\n1. Recolha e Processamento\nNão recolhemos dados pessoais. O processamento de ficheiros é local.\n\n2. Recursos de IA\nAo usar o assistente de IA, o conteúdo do ficheiro é enviado para a API da Groq usando a sua Chave de API pessoal.\n\n3. Modelo Gratuito\nEsta aplicação é 100% gratuita, open-source e não apresenta anúncios.\n\n4. Contacto\nEm caso de dúvidas, contacte: contato@multiversodigital.com.br';
 
   @override
   String get termsContent =>
@@ -821,4 +837,30 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
 
   @override
   String get loadingTitle => 'A carregar...';
+
+  @override
+  String get help => 'Ajuda';
+
+  @override
+  String get helpTitle => 'Guia de Ajuda';
+
+  @override
+  String get featuresSection => 'Funcionalidades Principais';
+
+  @override
+  String get featuresContent =>
+      '• Visualização Rápida: Abra grandes ficheiros instantaneamente.\n• Edição e Pesquisa: Edite texto, localize e substitua termos.\n• Exportação e Partilha: Gere PDFs, imprima e partilhe ficheiros.\n• Tabelas Inteligentes: Visualize CSV e Excel com filtros e ordenação.\n• Editor de Código: Realce de sintaxe para mais de 30 linguagens.\n• Análise IA: Insira a sua Chave API Groq para que a IA analise o conteúdo dos ficheiros e responda a perguntas sobre eles.\n• Ficheiros ZIP: Explore o conteúdo de ficheiros comprimidos.';
+
+  @override
+  String get formatsSection => 'Formatos Suportados';
+
+  @override
+  String get exit => 'Sair';
+
+  @override
+  String get exitConfirm => 'Deseja fechar a aplicação?';
+
+  @override
+  String get formatsContent =>
+      '• Texto: .txt, .md, .log, .rtf\n• Dados: .csv, .json, .xml, .xlsx, .xls\n• Código: .dart, .js, .ts, .py, .java, .c, .cpp, .h, .kt, .swift, .html, .css, .sql e muitos outros.\n• Imagens: .png, .jpg, .jpeg, .gif\n• Outros: .zip, .apk, .jar';
 }
