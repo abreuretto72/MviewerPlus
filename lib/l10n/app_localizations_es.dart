@@ -288,5 +288,5 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get formatsContent =>
-      '• Texto: .txt, .md, .log, .rtf\n• Datos: .csv, .json, .xml, .xlsx, .xls\n• Código: .dart, .js, .ts, .py, .java, .c, .cpp, .h, .kt, .swift, .html, .css, .sql y muchos más.\n• Imágenes: .png, .jpg, .jpeg, .gif\n• Otros: .zip, .apk, .jar';
+      '• Texto: .txt, .md, .log, .rtf\n• Datos: .csv, .json, .xml, .xlsx, .xls\n• Código: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Imágenes: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Otros: .zip, .apk';
 }

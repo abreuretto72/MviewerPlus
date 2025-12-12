@@ -862,5 +862,5 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
 
   @override
   String get formatsContent =>
-      '• Texto: .txt, .md, .log, .rtf\n• Dados: .csv, .json, .xml, .xlsx, .xls\n• Código: .dart, .js, .ts, .py, .java, .c, .cpp, .h, .kt, .swift, .html, .css, .sql e muitos outros.\n• Imagens: .png, .jpg, .jpeg, .gif\n• Outros: .zip, .apk, .jar';
+      '• Texto: .txt, .md, .log, .rtf\n• Dados: .csv, .json, .xml, .xlsx, .xls\n• Código: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Imagens: .png, .jpg, .gif\n• Multimídia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Outros: .zip, .apk';
 }

@@ -551,9 +551,10 @@ class _ViewerScreenState extends State<ViewerScreen> {
                     builder: (context) => PdfViewerScreen(
                       fileName: FileUtils.getFileName(widget.file),
                       content: _content,
+                      isDirectFileView: true,
                       csvData: _fileType == FileType.table ? _csvData : null,
                       zipFiles: _fileType == FileType.archive ? _zipFiles : null,
-                      fileSize: widget.file.lengthSync(), // Use sync for simplicity here or pass async var
+                      fileSize: widget.file.lengthSync(),
                       filePath: widget.file.path,
                     ),
                   ),

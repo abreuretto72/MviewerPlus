@@ -107,6 +107,12 @@ A powerful, **completely free and open-source** Flutter application for viewing,
 - TXT
 - ASC (ASCII)
 
+#### 🎬 Multimedia & Documents
+- **Video Player** - Native playback (MP4, MKV, AVI, etc.)
+- **Audio Player** - Native playback (MP3, WAV, OGG, etc.)
+- **PDF Viewer** - Native rendering with page navigation
+- **Word Documents** (.docx, .doc) - content reading
+
 #### 📋 Log Files
 - LOG - Custom syntax highlighting with:
   - ERROR/FATAL → Red (bold)
