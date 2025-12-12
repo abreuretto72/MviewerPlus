@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MviewerPlus - Advanced File Viewer with AI-Powered Analysis">
+    <title>MviewerPlus - Advanced File Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00e5ff 0%, #00b4d8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px solid #00e5ff;
+            border-radius: 20px;
+            color: #00e5ff;
+            font-size: 0.9em;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
+            border-color: #00e5ff;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #00e5ff;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00e5ff;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 180, 216, 0.1) 100%);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00e5ff 0%, #00b4d8 100%);
+            color: #1a1a2e;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #00e5ff;
+            color: #00e5ff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 229, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        .tech-stack {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .tech-stack h2 {
+            color: #00e5ff;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .tech-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tech-item {
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #a0a0a0;
+            border-top: 1px solid rgba(0, 229, 255, 0.2);
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #00e5ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00b4d8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .tagline {
+                font-size: 1.2em;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📱 MviewerPlus</h1>
+            <p class="tagline">Advanced File Viewer with AI-Powered Analysis</p>
+            <div class="badges">
+                <span class="badge">Flutter 3.10+</span>
+                <span class="badge">AI-Powered</span>
+                <span class="badge">Cross-Platform</span>
+                <span class="badge">Open Source</span>
+            </div>
+        </header>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Smart File Viewing</h3>
+                <ul>
+                    <li>Multi-format support (CSV, JSON, XML, TXT, code)</li>
+                    <li>Syntax highlighting for code files</li>
+                    <li>Intelligent CSV optimization</li>
+                    <li>Handle 250+ columns effortlessly</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Performance</h3>
+                <ul>
+                    <li>Background processing with isolates</li>
+                    <li>Virtualized rendering for large files</li>
+                    <li>Synchronized table scrolling</li>
+                    <li>Smart data cleaning algorithms</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Integration</h3>
+                <ul>
+                    <li>AI-powered file analysis</li>
+                    <li>Context-aware responses</li>
+                    <li>Export AI conversations to PDF</li>
+                    <li>Intelligent insights</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Export & Share</h3>
+                <ul>
+                    <li>Professional PDF export</li>
+                    <li>Table formatting for CSV</li>
+                    <li>Print & share capabilities</li>
+                    <li>Customizable export options</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Advanced Tools</h3>
+                <ul>
+                    <li>Find & Replace functionality</li>
+                    <li>File editing capabilities</li>
+                    <li>Multiple view modes</li>
+                    <li>CSV sorting and filtering</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Localization</h3>
+                <ul>
+                    <li>English (EN)</li>
+                    <li>Portuguese Brazil (PT-BR)</li>
+                    <li>Portuguese Portugal (PT-PT)</li>
+                    <li>Spanish (ES)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: #00e5ff; margin-bottom: 20px;">Ready to Get Started?</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Download MviewerPlus and experience the future of file viewing</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/abreuretto72/MviewerPlus" class="btn btn-primary" target="_blank">
+                    View on GitHub
+                </a>
+                <a href="https://github.com/abreuretto72/MviewerPlus/releases" class="btn btn-secondary" target="_blank">
+                    Download Latest Release
+                </a>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h2>Built With</h2>
+            <div class="tech-grid">
+                <div class="tech-item">Flutter</div>
+                <div class="tech-item">Dart</div>
+                <div class="tech-item">Google AI</div>
+                <div class="tech-item">PDF Generation</div>
+                <div class="tech-item">CSV Parsing</div>
+                <div class="tech-item">Syntax Highlighting</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 MviewerPlus. Made with ❤️ using Flutter</p>
+            <div class="footer-links">
+                <a href="https://github.com/abreuretto72/MviewerPlus" target="_blank">GitHub</a>
+                <a href="https://github.com/abreuretto72/MviewerPlus/issues" target="_blank">Report Issue</a>
+                <a href="https://github.com/abreuretto72" target="_blank">Author</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
