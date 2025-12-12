@@ -180,22 +180,65 @@
         <div class="section">
             <h2>2. Permissions</h2>
             <h3>Storage Access</h3>
-            <p>The app requires storage permissions to:</p>
+            <p><strong>Why we need this permission:</strong> MviewerPlus requires storage access to allow you to open,
+                view, edit, and save files on your device.</p>
+            <p>The app uses the system file picker, which means:</p>
             <ul>
-                <li>Read files that you explicitly select to view</li>
-                <li>Save edited or exported files to your device</li>
-                <li>Access your device's file system for file browsing</li>
+                <li>You explicitly select which files the app can access</li>
+                <li>The app only reads files that you choose to open</li>
+                <li>No automatic scanning or indexing of your device storage</li>
+                <li>Files are processed locally on your device</li>
+                <li>Edited files are saved only when you explicitly choose to save them</li>
             </ul>
             <p><strong>Important:</strong> These permissions are used solely for local file operations. No data is
-                transmitted outside your device.</p>
+                transmitted outside your device unless you explicitly use the AI analysis feature (see below).</p>
 
-            <h3>AI Features (Optional)</h3>
-            <p>If you choose to use the AI-powered file analysis feature:</p>
+            <h3 style="color: #ff9800;">⚠️ AI Features - Critical Data Transmission Disclosure</h3>
+
+            <div class="highlight" style="border-left: 4px solid #ff9800; background: rgba(255, 152, 0, 0.15);">
+                <p><strong style="color: #ff9800; font-size: 1.1em;">IMPORTANT PRIVACY NOTICE:</strong></p>
+                <p><strong>When you use the AI-powered file analysis feature, the COMPLETE CONTENT of your file WILL BE
+                        SENT over the internet to Google's Generative AI servers for processing.</strong></p>
+            </div>
+
+            <p><strong>What exactly happens when you use AI analysis:</strong></p>
             <ul>
-                <li>File content may be sent to Google's Generative AI service for analysis</li>
-                <li>This is entirely optional and only occurs when you explicitly use the AI feature</li>
-                <li>You can use all other app features without ever using AI analysis</li>
-                <li>AI analysis is subject to Google's privacy policy</li>
+                <li><strong>Data Sent:</strong> The entire text content of the file you're viewing is transmitted to
+                    Google's servers</li>
+                <li><strong>Transmission Method:</strong> Data is sent over an encrypted HTTPS connection</li>
+                <li><strong>Purpose:</strong> To generate AI-powered insights, summaries, and answers to your questions
+                </li>
+                <li><strong>Third-Party Processing:</strong> Google's AI service processes this data according to their
+                    privacy policy</li>
+                <li><strong>No Local Processing:</strong> AI analysis cannot be performed offline - internet connection
+                    is required</li>
+            </ul>
+
+            <p><strong>Your control and consent:</strong></p>
+            <ul>
+                <li>✅ AI analysis is <strong>completely optional</strong> - you choose when to use it</li>
+                <li>✅ You must explicitly tap the "Ask AI" button to activate this feature</li>
+                <li>✅ All other app features work entirely offline without any data transmission</li>
+                <li>✅ You can use the app indefinitely without ever using AI analysis</li>
+                <li>✅ No file content is sent to external servers unless you explicitly use the AI feature</li>
+            </ul>
+
+            <p><strong style="color: #ff9800;">⚠️ Security Recommendation:</strong></p>
+            <p><strong>DO NOT use the AI analysis feature with:</strong></p>
+            <ul>
+                <li>Confidential business documents</li>
+                <li>Personal financial information</li>
+                <li>Medical records or health data</li>
+                <li>Passwords, API keys, or credentials</li>
+                <li>Any sensitive or private information</li>
+            </ul>
+
+            <p>For more information about how Google handles AI-processed data:</p>
+            <ul>
+                <li><a href="https://ai.google.dev/gemini-api/terms" target="_blank" style="color: #00e5ff;">Google AI
+                        Terms of Service</a></li>
+                <li><a href="https://policies.google.com/privacy" target="_blank" style="color: #00e5ff;">Google Privacy
+                        Policy</a></li>
             </ul>
         </div>
 
