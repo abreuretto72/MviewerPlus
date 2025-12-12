@@ -203,6 +203,282 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Theme'**
   String get theme;
+
+  /// No description provided for @apiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'AI API Key'**
+  String get apiKey;
+
+  /// No description provided for @enterApiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your Groq API Key'**
+  String get enterApiKey;
+
+  /// No description provided for @apiKeyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Get free API Key'**
+  String get apiKeyDesc;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @getApiKeyHelpBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'How to get a key? (Tap here)'**
+  String get getApiKeyHelpBtn;
+
+  /// No description provided for @getApiKeyDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting a Groq API Key'**
+  String get getApiKeyDialogTitle;
+
+  /// No description provided for @getApiKeyDialogContent.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Go to console.groq.com\n2. Sign up or log in\n3. Go to \"API Keys\" section\n4. Create a new key and copy it here.'**
+  String get getApiKeyDialogContent;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @aiAssistant.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Assistant'**
+  String get aiAssistant;
+
+  /// No description provided for @askAboutFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about the file...'**
+  String get askAboutFile;
+
+  /// No description provided for @systemNote.
+  ///
+  /// In en, this message translates to:
+  /// **'System Note'**
+  String get systemNote;
+
+  /// No description provided for @analyzedFile.
+  ///
+  /// In en, this message translates to:
+  /// **'I have analyzed {fileName}. Ask me anything about its content!'**
+  String analyzedFile(Object fileName);
+
+  /// No description provided for @fileTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'File is too large. Content has truncated for analysis.'**
+  String get fileTooLarge;
+
+  /// No description provided for @privacyPolicyContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated: December 2025\n\nThis Privacy Policy describes how MviewerPlus collects, uses, and discloses your information when you use our Service.\n\n1. Data Collection\nWe do not collect any personal data. Files opened in this application are processed locally on your device and are not uploaded to any server.\n\n2. Permissions\nThe app requires storage permissions only to read the files you explicitly select.\n\n3. Third-Party Services\nIf you opt for the Free version, we may use third-party advertising services (e.g., AdMob) which may collect device identifiers to show relevant ads. In the Premium version, no ads are displayed.\n\n4. Contact Us\nIf you have any questions about this Privacy Policy, please contact us.'**
+  String get privacyPolicyContent;
+
+  /// No description provided for @termsContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Service\n\nBy using MviewerPlus, you agree to these terms.\n\n1. Usage\nYou are responsible for the content you access using this viewer.\n\n2. Liability\nThe developer is not liable for any data loss or issues arising from using this software.\n\n3. Updates\nThese terms may change at any time.'**
+  String get termsContent;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @companyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Multiverso Digital'**
+  String get companyName;
+
+  /// No description provided for @contactEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'contato@multiversodigital.com.br'**
+  String get contactEmail;
+
+  /// No description provided for @appVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version 1.0.0'**
+  String get appVersion;
+
+  /// No description provided for @copyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy Message'**
+  String get copyMessage;
+
+  /// No description provided for @exportPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Export to PDF'**
+  String get exportPdf;
+
+  /// No description provided for @pdfGenerated.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF generated successfully'**
+  String get pdfGenerated;
+
+  /// No description provided for @errorGeneratingPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Error generating PDF'**
+  String get errorGeneratingPdf;
+
+  /// No description provided for @exportOptionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Options'**
+  String get exportOptionsTitle;
+
+  /// No description provided for @exportOptionsContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you also want to generate a PDF for the original file?'**
+  String get exportOptionsContent;
+
+  /// No description provided for @exportChatOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat Only'**
+  String get exportChatOnly;
+
+  /// No description provided for @exportBoth.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat & File'**
+  String get exportBoth;
+
+  /// No description provided for @print.
+  ///
+  /// In en, this message translates to:
+  /// **'Print'**
+  String get print;
+
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
+
+  /// No description provided for @saveChangesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Copy?'**
+  String get saveChangesTitle;
+
+  /// No description provided for @saveChangesContent.
+  ///
+  /// In en, this message translates to:
+  /// **'This will save a copy of the edit file. The original file will be preserved.'**
+  String get saveChangesContent;
+
+  /// No description provided for @saveCopySuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'File copy saved at: {path}'**
+  String saveCopySuccess(Object path);
+
+  /// No description provided for @savedFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved Files'**
+  String get savedFiles;
+
+  /// No description provided for @noSavedFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'No saved files found'**
+  String get noSavedFiles;
+
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @deleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Deletion'**
+  String get deleteTitle;
+
+  /// No description provided for @deleteContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to remove this item?'**
+  String get deleteContent;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @find.
+  ///
+  /// In en, this message translates to:
+  /// **'Find'**
+  String get find;
+
+  /// No description provided for @replace.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace'**
+  String get replace;
+
+  /// No description provided for @replaceAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace All'**
+  String get replaceAll;
+
+  /// No description provided for @replacedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Replaced {count} occurrences'**
+  String replacedSuccess(Object count);
+
+  /// No description provided for @includeOriginal.
+  ///
+  /// In en, this message translates to:
+  /// **'Include File Content'**
+  String get includeOriginal;
+
+  /// No description provided for @processing.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing...'**
+  String get processing;
+
+  /// No description provided for @processingColumns.
+  ///
+  /// In en, this message translates to:
+  /// **'Analyzing {columns} columns...'**
+  String processingColumns(Object columns);
 }
 
 class _AppLocalizationsDelegate

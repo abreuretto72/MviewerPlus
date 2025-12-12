@@ -97,102 +97,108 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           ),
         ),
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Logo or Icon
-              Container(
-                padding: const EdgeInsets.all(32),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                  border: Border.all(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                    width: 2,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0), // Add some padding for safety
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Logo or Icon
+                Container(
+                  padding: const EdgeInsets.all(32),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                      width: 2,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                        blurRadius: 40,
+                        spreadRadius: 10,
+                      )
+                    ],
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
-                      blurRadius: 40,
-                      spreadRadius: 10,
-                    )
-                  ],
-                ),
-                child: Icon(
-                  Icons.folder_open_rounded,
-                  size: 80,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-              const SizedBox(height: 48),
-              // Title
-              Text(
-                t.appTitle,
-                style: GoogleFonts.outfit(
-                  fontSize: 42,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: -1.0,
-                  color: Colors.white,
-                  shadows: [
-                    Shadow(
-                      color: Colors.black.withOpacity(0.5),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                t.subtitle,
-                style: GoogleFonts.outfit(
-                  fontSize: 18,
-                  color: Colors.white70,
-                  letterSpacing: 0.5,
-                ),
-              ),
-              const SizedBox(height: 64),
-              // Action Button
-              MouseRegion(
-                cursor: SystemMouseCursors.click,
-                child: ScaleTransition(
-                  scale: _scaleAnimation,
-                  child: ElevatedButton.icon(
-                    onPressed: _pickFile,
-                    icon: const Icon(Icons.add_rounded, size: 28),
-                    label: Text(t.openFile),
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 48,
-                        vertical: 24,
-                      ),
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      shadowColor: Theme.of(context).colorScheme.primary,
-                      elevation: 10,
-                    ),
+                  child: Icon(
+                    Icons.folder_open_rounded,
+                    size: 80,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
-              ),
-              const SizedBox(height: 24),
-              // Supported formats hint
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.05),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  t.supportsHint,
+                const SizedBox(height: 48),
+                // Title
+                Text(
+                  t.appTitle,
                   style: GoogleFonts.outfit(
-                    fontSize: 12,
-                    color: Colors.white38,
+                    fontSize: 42,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: -1.0,
+                    color: Colors.white,
+                    shadows: [
+                      Shadow(
+                        color: Colors.black.withOpacity(0.5),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center, // Ensure text is centered if it wraps
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  t.subtitle,
+                  style: GoogleFonts.outfit(
+                    fontSize: 18,
+                    color: Colors.white70,
+                    letterSpacing: 0.5,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 64),
+                // Action Button
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: ScaleTransition(
+                    scale: _scaleAnimation,
+                    child: ElevatedButton.icon(
+                      onPressed: _pickFile,
+                      icon: const Icon(Icons.add_rounded, size: 28),
+                      label: Text(t.openFile),
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 48,
+                          vertical: 24,
+                        ),
+                        textStyle: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        shadowColor: Theme.of(context).colorScheme.primary,
+                        elevation: 10,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 24),
+                // Supported formats hint
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.05),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    t.supportsHint,
+                    style: GoogleFonts.outfit(
+                      fontSize: 12,
+                      color: Colors.white38,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

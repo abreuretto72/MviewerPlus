@@ -59,4 +59,156 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get theme => 'Theme';
+
+  @override
+  String get apiKey => 'AI API Key';
+
+  @override
+  String get enterApiKey => 'Enter your Groq API Key';
+
+  @override
+  String get apiKeyDesc => 'Get free API Key';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get getApiKeyHelpBtn => 'How to get a key? (Tap here)';
+
+  @override
+  String get getApiKeyDialogTitle => 'Getting a Groq API Key';
+
+  @override
+  String get getApiKeyDialogContent =>
+      '1. Go to console.groq.com\n2. Sign up or log in\n3. Go to \"API Keys\" section\n4. Create a new key and copy it here.';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get aiAssistant => 'AI Assistant';
+
+  @override
+  String get askAboutFile => 'Ask about the file...';
+
+  @override
+  String get systemNote => 'System Note';
+
+  @override
+  String analyzedFile(Object fileName) {
+    return 'I have analyzed $fileName. Ask me anything about its content!';
+  }
+
+  @override
+  String get fileTooLarge =>
+      'File is too large. Content has truncated for analysis.';
+
+  @override
+  String get privacyPolicyContent =>
+      'Last updated: December 2025\n\nThis Privacy Policy describes how MviewerPlus collects, uses, and discloses your information when you use our Service.\n\n1. Data Collection\nWe do not collect any personal data. Files opened in this application are processed locally on your device and are not uploaded to any server.\n\n2. Permissions\nThe app requires storage permissions only to read the files you explicitly select.\n\n3. Third-Party Services\nIf you opt for the Free version, we may use third-party advertising services (e.g., AdMob) which may collect device identifiers to show relevant ads. In the Premium version, no ads are displayed.\n\n4. Contact Us\nIf you have any questions about this Privacy Policy, please contact us.';
+
+  @override
+  String get termsContent =>
+      'Terms of Service\n\nBy using MviewerPlus, you agree to these terms.\n\n1. Usage\nYou are responsible for the content you access using this viewer.\n\n2. Liability\nThe developer is not liable for any data loss or issues arising from using this software.\n\n3. Updates\nThese terms may change at any time.';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get companyName => 'Multiverso Digital';
+
+  @override
+  String get contactEmail => 'contato@multiversodigital.com.br';
+
+  @override
+  String get appVersion => 'Version 1.0.0';
+
+  @override
+  String get copyMessage => 'Copy Message';
+
+  @override
+  String get exportPdf => 'Export to PDF';
+
+  @override
+  String get pdfGenerated => 'PDF generated successfully';
+
+  @override
+  String get errorGeneratingPdf => 'Error generating PDF';
+
+  @override
+  String get exportOptionsTitle => 'Export Options';
+
+  @override
+  String get exportOptionsContent =>
+      'Do you also want to generate a PDF for the original file?';
+
+  @override
+  String get exportChatOnly => 'Chat Only';
+
+  @override
+  String get exportBoth => 'Chat & File';
+
+  @override
+  String get print => 'Print';
+
+  @override
+  String get share => 'Share';
+
+  @override
+  String get saveChangesTitle => 'Save Copy?';
+
+  @override
+  String get saveChangesContent =>
+      'This will save a copy of the edit file. The original file will be preserved.';
+
+  @override
+  String saveCopySuccess(Object path) {
+    return 'File copy saved at: $path';
+  }
+
+  @override
+  String get savedFiles => 'Saved Files';
+
+  @override
+  String get noSavedFiles => 'No saved files found';
+
+  @override
+  String get history => 'History';
+
+  @override
+  String get deleteTitle => 'Confirm Deletion';
+
+  @override
+  String get deleteContent => 'Are you sure you want to remove this item?';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get find => 'Find';
+
+  @override
+  String get replace => 'Replace';
+
+  @override
+  String get replaceAll => 'Replace All';
+
+  @override
+  String replacedSuccess(Object count) {
+    return 'Replaced $count occurrences';
+  }
+
+  @override
+  String get includeOriginal => 'Include File Content';
+
+  @override
+  String get processing => 'Processing...';
+
+  @override
+  String processingColumns(Object columns) {
+    return 'Analyzing $columns columns...';
+  }
 }

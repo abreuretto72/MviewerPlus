@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AiService {
   // Using Llama 3 70b for high quality free inference on Groq
-  static const String _model = 'llama3-70b-8192'; 
+  static const String _model = 'llama-3.3-70b-versatile'; 
   static const String _baseUrl = 'https://api.groq.com/openai/v1/chat/completions';
   
   // Limit for context to avoid hitting token limits (Groq has generous limits but good to be safe)
@@ -57,18 +58,25 @@ $processedContent
 ''';
     
     _history.clear();
-    // We don't verify the API key here, just checking if it exists in env
-    if (dotenv.env['GROQ_API_KEY'] == null) {
-      return "Error: GROQ_API_KEY not found in .env file.";
-    }
 
+
+    // Verification moved to sendMessage to support async SharedPreferences
     return warning;
   }
 
+  Future<String> _getApiKey() async {
+    final prefs = await SharedPreferences.getInstance();
+    final customKey = prefs.getString('custom_groq_api_key');
+    if (customKey != null && customKey.isNotEmpty) {
+      return customKey;
+    }
+    return dotenv.env['GROQ_API_KEY'] ?? '';
+  }
+
   Future<String> sendMessage(String message) async {
-    final apiKey = dotenv.env['GROQ_API_KEY'];
-    if (apiKey == null || apiKey.isEmpty) {
-      return 'Error: API Key is missing. Please configure it in .env';
+    final apiKey = await _getApiKey();
+    if (apiKey.isEmpty) {
+      return 'Error: API Key is missing. Please configure it in Settings.';
     }
 
     _history.add({'role': 'user', 'content': message});
