@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:file_viewer/screens/settings/settings_screen.dart';
 import 'package:file_viewer/screens/viewer_screen.dart';
+import 'package:file_viewer/features/cookies/presentation/screens/cookie_inspector_screen.dart';
+import 'package:file_viewer/screens/security_check_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:file_viewer/l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -91,6 +93,85 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             },
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.primaryContainer,
+                  ],
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.folder_open_rounded,
+                    size: 48,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    t.appTitle,
+                    style: GoogleFonts.outfit(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.cookie),
+              title: Text(t.cookieInspector ?? 'Cookie Inspector'),
+              subtitle: Text(t.cookieInspectorDesc ?? 'Manage cookies'),
+              onTap: () {
+                Navigator.pop(context); // Fecha o drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CookieInspectorScreen(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.security),
+              title: const Text('Security Check'),
+              subtitle: const Text('Verify device security'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SecurityCheckScreen(),
+                  ),
+                );
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: Text(t.settings ?? 'Settings'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                );
+              },
+            ),
+          ],
+        ),
       ),
       body: Stack(
         children: [

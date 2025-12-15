@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-12-15",
+  "apps": {
+    "social": [
+      {
+        "name": "WhatsApp",
+        "package": "com.whatsapp",
+        "sha256": "PLACEHOLDER_HASH_WHATSAPP",
+        "priority": 1,
+        "category": "social",
+        "description": "WhatsApp Messenger"
+      },
+      {
+        "name": "Instagram",
+        "package": "com.instagram.android",
+        "sha256": "PLACEHOLDER_HASH_INSTAGRAM",
+        "priority": 1,
+        "category": "social",
+        "description": "Instagram"
+      },
+      {
+        "name": "Facebook",
+        "package": "com.facebook.katana",
+        "sha256": "PLACEHOLDER_HASH_FACEBOOK",
+        "priority": 1,
+        "category": "social",
+        "description": "Facebook"
+      },
+      {
+        "name": "Telegram",
+        "package": "org.telegram.messenger",
+        "sha256": "PLACEHOLDER_HASH_TELEGRAM",
+        "priority": 1,
+        "category": "social",
+        "description": "Telegram"
+      }
+    ],
+    "financial_br": [
+      {
+        "name": "Nubank",
+        "package": "com.nu.production",
+        "sha256": "PLACEHOLDER_HASH_NUBANK",
+        "priority": 2,
+        "category": "financial",
+        "country": "BR",
+        "description": "Nubank - Conta e Cartão"
+      },
+      {
+        "name": "Banco Inter",
+        "package": "br.com.intermedium",
+        "sha256": "PLACEHOLDER_HASH_INTER",
+        "priority": 2,
+        "category": "financial",
+        "country": "BR",
+        "description": "Banco Inter"
+      },
+      {
+        "name": "Itaú",
+        "package": "com.itau",
+        "sha256": "PLACEHOLDER_HASH_ITAU",
+        "priority": 2,
+        "category": "financial",
+        "country": "BR",
+        "description": "Itaú"
+      },
+      {
+        "name": "Gov.br",
+        "package": "br.gov.meugovbr",
+        "sha256": "PLACEHOLDER_HASH_GOVBR",
+        "priority": 2,
+        "category": "government",
+        "country": "BR",
+        "description": "Gov.br"
+      },
+      {
+        "name": "Mercado Livre",
+        "package": "com.mercadolibre",
+        "sha256": "PLACEHOLDER_HASH_MERCADOLIVRE",
+        "priority": 2,
+        "category": "marketplace",
+        "country": "BR",
+        "description": "Mercado Livre"
+      },
+      {
+        "name": "Bradesco",
+        "package": "com.bradesco",
+        "sha256": "PLACEHOLDER_HASH_BRADESCO",
+        "priority": 2,
+        "category": "financial",
+        "country": "BR",
+        "description": "Bradesco"
+      },
+      {
+        "name": "Santander",
+        "package": "com.santander.app",
+        "sha256": "PLACEHOLDER_HASH_SANTANDER",
+        "priority": 2,
+        "category": "financial",
+        "country": "BR",
+        "description": "Santander"
+      },
+      {
+        "name": "Banco do Brasil",
+        "package": "com.bb.android",
+        "sha256": "PLACEHOLDER_HASH_BB",
+        "priority": 2,
+        "category": "financial",
+        "country": "BR",
+        "description": "Banco do Brasil"
+      }
+    ]
+  },
+  "update_url": "https://api.example.com/security/app-hashes.json",
+  "notes": {
+    "how_to_get_hash": "Use: keytool -printcert -jarfile app.apk | grep SHA256",
+    "placeholder_note": "PLACEHOLDER hashes must be replaced with real SHA-256 signatures",
+    "update_frequency": "Check for updates every 7 days",
+    "locale_priority": "Load financial_br only if device locale is pt_BR"
+  }
+}

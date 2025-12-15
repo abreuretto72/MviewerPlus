@@ -623,6 +623,462 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'• Text: .txt, .md, .log, .rtf\n• Data: .csv, .json, .xml, .xlsx, .xls\n• Code: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Images: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Other: .zip, .apk'**
   String get formatsContent;
+
+  /// No description provided for @cookieInspector.
+  ///
+  /// In en, this message translates to:
+  /// **'Cookie Inspector'**
+  String get cookieInspector;
+
+  /// No description provided for @cookieInspectorDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage and analyze cookies'**
+  String get cookieInspectorDesc;
+
+  /// No description provided for @httpCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'HTTP Cookies'**
+  String get httpCookies;
+
+  /// No description provided for @webviewCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'WebView Cookies'**
+  String get webviewCookies;
+
+  /// No description provided for @securityLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Security & Logs'**
+  String get securityLogs;
+
+  /// No description provided for @cookieWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Cookies may contain session and login tokens. Use with caution.'**
+  String get cookieWarning;
+
+  /// No description provided for @urlOrDomain.
+  ///
+  /// In en, this message translates to:
+  /// **'URL or Domain'**
+  String get urlOrDomain;
+
+  /// No description provided for @listCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'List'**
+  String get listCookies;
+
+  /// No description provided for @exportCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'Export'**
+  String get exportCookies;
+
+  /// No description provided for @deleteAllCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete All'**
+  String get deleteAllCookies;
+
+  /// No description provided for @noCookiesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No cookies found'**
+  String get noCookiesFound;
+
+  /// No description provided for @enterUrlAndList.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a URL and click \'List\''**
+  String get enterUrlAndList;
+
+  /// No description provided for @cookieName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get cookieName;
+
+  /// No description provided for @cookieValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value'**
+  String get cookieValue;
+
+  /// No description provided for @cookieDomain.
+  ///
+  /// In en, this message translates to:
+  /// **'Domain'**
+  String get cookieDomain;
+
+  /// No description provided for @cookiePath.
+  ///
+  /// In en, this message translates to:
+  /// **'Path'**
+  String get cookiePath;
+
+  /// No description provided for @cookieExpires.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires'**
+  String get cookieExpires;
+
+  /// No description provided for @cookieSecure.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure'**
+  String get cookieSecure;
+
+  /// No description provided for @cookieHttpOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'HttpOnly'**
+  String get cookieHttpOnly;
+
+  /// No description provided for @cookieSameSite.
+  ///
+  /// In en, this message translates to:
+  /// **'SameSite'**
+  String get cookieSameSite;
+
+  /// No description provided for @cookieSensitive.
+  ///
+  /// In en, this message translates to:
+  /// **'Sensitive cookie'**
+  String get cookieSensitive;
+
+  /// No description provided for @securitySignals.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Signals'**
+  String get securitySignals;
+
+  /// No description provided for @copyValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy Value'**
+  String get copyValue;
+
+  /// No description provided for @editCookie.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get editCookie;
+
+  /// No description provided for @deleteCookie.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get deleteCookie;
+
+  /// No description provided for @revealValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Reveal full value'**
+  String get revealValue;
+
+  /// No description provided for @confirmDeletion.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Deletion'**
+  String get confirmDeletion;
+
+  /// No description provided for @deleteConfirmMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to delete the cookie \"{name}\"?'**
+  String deleteConfirmMsg(Object name);
+
+  /// No description provided for @sessionWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'This action may end active sessions.'**
+  String get sessionWarning;
+
+  /// No description provided for @deleteAllConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'⚠️ Confirm Mass Deletion'**
+  String get deleteAllConfirmTitle;
+
+  /// No description provided for @deleteAllConfirmMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to delete ALL cookies?'**
+  String get deleteAllConfirmMsg;
+
+  /// No description provided for @deleteAllWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'ATTENTION: This action is irreversible!\n• All sessions will be ended\n• You will be logged out of sites\n• Saved settings will be lost'**
+  String get deleteAllWarning;
+
+  /// No description provided for @understandWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'I understand this may end sessions'**
+  String get understandWarning;
+
+  /// No description provided for @exportFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Cookies'**
+  String get exportFormat;
+
+  /// No description provided for @exportWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'This report contains authentication cookies.'**
+  String get exportWarning;
+
+  /// No description provided for @exportMasked.
+  ///
+  /// In en, this message translates to:
+  /// **'Masked values (recommended)'**
+  String get exportMasked;
+
+  /// No description provided for @exportMaskedDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Sensitive cookies will be protected'**
+  String get exportMaskedDesc;
+
+  /// No description provided for @exportReal.
+  ///
+  /// In en, this message translates to:
+  /// **'Real values'**
+  String get exportReal;
+
+  /// No description provided for @exportRealDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Requires additional authentication'**
+  String get exportRealDesc;
+
+  /// No description provided for @statistics.
+  ///
+  /// In en, this message translates to:
+  /// **'📊 Statistics'**
+  String get statistics;
+
+  /// No description provided for @totalCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Cookies'**
+  String get totalCookies;
+
+  /// No description provided for @totalDomains.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Domains'**
+  String get totalDomains;
+
+  /// No description provided for @secureCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure Cookies'**
+  String get secureCookies;
+
+  /// No description provided for @httpOnlyCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'HttpOnly Cookies'**
+  String get httpOnlyCookies;
+
+  /// No description provided for @expiredCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'Expired Cookies'**
+  String get expiredCookies;
+
+  /// No description provided for @securityReport.
+  ///
+  /// In en, this message translates to:
+  /// **'🔐 Security Report'**
+  String get securityReport;
+
+  /// No description provided for @viewDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'View Details'**
+  String get viewDetails;
+
+  /// No description provided for @securitySettings.
+  ///
+  /// In en, this message translates to:
+  /// **'🔒 Security Settings'**
+  String get securitySettings;
+
+  /// No description provided for @biometricAuth.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric Authentication'**
+  String get biometricAuth;
+
+  /// No description provided for @protectSensitiveActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Protect sensitive actions'**
+  String get protectSensitiveActions;
+
+  /// No description provided for @configurePin.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure PIN'**
+  String get configurePin;
+
+  /// No description provided for @alternativePin.
+  ///
+  /// In en, this message translates to:
+  /// **'Alternative security PIN'**
+  String get alternativePin;
+
+  /// No description provided for @authRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Authentication Required'**
+  String get authRequired;
+
+  /// No description provided for @configurePinMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure a security PIN to protect sensitive actions.'**
+  String get configurePinMsg;
+
+  /// No description provided for @enterPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your PIN'**
+  String get enterPin;
+
+  /// No description provided for @pinMinLength.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN (minimum 4 digits)'**
+  String get pinMinLength;
+
+  /// No description provided for @confirmPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm PIN'**
+  String get confirmPin;
+
+  /// No description provided for @pinsDoNotMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'PINs do not match'**
+  String get pinsDoNotMatch;
+
+  /// No description provided for @pinTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN must be at least 4 digits'**
+  String get pinTooShort;
+
+  /// No description provided for @pinConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN configured'**
+  String get pinConfigured;
+
+  /// No description provided for @errorConfiguringPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Error configuring PIN'**
+  String get errorConfiguringPin;
+
+  /// No description provided for @webviewLimitations.
+  ///
+  /// In en, this message translates to:
+  /// **'Note: Cookies with httpOnly and secure flags may not be visible through JavaScript. To view all cookies, use browser developer tools or access via HTTP Cookie Manager.'**
+  String get webviewLimitations;
+
+  /// No description provided for @webviewRequiresActive.
+  ///
+  /// In en, this message translates to:
+  /// **'This functionality requires an active WebView.'**
+  String get webviewRequiresActive;
+
+  /// No description provided for @valueCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Value copied to clipboard'**
+  String get valueCopied;
+
+  /// No description provided for @cookieUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Cookie updated'**
+  String get cookieUpdated;
+
+  /// No description provided for @errorUpdatingCookie.
+  ///
+  /// In en, this message translates to:
+  /// **'Error updating cookie'**
+  String get errorUpdatingCookie;
+
+  /// No description provided for @cookieDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Cookie deleted'**
+  String get cookieDeleted;
+
+  /// No description provided for @errorDeletingCookie.
+  ///
+  /// In en, this message translates to:
+  /// **'Error deleting cookie'**
+  String get errorDeletingCookie;
+
+  /// No description provided for @allCookiesDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'All cookies have been deleted'**
+  String get allCookiesDeleted;
+
+  /// No description provided for @errorDeletingCookies.
+  ///
+  /// In en, this message translates to:
+  /// **'Error deleting cookies'**
+  String get errorDeletingCookies;
+
+  /// No description provided for @noCookiesToExport.
+  ///
+  /// In en, this message translates to:
+  /// **'No cookies to export'**
+  String get noCookiesToExport;
+
+  /// No description provided for @jsonCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'JSON copied to clipboard'**
+  String get jsonCopied;
+
+  /// No description provided for @csvCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'CSV copied to clipboard'**
+  String get csvCopied;
+
+  /// No description provided for @errorExporting.
+  ///
+  /// In en, this message translates to:
+  /// **'Error exporting: {error}'**
+  String errorExporting(Object error);
+
+  /// No description provided for @fullSecurityReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Security Report'**
+  String get fullSecurityReport;
+
+  /// No description provided for @reportCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Report copied'**
+  String get reportCopied;
 }
 
 class _AppLocalizationsDelegate

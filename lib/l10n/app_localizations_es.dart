@@ -289,4 +289,241 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get formatsContent =>
       '• Texto: .txt, .md, .log, .rtf\n• Datos: .csv, .json, .xml, .xlsx, .xls\n• Código: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Imágenes: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Otros: .zip, .apk';
+
+  @override
+  String get cookieInspector => 'Cookie Inspector';
+
+  @override
+  String get cookieInspectorDesc => 'Manage and analyze cookies';
+
+  @override
+  String get httpCookies => 'HTTP Cookies';
+
+  @override
+  String get webviewCookies => 'WebView Cookies';
+
+  @override
+  String get securityLogs => 'Security & Logs';
+
+  @override
+  String get cookieWarning =>
+      'Cookies may contain session and login tokens. Use with caution.';
+
+  @override
+  String get urlOrDomain => 'URL or Domain';
+
+  @override
+  String get listCookies => 'List';
+
+  @override
+  String get exportCookies => 'Export';
+
+  @override
+  String get deleteAllCookies => 'Delete All';
+
+  @override
+  String get noCookiesFound => 'No cookies found';
+
+  @override
+  String get enterUrlAndList => 'Enter a URL and click \'List\'';
+
+  @override
+  String get cookieName => 'Name';
+
+  @override
+  String get cookieValue => 'Value';
+
+  @override
+  String get cookieDomain => 'Domain';
+
+  @override
+  String get cookiePath => 'Path';
+
+  @override
+  String get cookieExpires => 'Expires';
+
+  @override
+  String get cookieSecure => 'Secure';
+
+  @override
+  String get cookieHttpOnly => 'HttpOnly';
+
+  @override
+  String get cookieSameSite => 'SameSite';
+
+  @override
+  String get cookieSensitive => 'Sensitive cookie';
+
+  @override
+  String get securitySignals => 'Security Signals';
+
+  @override
+  String get copyValue => 'Copy Value';
+
+  @override
+  String get editCookie => 'Edit';
+
+  @override
+  String get deleteCookie => 'Delete';
+
+  @override
+  String get revealValue => 'Reveal full value';
+
+  @override
+  String get confirmDeletion => 'Confirm Deletion';
+
+  @override
+  String deleteConfirmMsg(Object name) {
+    return 'Do you want to delete the cookie \"$name\"?';
+  }
+
+  @override
+  String get sessionWarning => 'This action may end active sessions.';
+
+  @override
+  String get deleteAllConfirmTitle => '⚠️ Confirm Mass Deletion';
+
+  @override
+  String get deleteAllConfirmMsg => 'Do you want to delete ALL cookies?';
+
+  @override
+  String get deleteAllWarning =>
+      'ATTENTION: This action is irreversible!\n• All sessions will be ended\n• You will be logged out of sites\n• Saved settings will be lost';
+
+  @override
+  String get understandWarning => 'I understand this may end sessions';
+
+  @override
+  String get exportFormat => 'Export Cookies';
+
+  @override
+  String get exportWarning => 'This report contains authentication cookies.';
+
+  @override
+  String get exportMasked => 'Masked values (recommended)';
+
+  @override
+  String get exportMaskedDesc => 'Sensitive cookies will be protected';
+
+  @override
+  String get exportReal => 'Real values';
+
+  @override
+  String get exportRealDesc => 'Requires additional authentication';
+
+  @override
+  String get statistics => '📊 Statistics';
+
+  @override
+  String get totalCookies => 'Total Cookies';
+
+  @override
+  String get totalDomains => 'Total Domains';
+
+  @override
+  String get secureCookies => 'Secure Cookies';
+
+  @override
+  String get httpOnlyCookies => 'HttpOnly Cookies';
+
+  @override
+  String get expiredCookies => 'Expired Cookies';
+
+  @override
+  String get securityReport => '🔐 Security Report';
+
+  @override
+  String get viewDetails => 'View Details';
+
+  @override
+  String get securitySettings => '🔒 Security Settings';
+
+  @override
+  String get biometricAuth => 'Biometric Authentication';
+
+  @override
+  String get protectSensitiveActions => 'Protect sensitive actions';
+
+  @override
+  String get configurePin => 'Configure PIN';
+
+  @override
+  String get alternativePin => 'Alternative security PIN';
+
+  @override
+  String get authRequired => 'Authentication Required';
+
+  @override
+  String get configurePinMsg =>
+      'Configure a security PIN to protect sensitive actions.';
+
+  @override
+  String get enterPin => 'Enter your PIN';
+
+  @override
+  String get pinMinLength => 'PIN (minimum 4 digits)';
+
+  @override
+  String get confirmPin => 'Confirm PIN';
+
+  @override
+  String get pinsDoNotMatch => 'PINs do not match';
+
+  @override
+  String get pinTooShort => 'PIN must be at least 4 digits';
+
+  @override
+  String get pinConfigured => 'PIN configured';
+
+  @override
+  String get errorConfiguringPin => 'Error configuring PIN';
+
+  @override
+  String get webviewLimitations =>
+      'Note: Cookies with httpOnly and secure flags may not be visible through JavaScript. To view all cookies, use browser developer tools or access via HTTP Cookie Manager.';
+
+  @override
+  String get webviewRequiresActive =>
+      'This functionality requires an active WebView.';
+
+  @override
+  String get valueCopied => 'Value copied to clipboard';
+
+  @override
+  String get cookieUpdated => 'Cookie updated';
+
+  @override
+  String get errorUpdatingCookie => 'Error updating cookie';
+
+  @override
+  String get cookieDeleted => 'Cookie deleted';
+
+  @override
+  String get errorDeletingCookie => 'Error deleting cookie';
+
+  @override
+  String get allCookiesDeleted => 'All cookies have been deleted';
+
+  @override
+  String get errorDeletingCookies => 'Error deleting cookies';
+
+  @override
+  String get noCookiesToExport => 'No cookies to export';
+
+  @override
+  String get jsonCopied => 'JSON copied to clipboard';
+
+  @override
+  String get csvCopied => 'CSV copied to clipboard';
+
+  @override
+  String errorExporting(Object error) {
+    return 'Error exporting: $error';
+  }
+
+  @override
+  String get fullSecurityReport => 'Full Security Report';
+
+  @override
+  String get reportCopied => 'Report copied';
 }

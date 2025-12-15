@@ -1,305 +1,322 @@
-# MviewerPlus 📱
+# 🛡️ Antigravity Scanner - MViewerPlus
 
-> **Advanced File Viewer with AI-Powered Analysis**
+## Versão 7.0.0 - Security Audit Complete
 
-A powerful, **completely free and open-source** Flutter application for viewing, analyzing, and exporting various file formats with intelligent CSV optimization and AI assistance.
-
-[![Flutter](https://img.shields.io/badge/Flutter-3.10+-blue.svg)](https://flutter.dev/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS%20%7C%20Web-lightgrey.svg)](https://github.com/abreuretto72/MviewerPlus)
-[![Free](https://img.shields.io/badge/price-FREE-success.svg)](https://github.com/abreuretto72/MviewerPlus)
-
-## 💚 Free & Open Source
-
-**MviewerPlus is 100% free with no ads, no subscriptions, and no hidden costs.**
-
-- ✅ All features available to everyone
-- ✅ No advertisements
-- ✅ No premium tiers or paywalls
-- ✅ Open-source and community-driven
-- ✅ Privacy-focused - your data stays on your device
-
-## ✨ Features
-
-### 📄 File Viewing & Format Support
-
-**MviewerPlus supports 60+ file formats across multiple categories:**
-
-#### 📊 Data & Tables
-- **CSV** - Advanced table view with sorting, filtering, and smart data cleaning
-  - Automatic delimiter detection (comma, semicolon)
-  - Handles 250+ columns and thousands of rows
-  - Export to PDF with automatic table splitting
-- **Excel** (.xlsx, .xls) - Multi-sheet support
-  - View data in tabular format
-  - Toggle between sheets
-  - Background processing for large files
-- **Archives** (.zip, .apk, .jar) - Archive explorer
-  - View contents (files/folders)
-  - Inspect file types and sizes
-  - Restricted search/edit for data integrity
-  - Clean PDF reports of archive contents
-
-#### 📝 Markup & Documentation
-- **Markdown** (.md, .markdown) - Beautiful rendered view with:
-  - Formatted headings, lists, and links
-  - Code blocks with syntax highlighting
-  - Tables, blockquotes, and horizontal rules
-  - Toggle between rendered and raw view
-- **JSON** - Syntax highlighted with proper formatting
-- **XML** - Structured view with color coding
-- **YAML** (.yaml, .yml) - Configuration file support
-- **HTML/HTM** - Web markup with syntax highlighting
-
-#### 💻 Programming Languages (Syntax Highlighting)
-**Web Development:**
-- JavaScript (.js, .jsx)
-- TypeScript (.ts, .tsx)
-- CSS (.css, .scss, .sass, .less)
-
-**Mobile & App Development:**
-- Dart (.dart)
-- Java (.java)
-- Kotlin (.kt, .kts)
-- Swift (.swift)
-
-**Systems Programming:**
-- C (.c)
-- C++ (.cpp, .cc, .cxx, .h, .hpp)
-- C# (.cs)
-- Go (.go)
-- Rust (.rs)
-
-**Scripting Languages:**
-- Python (.py)
-- Ruby (.rb)
-- PHP (.php)
-- Perl (.pl)
-- Bash (.sh, .bash)
-- PowerShell (.ps1)
-
-**Database:**
-- SQL (.sql) - Custom Dracula theme with:
-  - Pink keywords (SELECT, FROM, WHERE)
-  - Cyan functions (COUNT, SUM, AVG)
-  - Yellow strings
-  - Purple numbers
-  - Italic comments
-
-**Other Languages:**
-- R (.r)
-- Scala (.scala)
-- Lua (.lua)
-- Vim Script (.vim)
-- Elisp (.el)
-- Clojure (.clj)
-- Elixir (.ex, .exs)
-
-**Configuration Files:**
-- INI (.ini, .cfg) - Custom syntax highlighting
-- TOML (.toml) - Custom syntax highlighting
-- Properties (.properties) - Custom syntax highlighting
-- Environment (.env) - Bash-style highlighting
-- Config (.conf) - Nginx-style highlighting
-- XML Config (.config) - XML highlighting
-
-#### 📄 Plain Text Files
-- TXT
-- ASC (ASCII)
-
-#### 🎬 Multimedia & Documents
-- **Video Player** - Native playback (MP4, MKV, AVI, etc.)
-- **Audio Player** - Native playback (MP3, WAV, OGG, etc.)
-- **PDF Viewer** - Native rendering with page navigation
-- **Word Documents** (.docx, .doc) - content reading
-
-#### 📋 Log Files
-- LOG - Custom syntax highlighting with:
-  - ERROR/FATAL → Red (bold)
-  - WARN/WARNING → Orange (semi-bold)
-  - INFO → Cyan
-  - DEBUG/TRACE → Gray
-  - SUCCESS/OK → Green (semi-bold)
-  - Timestamps → Purple
-
-### 🎨 Viewing Features
-
-#### Syntax Highlighting
-- **40+ Programming Languages** with Dracula theme
-- **Custom SQL Highlighter** with:
-  - Pink keywords (SELECT, FROM, WHERE)
-  - Cyan functions (COUNT, SUM, AVG)
-  - Yellow strings
-  - Purple numbers
-  - Italic blue-gray comments
-- **Custom Config File Highlighter** with:
-  - Pink sections ([section])
-  - Cyan keys
-  - Purple separators (= or :)
-  - Yellow values
-  - Italic blue-gray comments
-- **Custom Log File Highlighter** with severity-based colors
-
-#### Markdown Rendering
-- **Rich Text Formatting** with toggle Raw ↔ Rendered
-- Formatted headings with theme colors
-- Code blocks with syntax highlighting
-- Tables, blockquotes, and horizontal rules
-- Links and images support
-
-#### CSV Tables
-- **Smart Data Cleaning**: Automatic removal of empty columns/rows
-- **Sortable Columns**: Click headers to sort
-- **Search & Filter**: Find data across all cells
-- **Dynamic Column Widths**: Auto-sized based on content
-- **Alternating Row Colors**: Better readability
-- **Info Display**: Shows rows × columns count
-
-#### PDF Export
-- **Automatic Pagination**: Handles files of any size
-- **CSV Table Splitting**: 
-  - Horizontal: 15 columns per section
-  - Vertical: 10 rows per section (with indicators)
-  - First column repeated for context
-- **Professional Formatting**:
-  - Landscape mode for wide tables
-  - Clean headers and borders
-  - Alternating row colors
-- **No Size Limits**: Supports thousands of lines
-
-### 🚀 Performance Optimizations
-- **Background Processing**: CSV parsing in separate isolates for smooth UI
-- **Virtualized Rendering**: Efficient display of large datasets
-- **Synchronized Scrolling**: Perfect horizontal scroll sync in CSV tables
-- **Smart Delimiter Detection**: Fast and accurate CSV delimiter identification
-
-### 🤖 AI Integration
-- **Groq Power ⚡**: Uses Llama 3 70b via Groq for high-speed analysis.
-- **Context-Aware**: Understands file structure (CSV stats, Code logic, Logs patterns).
-- **Zero Cost**: Built for free tier API usage (easy setup guide included).
-- **Export Conversations**: Save AI chat sessions as PDF.
-
-### 📊 Export & Sharing
-- **PDF Export**: Convert files and AI chats to formatted PDFs
-  - **Comprehensive Reports**: Headers with file name, type, size, and row/file count.
-  - **Automatic Pagination**: "Page X of Y" footer on every page.
-  - **Smart Table Splitting**: Wide CSV tables divided into readable sections.
-  - **Archive Reports**: Generates detailed content lists for ZIP files.
-  - **Professional Layout**: Clean formatting with headers and borders.
-- **Table Formatting**: CSV files exported as professional tables
-- **Print & Share**: Easy sharing with customizable options
-
-### 🔍 Advanced Tools
-- **Find & Replace**: Search and replace text across files
-- **File Editing**: Edit and save modified files
-- **Multiple Views**: Toggle between raw and formatted views
-- **CSV Sorting**: Sort table columns with visual indicators
-
-### 🌍 Localization
-- English (EN)
-- Portuguese Brazil (PT-BR)
-- Portuguese Portugal (PT-PT)
-- Spanish (ES)
-
-## 🛠️ Technical Highlights
-
-### Architecture
-- **Clean Architecture**: Separation of concerns with providers and services
-- **State Management**: Efficient state handling with Provider
-- **Async Processing**: Compute isolates for CPU-intensive tasks
-
-### Key Technologies
-- **Flutter**: Cross-platform UI framework
-- **Groq API**: High-performance AI analysis (Llama 3)
-- **PDF Generation**: `pdf` and `printing` packages
-- **File Parsing**: `csv`, `spreadsheet_decoder` (Excel), `archive` (ZIP)
-- **Syntax Highlighting**: `flutter_highlight`
-
-### Performance Features
-- Background CSV parsing with `compute()`
-- Virtualized list rendering for large datasets
-- Lazy loading for optimal memory usage
-- Smart data cleaning algorithms
-
-## 📱 Screenshots
-
-*Coming soon...*
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Flutter SDK 3.10 or higher
-- Dart 3.0 or higher
-- Android Studio / VS Code with Flutter extensions
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/abreuretto72/MviewerPlus.git
-cd MviewerPlus
-```
-
-2. **Install dependencies**
-```bash
-flutter pub get
-```
-
-3. **Configure AI (Optional)**
-No environment variables required. Get a free Groq API Key at [console.groq.com](https://console.groq.com/keys).
-Enter your key directly in the app: **Settings > AI API Key**.
-
-4. **Run the app**
-```bash
-flutter run
-```
-
-## 📦 Build
-
-### Android
-```bash
-flutter build apk --release
-```
-
-### iOS
-```bash
-flutter build ios --release
-```
-
-### Web
-```bash
-flutter build web --release
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**André Abreu**
-- GitHub: [@abreuretto72](https://github.com/abreuretto72)
-
-## 🙏 Acknowledgments
-
-- Flutter team for the amazing framework
-- Google for Generative AI integration
-- Open source community for various packages used
-
-## 📞 Support
-
-For support, please open an issue in the GitHub repository.
+**Antigravity Scanner** é um visualizador de arquivos multiplataforma com **sistema avançado de auditoria de segurança** integrado.
 
 ---
 
-**Made with ❤️ using Flutter**
+## 🎯 Principais Funcionalidades
+
+### 📁 Visualizador de Arquivos
+- Suporte para múltiplos formatos (PDF, DOCX, XLSX, CSV, TXT, Markdown, etc.)
+- Visualização de imagens, áudio e vídeo
+- Navegador web integrado
+- Modo escuro/claro
+
+### 🛡️ Security Scanner (NOVO!)
+- **18 verificações de segurança** em tempo real
+- Detecção de ameaças críticas
+- Auditoria de postura de segurança
+- Validação de assinaturas de apps
+- Dashboard com score de risco (0-100)
+
+---
+
+## 🔐 Sistema de Segurança
+
+### Módulo A: Integridade do Dispositivo (🔴 Crítico)
+1. ✅ Root/Jailbreak Detection
+2. ✅ Debugger Detection
+3. ✅ Hooking Framework Detection (Frida/Xposed)
+4. ✅ Emulator Detection
+5. ✅ App Integrity Check
+6. ✅ USB Debugging Detection
+
+### Módulo B: Segurança de Rede (🔴 Crítico)
+7. ✅ SSL Pinning
+8. ✅ Proxy Detection
+9. ✅ Wi-Fi Security Check
+
+### Módulo C: Auditoria de Apps e Sistema (🟡 Aviso)
+10. ✅ Screen Lock Check
+11. ✅ OS Version Check
+12. ✅ Security Patch Age
+13. ✅ Unknown Sources Check
+14. ✅ Location Permissions Audit
+15. ✅ Lock Screen Notifications
+16. ✅ Sideloading Detection
+17. ✅ Third-Party Keyboards
+18. ✅ Accessibility Abuse Detection
+
+### Módulo D: Validação de Assinaturas (🔥 Firebase)
+- ✅ Validação SHA-256 de apps confiáveis
+- ✅ Firebase Remote Config
+- ✅ Atualização remota de hashes
+- ✅ 12 apps monitorados (WhatsApp, Instagram, Nubank, etc.)
+
+---
+
+## 📊 Dashboard de Segurança
+
+```
+┌─────────────────────────────────────┐
+│  Nível de Segurança: 🟢 SEGURO     │
+│  Score de Risco: 15/100             │
+├─────────────────────────────────────┤
+│  ✅ Sem Root/Jailbreak              │
+│  ✅ Debugger não detectado          │
+│  ✅ SSL Pinning validado            │
+│  ⚠️  Wi-Fi WPA (recomendado WPA2)   │
+│  ⚠️  2 apps com localização sempre  │
+└─────────────────────────────────────┘
+```
+
+---
+
+## 🚀 Tecnologias
+
+### Frontend
+- **Flutter 3.x** - Framework multiplataforma
+- **Dart** - Linguagem de programação
+- **Provider** - Gerenciamento de estado
+- **Material Design 3** - Design system
+
+### Backend/Nativo
+- **Kotlin** - Android native code
+- **Platform Channels** - Flutter ↔ Native communication
+- **Firebase Remote Config** - Configuração remota
+- **Firebase Core** - Infraestrutura
+
+### Segurança
+- **SHA-256** - Validação de assinaturas
+- **SSL Pinning** - Proteção contra MITM
+- **Root Detection** - Múltiplas técnicas
+- **Hooking Detection** - Anti-tampering
+
+---
+
+## 📦 Instalação
+
+### Pré-requisitos
+- Flutter SDK 3.x ou superior
+- Android Studio / Xcode
+- Dart SDK
+- Firebase CLI (opcional)
+
+### Dependências Principais
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Security
+  firebase_core: ^3.8.1
+  firebase_remote_config: ^5.1.4
+  local_auth: ^2.3.0
+  crypto: ^3.0.6
+  
+  # UI/UX
+  provider: ^6.1.5
+  google_fonts: ^6.3.3
+  
+  # File Handling
+  file_picker: ^10.3.7
+  pdf: ^3.11.3
+  
+  # Networking
+  http: ^1.6.0
+  dio: ^5.7.0
+```
+
+### Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/MviewerPlus.git
+
+# Entre no diretório
+cd MviewerPlus
+
+# Instale as dependências
+flutter pub get
+
+# Execute o app
+flutter run
+```
+
+---
+
+## ⚙️ Configuração
+
+### 1. Firebase (Opcional - para validação de assinaturas)
+
+1. Crie um projeto no [Firebase Console](https://console.firebase.google.com/)
+2. Adicione um app Android
+3. Baixe `google-services.json`
+4. Coloque em `android/app/google-services.json`
+5. Configure Remote Config:
+   - Parâmetro: `trusted_app_hashes`
+   - Valor: JSON com hashes de apps
+
+### 2. Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz:
+
+```env
+GEMINI_API_KEY=sua_chave_aqui
+```
+
+### 3. Habilitar Firebase (se configurado)
+
+Edite `lib/main.dart`:
+
+```dart
+// Descomente estas linhas:
+await Firebase.initializeApp();
+await TrustedAppHashesService.instance.initialize();
+```
+
+---
+
+## 📱 Uso
+
+### Security Check
+
+1. Abra o app
+2. Menu (☰) → **Security Check**
+3. Aguarde a verificação automática
+4. Veja os resultados:
+   - Score de risco
+   - Ameaças detectadas
+   - Recomendações de ação
+
+### Validação de Assinaturas
+
+```dart
+// Obter hash de um app instalado
+final result = await NativeSecurityChecker.checkAppSignature(
+  'com.whatsapp',
+  'EXPECTED_HASH',
+);
+
+print('Válido: ${result['isValid']}');
+```
+
+---
+
+## 🏗️ Arquitetura
+
+```
+lib/
+├── main.dart                          # Entry point
+├── services/
+│   ├── native_security_checker.dart   # Platform Channels
+│   ├── security_service.dart          # Business logic
+│   ├── app_signature_validator.dart   # Firebase Remote Config
+│   └── secure_http_client.dart        # SSL Pinning
+├── screens/
+│   ├── security_check_screen.dart     # Dashboard
+│   └── home_screen.dart               # Main screen
+└── providers/
+    └── locale_provider.dart           # i18n
+
+android/
+└── app/src/main/kotlin/
+    └── MainActivity.kt                # Native security checks
+```
+
+---
+
+## 📊 Métricas de Código
+
+- **Dart**: ~1.500 linhas
+- **Kotlin**: ~600 linhas
+- **Total**: ~2.100 linhas
+- **Verificações**: 18
+- **Apps Monitorados**: 12
+
+---
+
+## 🌍 Internacionalização
+
+Idiomas suportados:
+- 🇺🇸 Inglês (en)
+- 🇧🇷 Português Brasil (pt_BR)
+- 🇵🇹 Português Portugal (pt_PT)
+- 🇪🇸 Espanhol (es)
+
+---
+
+## 📋 Roadmap
+
+### v7.0.0 (Atual) ✅
+- [x] 18 verificações de segurança
+- [x] Firebase Remote Config
+- [x] Validação de assinaturas
+- [x] Dashboard de segurança
+
+### v7.1.0 (Próximo)
+- [ ] Hashes reais de apps
+- [ ] iOS support (Swift)
+- [ ] Relatórios exportáveis
+- [ ] Histórico de scans
+
+### v8.0.0 (Futuro)
+- [ ] VPN detection
+- [ ] Malware scanning
+- [ ] Cloud backup de configurações
+- [ ] Multi-device sync
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Por favor:
+
+1. Fork o projeto
+2. Crie uma branch (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+---
+
+## 👥 Autores
+
+- **Multiverso Digital** - *Desenvolvimento inicial*
+
+---
+
+## 🙏 Agradecimentos
+
+- Flutter Team
+- Firebase Team
+- Comunidade Open Source
+
+---
+
+## 📞 Contato
+
+- **Email**: contato@multiversodigital.com
+- **Website**: https://multiversodigital.com
+
+---
+
+## ⚠️ Disclaimer
+
+Este app é fornecido "como está", sem garantias. Use por sua conta e risco. As verificações de segurança são indicativas e não substituem uma auditoria profissional.
+
+---
+
+**Desenvolvido com ❤️ por Multiverso Digital**
+
+**Versão**: 7.0.0  
+**Data**: Dezembro 2025  
+**Status**: ✅ Produção
