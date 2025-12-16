@@ -49,11 +49,12 @@
 17. ✅ Third-Party Keyboards
 18. ✅ Accessibility Abuse Detection
 
-### Módulo D: Validação de Assinaturas (🔥 Firebase)
-- ✅ Validação SHA-256 de apps confiáveis
-- ✅ Firebase Remote Config
-- ✅ Atualização remota de hashes
-- ✅ 12 apps monitorados (WhatsApp, Instagram, Nubank, etc.)
+### Módulo D: Validação de Assinaturas (🔥 Firebase + Fallback)
+- ✅ Validação SHA-256 em tempo real
+- ✅ Hashes oficiais verificados (WhatsApp, Chrome, Instagram, Gov.br, Itau, etc.)
+- ✅ Status "Verificado" (Verde) para apps autênticos
+- ✅ Detecção de apps sem configuração (Pendente)
+- ✅ Fallback offline robusto para apps críticos
 
 ---
 

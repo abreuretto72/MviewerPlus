@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:file_viewer/screens/settings/settings_screen.dart';
 import 'package:file_viewer/screens/viewer_screen.dart';
-import 'package:file_viewer/features/cookies/presentation/screens/cookie_inspector_screen.dart';
 import 'package:file_viewer/screens/security_check_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:file_viewer/l10n/app_localizations.dart';
@@ -131,23 +130,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.cookie),
-              title: Text(t.cookieInspector ?? 'Cookie Inspector'),
-              subtitle: Text(t.cookieInspectorDesc ?? 'Manage cookies'),
-              onTap: () {
-                Navigator.pop(context); // Fecha o drawer
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CookieInspectorScreen(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
               leading: const Icon(Icons.security),
-              title: const Text('Security Check'),
-              subtitle: const Text('Verify device security'),
+              title: Text(t.securityCheck),
+              subtitle: Text(t.securityCheckDesc),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(

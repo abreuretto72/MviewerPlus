@@ -1079,6 +1079,528 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Report copied'**
   String get reportCopied;
+
+  /// No description provided for @premium.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium'**
+  String get premium;
+
+  /// No description provided for @goPremium.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Premium'**
+  String get goPremium;
+
+  /// No description provided for @restorePurchases.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore Purchases'**
+  String get restorePurchases;
+
+  /// No description provided for @premiumDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock unlimited access and remove ads.'**
+  String get premiumDesc;
+
+  /// No description provided for @securityCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Check'**
+  String get securityCheck;
+
+  /// No description provided for @securityCheckDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify device security'**
+  String get securityCheckDesc;
+
+  /// No description provided for @refresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get refresh;
+
+  /// No description provided for @securityCheckError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error checking security: {error}'**
+  String securityCheckError(Object error);
+
+  /// No description provided for @noResultsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No results available'**
+  String get noResultsAvailable;
+
+  /// No description provided for @securityLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Level'**
+  String get securityLevel;
+
+  /// No description provided for @riskScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Risk Score'**
+  String get riskScore;
+
+  /// No description provided for @checks.
+  ///
+  /// In en, this message translates to:
+  /// **'Checks'**
+  String get checks;
+
+  /// No description provided for @recommendedActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended Actions'**
+  String get recommendedActions;
+
+  /// No description provided for @criticalThreats.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical Threats'**
+  String get criticalThreats;
+
+  /// No description provided for @warnings.
+  ///
+  /// In en, this message translates to:
+  /// **'Warnings'**
+  String get warnings;
+
+  /// No description provided for @safe.
+  ///
+  /// In en, this message translates to:
+  /// **'Safe'**
+  String get safe;
+
+  /// No description provided for @critical.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical'**
+  String get critical;
+
+  /// No description provided for @warning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning'**
+  String get warning;
+
+  /// No description provided for @checksPerformed.
+  ///
+  /// In en, this message translates to:
+  /// **'Checks Performed'**
+  String get checksPerformed;
+
+  /// No description provided for @checkRootJailbreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Root/Jailbreak'**
+  String get checkRootJailbreak;
+
+  /// No description provided for @checkDebugger.
+  ///
+  /// In en, this message translates to:
+  /// **'Debugger'**
+  String get checkDebugger;
+
+  /// No description provided for @checkHooking.
+  ///
+  /// In en, this message translates to:
+  /// **'Hooking'**
+  String get checkHooking;
+
+  /// No description provided for @checkIntegrity.
+  ///
+  /// In en, this message translates to:
+  /// **'App Integrity'**
+  String get checkIntegrity;
+
+  /// No description provided for @checkOSVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated System'**
+  String get checkOSVersion;
+
+  /// No description provided for @checkScreenLock.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen Lock'**
+  String get checkScreenLock;
+
+  /// No description provided for @checkRealDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Real Device'**
+  String get checkRealDevice;
+
+  /// No description provided for @statusOk.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get statusOk;
+
+  /// No description provided for @statusFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'FAILED'**
+  String get statusFailed;
+
+  /// No description provided for @understood.
+  ///
+  /// In en, this message translates to:
+  /// **'Understood'**
+  String get understood;
+
+  /// No description provided for @securityLevelSafe.
+  ///
+  /// In en, this message translates to:
+  /// **'Safe'**
+  String get securityLevelSafe;
+
+  /// No description provided for @securityLevelWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Warnings Detected'**
+  String get securityLevelWarning;
+
+  /// No description provided for @securityLevelCritical.
+  ///
+  /// In en, this message translates to:
+  /// **'CRITICAL THREATS'**
+  String get securityLevelCritical;
+
+  /// No description provided for @securityDescSafe.
+  ///
+  /// In en, this message translates to:
+  /// **'All security checks passed'**
+  String get securityDescSafe;
+
+  /// No description provided for @securityDescWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Some settings can be improved'**
+  String get securityDescWarning;
+
+  /// No description provided for @securityDescCritical.
+  ///
+  /// In en, this message translates to:
+  /// **'Critical threats detected - Action required'**
+  String get securityDescCritical;
+
+  /// No description provided for @actionRootTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Root Device Detected'**
+  String get actionRootTitle;
+
+  /// No description provided for @actionRootDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Your device has superuser privileges (root). This compromises app security.'**
+  String get actionRootDesc;
+
+  /// No description provided for @actionRootRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove root or use a non-rooted device.'**
+  String get actionRootRec;
+
+  /// No description provided for @actionDebuggerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Debugger Detected'**
+  String get actionDebuggerTitle;
+
+  /// No description provided for @actionDebuggerDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'A debugger is attached to the application. This may indicate an attempt to analyze or modify the app.'**
+  String get actionDebuggerDesc;
+
+  /// No description provided for @actionDebuggerRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Close all developer tools and restart.'**
+  String get actionDebuggerRec;
+
+  /// No description provided for @actionHookingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hooking Framework Detected'**
+  String get actionHookingTitle;
+
+  /// No description provided for @actionHookingDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'A hooking framework (Frida, Xposed) was detected. This allows modifying app behavior.'**
+  String get actionHookingDesc;
+
+  /// No description provided for @actionHookingRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove hooking frameworks and restart.'**
+  String get actionHookingRec;
+
+  /// No description provided for @actionIntegrityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Compromised App Integrity'**
+  String get actionIntegrityTitle;
+
+  /// No description provided for @actionIntegrityDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'The app signature does not match expected. The app may have been modified.'**
+  String get actionIntegrityDesc;
+
+  /// No description provided for @actionIntegrityRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Reinstall from the official store (Play Store).'**
+  String get actionIntegrityRec;
+
+  /// No description provided for @actionOSTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Outdated Operating System'**
+  String get actionOSTitle;
+
+  /// No description provided for @actionOSDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Your OS is outdated and may contain vulnerabilities.'**
+  String get actionOSDesc;
+
+  /// No description provided for @actionOSRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Update your OS to the latest version.'**
+  String get actionOSRec;
+
+  /// No description provided for @actionLockTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No Screen Lock Configured'**
+  String get actionLockTitle;
+
+  /// No description provided for @actionLockDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Your device has no screen lock. This facilitates unauthorized access.'**
+  String get actionLockDesc;
+
+  /// No description provided for @actionLockRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up a PIN, password, or pattern in settings.'**
+  String get actionLockRec;
+
+  /// No description provided for @actionEmulatorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Running on Emulator'**
+  String get actionEmulatorTitle;
+
+  /// No description provided for @actionEmulatorDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'The app is running on an emulator. Some features may be limited.'**
+  String get actionEmulatorDesc;
+
+  /// No description provided for @actionEmulatorRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Use a physical device for better experience.'**
+  String get actionEmulatorRec;
+
+  /// No description provided for @actionUnknownSourcesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Sources Enabled'**
+  String get actionUnknownSourcesTitle;
+
+  /// No description provided for @actionUnknownSourcesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Your device allows installing apps from unknown sources. This facilitates malware installation.'**
+  String get actionUnknownSourcesDesc;
+
+  /// No description provided for @actionUnknownSourcesRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Disable \'Install unknown apps\' in security settings.'**
+  String get actionUnknownSourcesRec;
+
+  /// No description provided for @actionLocationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Apps with \'Always\' Location'**
+  String get actionLocationTitle;
+
+  /// No description provided for @actionLocationDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} app(s) have background location permission. This poses a privacy risk.'**
+  String actionLocationDesc(Object count);
+
+  /// No description provided for @actionLocationRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Review location permissions.'**
+  String get actionLocationRec;
+
+  /// No description provided for @actionNotifTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sensitive Notifications on Lock Screen'**
+  String get actionNotifTitle;
+
+  /// No description provided for @actionNotifDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Sensitive notification previews (codes, messages) are visible on lock screen.'**
+  String get actionNotifDesc;
+
+  /// No description provided for @actionNotifRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide sensitive content on lock screen notifications.'**
+  String get actionNotifRec;
+
+  /// No description provided for @actionPatchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Outdated Security Patch'**
+  String get actionPatchTitle;
+
+  /// No description provided for @actionPatchDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Security patch is older than 60 days. Known vulnerabilities may not be patched.'**
+  String get actionPatchDesc;
+
+  /// No description provided for @actionPatchRec.
+  ///
+  /// In en, this message translates to:
+  /// **'Check for system updates.'**
+  String get actionPatchRec;
+
+  /// No description provided for @action2FATitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Two-Factor Authentication (2FA)'**
+  String get action2FATitle;
+
+  /// No description provided for @action2FADesc.
+  ///
+  /// In en, this message translates to:
+  /// **'2FA adds an extra layer of security to your critical accounts (Google/Apple ID).'**
+  String get action2FADesc;
+
+  /// No description provided for @action2FARec.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable 2FA in your account security settings.'**
+  String get action2FARec;
+
+  /// No description provided for @expAppSignaturesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'App Monitoring'**
+  String get expAppSignaturesTitle;
+
+  /// No description provided for @expAppSignaturesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Checks if sensitive apps (like banking and social media apps) are original and have not been modified by hackers.\n\n⚠️ Why is it critical?\n• Fake apps can steal your banking credentials\n• Can clone your WhatsApp\n• Can intercept 2FA codes\n\n✅ What does it mean?\nIf failed: An installed app is not the original from the official store (Play Store) and may be dangerous.'**
+  String get expAppSignaturesDesc;
+
+  /// No description provided for @expRootTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Root/Jailbreak'**
+  String get expRootTitle;
+
+  /// No description provided for @expRootDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Root (Android) or Jailbreak (iOS) is when someone modifies the system to gain full access.\n\n⚠️ Why is it dangerous?\n• Malicious apps can steal your passwords\n• Your banking data becomes vulnerable\n• Banking apps might not work\n\n✅ What to do?\nIf you didn\'t do this on purpose, your device may be compromised. Consider factory resetting it.'**
+  String get expRootDesc;
+
+  /// No description provided for @expDebuggerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Debugger Detected'**
+  String get expDebuggerTitle;
+
+  /// No description provided for @expDebuggerDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'A debugger is a tool used by programmers to analyze apps.\n\n⚠️ Why is it dangerous?\n• Hackers can use it to spy on the app\n• Can discover passwords and sensitive data\n• Can modify app behavior\n\n✅ What to do?\nIf you are not a developer, you shouldn\'t have an active debugger. Close developer instruments or restart the phone.'**
+  String get expDebuggerDesc;
+
+  /// No description provided for @expHookingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hooking Framework'**
+  String get expHookingTitle;
+
+  /// No description provided for @expHookingDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Hooking is when a malicious program intercepts and modifies how apps work.\n\n⚠️ Why is it dangerous?\n• Can steal your passwords as you type\n• Can modify banking transactions\n• Can read private messages\n\n✅ What to do?\nUninstall suspicious apps, especially \'optimizers\' or \'boosters\' you don\'t recognize.'**
+  String get expHookingDesc;
+
+  /// No description provided for @expIntegrityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'App Integrity'**
+  String get expIntegrityTitle;
+
+  /// No description provided for @expIntegrityDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Checks if this app has been modified after installation.\n\n⚠️ Why is it important?\n• Modified apps may contain viruses\n• Can steal your data\n• Might not work correctly\n\n✅ What does it mean?\nIf passed: The app is original and safe\nIf failed: The app may have been tampered with'**
+  String get expIntegrityDesc;
+
+  /// No description provided for @expOSTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'System Updated'**
+  String get expOSTitle;
+
+  /// No description provided for @expOSDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Checks if your Android/iOS is up to date.\n\n⚠️ Why is it important?\n• Old systems have known security flaws\n• Hackers exploit these flaws\n• You are vulnerable to viruses\n\n✅ What to do?\nGo to Settings → System Update and install available updates.'**
+  String get expOSDesc;
+
+  /// No description provided for @expLockTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen Lock'**
+  String get expLockTitle;
+
+  /// No description provided for @expLockDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Checks if you have a password, PIN, pattern, or biometrics set up.\n\n⚠️ Why is it important?\n• Anyone can take your unlocked phone\n• Can access your apps, photos, and messages\n• Can make purchases or transfers\n\n✅ What to do?\nSet up a strong password or use your fingerprint/face ID in Settings → Security.'**
+  String get expLockDesc;
+
+  /// No description provided for @expEmulatorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Real Device'**
+  String get expEmulatorTitle;
+
+  /// No description provided for @expEmulatorDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Checks if you are using a real phone or an emulator (virtual phone on computer).\n\n⚠️ Why is it important?\n• Emulators are used by hackers to test attacks\n• Banking apps don\'t work on emulators\n• May indicate fraud attempt\n\n✅ What does it mean?\nIf you are on a real phone, you should pass this check.'**
+  String get expEmulatorDesc;
 }
 
 class _AppLocalizationsDelegate

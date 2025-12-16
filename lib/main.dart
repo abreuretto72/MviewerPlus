@@ -5,7 +5,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:file_viewer/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:file_viewer/providers/locale_provider.dart';
-import 'package:file_viewer/features/cookies/presentation/providers/cookie_inspector_provider.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,19 +16,19 @@ Future<void> main() async {
   // Carregar variáveis de ambiente
   await dotenv.load(fileName: ".env");
   
-  // TODO: Descomentar após configurar google-services.json
   // Inicializar Firebase
-  // await Firebase.initializeApp();
-  
-  // Inicializar Remote Config para hashes de apps
-  // await TrustedAppHashesService.instance.initialize();
+  try {
+     await Firebase.initializeApp();
+     // Inicializar Remote Config para hashes de apps
+     await TrustedAppHashesService.instance.initialize();
+  } catch (e) {
+     debugPrint('Firebase initialization failed: $e');
+  }
   
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
-        ChangeNotifierProvider(create: (_) => CookieInspectorProvider()),
-
       ],
       child: const MyApp(),
     ),

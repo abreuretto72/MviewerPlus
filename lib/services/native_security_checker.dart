@@ -1,7 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
+import 'package:file_viewer/services/app_signature_validator.dart';
 
-/// Verificador de segurança nativo usando Platform Channels
+/// Gerencia a comunicação com o código nativo para verificações de segurança
 /// Detecta Root/Jailbreak, Debugging, Hooking e outras ameaças
 class NativeSecurityChecker {
   static const MethodChannel _channel = MethodChannel('com.multiversodigital.mviewerplus/security');
@@ -220,45 +221,99 @@ class NativeSecurityChecker {
 
   /// Executa todas as verificações de segurança
   static Future<SecurityCheckResult> performFullSecurityCheck() async {
-    final results = await Future.wait([
-      checkRootJailbreak(),
-      checkDebugger(),
-      checkHooking(),
-      checkEmulator(),
-      checkAppIntegrity(),
-      checkOSVersion(),
-      checkScreenLock(),
-      checkUnknownSources(),
-      checkAlwaysLocationApps(),
-      checkLockScreenNotifications(),
-      checkSecurityPatchAge(),
-      checkUSBDebugging(),
-      checkProxy(),
-    ]);
-
+    // Verificações base
+    final List<dynamic> results = await _channel.invokeMethod('performFullSecurityCheck');
+    
+    // Verificações avançadas (Módulos B e C)
     final wifiSecurity = await checkWifiSecurity();
     final sideloadedApps = await checkSideloadedApps();
     final thirdPartyKeyboards = await checkThirdPartyKeyboards();
     final accessibilityAbuse = await checkAccessibilityAbuse();
 
+    // Verificação de Assinaturas (Trusted Apps) - INTEGRAÇÃO ATIVADA
+    // Validação de Assinaturas (Módulo App Integrity)
+    final List<Map<String, dynamic>> signatureMismatches = [];
+    final List<Map<String, dynamic>> monitoredAppsStatus = [];
+
+    try {
+      final trustedApps = TrustedAppHashesService.instance.getAllTrustedApps();
+    
+
+
+    // Checking installed apps against trusted hashes from Firebase
+      for (final app in trustedApps) {
+        // Log para debug
+        debugPrint('[SignatureCheck] Checking ${app.packageName}...');
+        
+        if (app.validHashes.isEmpty) {
+             debugPrint('[SignatureCheck] Warning: No valid hashes for ${app.packageName}. Skipping.');
+             continue;
+        }
+
+        final validation = await checkAppSignature(app.packageName, app.validHashes.first); 
+        
+        // Coleta status para diagnóstico
+        if (validation['isInstalled'] == true) {
+             monitoredAppsStatus.add({
+                 'packageName': app.packageName,
+                 'appName': app.name,
+                 'status': 'INSTALLED',
+                 'isValid': validation['isValid'],
+                 'actualHash': validation['actualHash'],
+                 'expectedHash': app.validHashes.first
+             });
+        } else {
+             monitoredAppsStatus.add({
+                 'packageName': app.packageName,
+                 'appName': app.name,
+                 'status': 'NOT_INSTALLED',
+             });
+        }
+
+        if (validation['isInstalled'] == true) {
+             final actualHash = validation['actualHash'];
+             final expectedHash = app.validHashes.first;
+             debugPrint('[SignatureCheck] ${app.packageName} - Installed: $actualHash | Expected: $expectedHash');
+             
+             if (validation['isValid'] == false) {
+                debugPrint('[SignatureCheck] ❌ MISMATCH DETECTED for ${app.packageName}!');
+                signatureMismatches.add({
+                  'packageName': app.packageName,
+                  'appName': app.name,
+                  'expectedHash': expectedHash,
+                  'actualHash': actualHash
+                });
+             } else {
+                debugPrint('[SignatureCheck] ✅ MATCH for ${app.packageName}');
+             }
+        } else {
+             debugPrint('[SignatureCheck] ${app.packageName} not installed.');
+        }
+      }
+    } catch (e) {
+      debugPrint('Error validating app signatures: $e');
+    }
+
     return SecurityCheckResult(
-      isRooted: results[0] as bool,
-      isDebugging: results[1] as bool,
-      isHooked: results[2] as bool,
-      isEmulator: results[3] as bool,
-      hasValidIntegrity: results[4] as bool,
-      hasUpdatedOS: results[5] as bool,
-      hasScreenLock: results[6] as bool,
-      unknownSourcesEnabled: results[7] as bool,
-      alwaysLocationAppsCount: results[8] as int,
-      showsSensitiveNotifications: results[9] as bool,
-      hasOldSecurityPatch: results[10] as bool,
-      usbDebuggingEnabled: results[11] as bool,
-      proxyDetected: results[12] as bool,
+      isRooted: results[0],
+      isDebuggerAttached: results[1],
+      isHookingDetected: results[2],
+      isEmulator: results[3],
+      isAppTampered: !results[4],
+      isOSOutdated: !results[5],
+      isScreenLockDisabled: !results[6], // Assumindo ordem do Kotlin
+      hasUnknownSources: results.length > 7 ? results[7] : false, // Prevent index oob if kotlin mismatch
+      alwaysLocationAppsCount: results.length > 8 ? results[8] : 0,
+      hasLockScreenNotifications: results.length > 9 ? results[9] : false,
+      isSecurityPatchOutdated: results.length > 10 ? results[10] : false,
+      isUSBDebuggingEnabled: results.length > 11 ? results[11] : false,
+      isProxyConfigured: results.length > 12 ? results[12] : false,
       wifiSecurity: wifiSecurity,
       sideloadedApps: sideloadedApps,
       thirdPartyKeyboards: thirdPartyKeyboards,
-      accessibilityAbuse: accessibilityAbuse,
+      accessibilityAbuseApps: accessibilityAbuse,
+      signatureMismatches: signatureMismatches,
+      monitoredAppsStatus: monitoredAppsStatus,
     );
   }
 }
@@ -266,70 +321,77 @@ class NativeSecurityChecker {
 /// Resultado da verificação de segurança
 class SecurityCheckResult {
   final bool isRooted;
-  final bool isDebugging;
-  final bool isHooked;
+  final bool isDebuggerAttached;
+  final bool isHookingDetected;
   final bool isEmulator;
-  final bool hasValidIntegrity;
-  final bool hasUpdatedOS;
-  final bool hasScreenLock;
+  final bool isAppTampered;
+  final bool isOSOutdated;
+  final bool isScreenLockDisabled;
   
-  // Campos de postura de segurança (P-1 a P-6)
-  final bool unknownSourcesEnabled;        // P-3
-  final int alwaysLocationAppsCount;       // P-4
-  final bool showsSensitiveNotifications;  // P-5
-  final bool hasOldSecurityPatch;          // P-2 (complemento)
+  // Novos campos (Módulo A)
+  final bool hasUnknownSources;                  // P-3
+  final int alwaysLocationAppsCount;             // P-4
+  final bool hasLockScreenNotifications;         // P-5
+  final bool isSecurityPatchOutdated;            // Patch < 60 dias
   
   // Novos campos (Módulo B e C completo)
-  final bool usbDebuggingEnabled;                    // Módulo A - Crítico
-  final bool proxyDetected;                          // Módulo B - Crítico
+  final bool isUSBDebuggingEnabled;                    // Módulo A - Crítico
+  final bool isProxyConfigured;                          // Módulo B - Crítico
   final Map<String, dynamic> wifiSecurity;           // Módulo B - Aviso
   final List<Map<String, String>> sideloadedApps;    // Módulo C - Aviso
   final List<String> thirdPartyKeyboards;            // Módulo C - Aviso
-  final List<Map<String, String>> accessibilityAbuse; // Módulo C - Aviso
+  final List<Map<String, String>> accessibilityAbuseApps; // Módulo C - Aviso
+  final List<Map<String, dynamic>> signatureMismatches; // Validação de Assinaturas - Crítico
+  final List<Map<String, dynamic>> monitoredAppsStatus; // Diagnóstico
+  final String? debugError; // Campo para mostrar erro interno na UI
 
   SecurityCheckResult({
     required this.isRooted,
-    required this.isDebugging,
-    required this.isHooked,
+    required this.isDebuggerAttached,
+    required this.isHookingDetected,
     required this.isEmulator,
-    required this.hasValidIntegrity,
-    required this.hasUpdatedOS,
-    required this.hasScreenLock,
-    this.unknownSourcesEnabled = false,
-    this.alwaysLocationAppsCount = 0,
-    this.showsSensitiveNotifications = false,
-    this.hasOldSecurityPatch = false,
-    this.usbDebuggingEnabled = false,
-    this.proxyDetected = false,
-    this.wifiSecurity = const {'isSecure': true, 'securityType': 'unknown'},
+    required this.isAppTampered,
+    required this.isOSOutdated,
+    required this.isScreenLockDisabled,
+    required this.hasUnknownSources,
+    required this.alwaysLocationAppsCount,
+    required this.hasLockScreenNotifications,
+    required this.isSecurityPatchOutdated,
+    required this.isUSBDebuggingEnabled,
+    required this.isProxyConfigured,
+    this.wifiSecurity = const {},
     this.sideloadedApps = const [],
     this.thirdPartyKeyboards = const [],
-    this.accessibilityAbuse = const [],
+    this.accessibilityAbuseApps = const [],
+    this.signatureMismatches = const [],
+    this.monitoredAppsStatus = const [],
+    this.debugError,
   });
 
   /// Verifica se há ameaças críticas (VERMELHO)
   bool get hasCriticalThreats {
     return isRooted || 
-           isDebugging || 
-           isHooked || 
-           !hasValidIntegrity ||
-           usbDebuggingEnabled ||
-           proxyDetected;
+           isDebuggerAttached || 
+           isHookingDetected || 
+           isAppTampered ||
+           isUSBDebuggingEnabled ||
+           isProxyConfigured ||
+           signatureMismatches.isNotEmpty;
   }
 
   /// Verifica se há avisos (AMARELO)
   bool get hasWarnings {
-    return !hasUpdatedOS || 
-           !hasScreenLock || 
+    return isOSOutdated || 
+           isScreenLockDisabled || 
            isEmulator ||
-           unknownSourcesEnabled ||
+           hasUnknownSources ||
            alwaysLocationAppsCount > 0 ||
-           showsSensitiveNotifications ||
-           hasOldSecurityPatch ||
+           hasLockScreenNotifications ||
+           isSecurityPatchOutdated ||
            !(wifiSecurity['isSecure'] as bool? ?? true) ||
            sideloadedApps.isNotEmpty ||
            thirdPartyKeyboards.isNotEmpty ||
-           accessibilityAbuse.isNotEmpty;
+           accessibilityAbuseApps.isNotEmpty;
   }
 
   /// Nível de segurança geral
@@ -339,122 +401,92 @@ class SecurityCheckResult {
     return SecurityLevel.safe;
   }
 
-  /// Lista de ameaças detectadas (VERMELHO)
+  /// Lista de ameaças encontradas (para exibição)
   List<String> get threats {
-    final threats = <String>[];
+    final list = <String>[];
+    if (isRooted) list.add('O dispositivo possui acesso Root/Jailbreak');
+    if (isDebuggerAttached) list.add('O aplicativo está em modo de depuração');
+    if (isHookingDetected) list.add('Frameworks de hooking detectados (ex: Frida)');
+    if (!isAppTampered) list.add('A integridade do aplicativo está comprometida');
+    if (isUSBDebuggingEnabled) list.add('Depuração USB ativada (Risco Crítico)');
+    if (isProxyConfigured) list.add('Proxy de rede detectado (Possível interceptação)');
     
-    if (isRooted) threats.add('Dispositivo com Root/Jailbreak detectado');
-    if (isDebugging) threats.add('Debugger ativo detectado');
-    if (isHooked) threats.add('Framework de hooking detectado');
-    if (!hasValidIntegrity) threats.add('Integridade do app comprometida');
-    if (usbDebuggingEnabled) threats.add('Depuração USB ativa - Risco de extração de dados');
-    if (proxyDetected) threats.add('Proxy detectado - Tráfego pode estar sendo interceptado');
-    
-    return threats;
+    if (signatureMismatches.isNotEmpty) {
+      list.add('Apps com assinatura inválida detectados (${signatureMismatches.length})');
+    }
+
+    return list;
   }
 
-  /// Lista de avisos (AMARELO)
+  /// Lista de avisos encontrados
   List<String> get warnings {
-    final warnings = <String>[];
+    final list = <String>[];
+    if (isOSOutdated) list.add('O sistema operacional está desatualizado');
+    if (isScreenLockDisabled) list.add('Nenhum bloqueio de tela configurado');
+    if (isEmulator) list.add('O dispositivo parece ser um emulador');
+    if (hasUnknownSources) list.add('Instalação de fontes desconhecidas habilitada');
+    if (alwaysLocationAppsCount > 0) list.add('$alwaysLocationAppsCount apps com localização "Sempre"');
+    if (hasLockScreenNotifications) list.add('Notificações sensíveis na tela de bloqueio');
+    if (isSecurityPatchOutdated) list.add('Patch de segurança antigo (>60 dias)');
     
-    // P-1: Bloqueio de Tela
-    if (!hasScreenLock) {
-      warnings.add('P-1: Bloqueio de tela não configurado');
-    }
-    
-    // P-2: Sistema Operacional Desatualizado
-    if (!hasUpdatedOS) {
-      warnings.add('P-2: Sistema operacional desatualizado');
-    }
-    
-    if (hasOldSecurityPatch) {
-      warnings.add('P-2: Patch de segurança com mais de 60 dias');
-    }
-    
-    // P-3: Fontes Desconhecidas
-    if (unknownSourcesEnabled) {
-      warnings.add('P-3: Instalação de fontes desconhecidas habilitada');
-    }
-    
-    // P-4: Permissão de Localização Permanente
-    if (alwaysLocationAppsCount > 0) {
-      warnings.add('P-4: $alwaysLocationAppsCount app(s) com localização "Sempre"');
-    }
-    
-    // P-5: Notificações Sensíveis na Tela de Bloqueio
-    if (showsSensitiveNotifications) {
-      warnings.add('P-5: Notificações sensíveis visíveis na tela de bloqueio');
-    }
-    
-    if (isEmulator) {
-      warnings.add('Executando em emulador');
-    }
-    
-    // Wi-Fi Inseguro
     if (!(wifiSecurity['isSecure'] as bool? ?? true)) {
-      final secType = wifiSecurity['securityType'] as String? ?? 'unknown';
-      warnings.add('Wi-Fi inseguro detectado (${secType.toUpperCase()})');
+      list.add('Wi-Fi inseguro detectado (${wifiSecurity['securityType']})');
     }
-    
-    // Apps Sideloaded
     if (sideloadedApps.isNotEmpty) {
-      warnings.add('${sideloadedApps.length} app(s) sensível(is) de fonte desconhecida');
+      list.add('${sideloadedApps.length} apps instalados fora da loja (Sideloading)');
     }
-    
-    // Teclados de Terceiros
     if (thirdPartyKeyboards.isNotEmpty) {
-      warnings.add('${thirdPartyKeyboards.length} teclado(s) de terceiros detectado(s)');
+      list.add('${thirdPartyKeyboards.length} teclados de terceiros detectados');
     }
-    
-    // Permissões de Acessibilidade Abusivas
-    if (accessibilityAbuse.isNotEmpty) {
-      warnings.add('${accessibilityAbuse.length} app(s) com permissão de acessibilidade suspeita');
+    if (accessibilityAbuseApps.isNotEmpty) {
+      list.add('${accessibilityAbuseApps.length} apps com acessibilidade abusiva');
     }
-    
-    return warnings;
+
+    return list;
   }
 
-  /// Pontuação de risco (0-100)
+  /// Pontuação de risco (0-100, onde 100 é o mais seguro)
   int get riskScore {
-    int score = 0;
-    
-    // Ameaças críticas (20 pontos cada)
-    if (isRooted) score += 20;
-    if (isDebugging) score += 20;
-    if (isHooked) score += 20;
-    if (!hasValidIntegrity) score += 20;
-    if (usbDebuggingEnabled) score += 20;
-    if (proxyDetected) score += 20;
-    
-    // Avisos (5-10 pontos cada)
-    if (!hasScreenLock) score += 10;
-    if (!hasUpdatedOS) score += 10;
-    if (hasOldSecurityPatch) score += 5;
-    if (unknownSourcesEnabled) score += 10;
-    if (alwaysLocationAppsCount > 0) score += (alwaysLocationAppsCount * 2).clamp(0, 10);
-    if (showsSensitiveNotifications) score += 5;
-    if (isEmulator) score += 5;
-    if (!(wifiSecurity['isSecure'] as bool? ?? true)) score += 10;
-    if (sideloadedApps.isNotEmpty) score += (sideloadedApps.length * 3).clamp(0, 15);
-    if (thirdPartyKeyboards.isNotEmpty) score += (thirdPartyKeyboards.length * 2).clamp(0, 10);
-    if (accessibilityAbuse.isNotEmpty) score += (accessibilityAbuse.length * 5).clamp(0, 15);
-    
+    int score = 100;
+
+    // Penalidades críticas
+    if (isRooted) score -= 30;
+    if (isDebuggerAttached) score -= 20;
+    if (isHookingDetected) score -= 20;
+    if (isEmulator) score -= 10;
+    if (isAppTampered) score -= 20;
+    if (isOSOutdated) score -= 10;
+    if (isScreenLockDisabled) score -= 10;
+    if (hasUnknownSources) score -= 10;
+    if (alwaysLocationAppsCount > 0) score -= 5;
+    if (hasLockScreenNotifications) score -= 5;
+    if (isSecurityPatchOutdated) score -= 5;
+    if (isUSBDebuggingEnabled) score -= 20;
+    if (isProxyConfigured) score -= 15;
+    if (wifiSecurity['isSecure'] == false) score -= 10;
+    if (sideloadedApps.isNotEmpty) score -= 15;
+    if (thirdPartyKeyboards.isNotEmpty) score -= 10;
+    if (accessibilityAbuseApps.isNotEmpty) score -= 15;
+    if (signatureMismatches.isNotEmpty) score -= 25;
+
     return score.clamp(0, 100);
   }
 
   Map<String, dynamic> toJson() {
     return {
       'isRooted': isRooted,
-      'isDebugging': isDebugging,
-      'isHooked': isHooked,
+      'isDebuggerAttached': isDebuggerAttached,
+      'isHookingDetected': isHookingDetected,
       'isEmulator': isEmulator,
-      'hasValidIntegrity': hasValidIntegrity,
-      'hasUpdatedOS': hasUpdatedOS,
-      'hasScreenLock': hasScreenLock,
-      'unknownSourcesEnabled': unknownSourcesEnabled,
+      'isAppTampered': isAppTampered,
+      'isOSOutdated': isOSOutdated,
+      'isScreenLockDisabled': isScreenLockDisabled,
+      'hasUnknownSources': hasUnknownSources,
       'alwaysLocationAppsCount': alwaysLocationAppsCount,
-      'showsSensitiveNotifications': showsSensitiveNotifications,
-      'hasOldSecurityPatch': hasOldSecurityPatch,
+      'hasLockScreenNotifications': hasLockScreenNotifications,
+      'isSecurityPatchOutdated': isSecurityPatchOutdated,
+      'isUSBDebuggingEnabled': isUSBDebuggingEnabled,
+      'isProxyConfigured': isProxyConfigured,
       'securityLevel': securityLevel.name,
       'threats': threats,
       'warnings': warnings,

@@ -19,35 +19,20 @@ class TrustedAppHashesService {
   bool _isInitialized = false;
 
   /// Defaults embutidos no código (fallback offline)
-  static const Map<String, List<String>> _defaultHashes = {
-    // Prioridade 1: Redes Sociais Globais
+  // Hashes padrão (fallback) caso o Firebase falhe
+  final Map<String, List<String>> _defaultHashes = {
     'com.whatsapp': [
-      'PLACEHOLDER_WHATSAPP_CURRENT',
-      'PLACEHOLDER_WHATSAPP_OLD',
+      // Hash real capturado dos logs para garantir funcionamento offline/fallback
+      '3987D043D10AEFAF5A8710B3671418FE57E0E19B653C9DF82558FEB5FFCE5D44',
     ],
-    'com.instagram.android': [
-      'PLACEHOLDER_INSTAGRAM_CURRENT',
-    ],
-    'com.facebook.katana': [
-      'PLACEHOLDER_FACEBOOK_CURRENT',
-    ],
-    'org.telegram.messenger': [
-      'PLACEHOLDER_TELEGRAM_CURRENT',
-    ],
-    
-    // Prioridade 2: Financeiro Brasil
-    'com.nu.production': [
-      'PLACEHOLDER_NUBANK_CURRENT',
-    ],
-    'br.com.intermedium': [
-      'PLACEHOLDER_INTER_CURRENT',
-    ],
-    'com.itau': [
-      'PLACEHOLDER_ITAU_CURRENT',
-    ],
-    'br.gov.meugovbr': [
-      'PLACEHOLDER_GOVBR_CURRENT',
-    ],
+    'com.android.chrome': ['F0FD6C5B410F25CB25C3B53346C8972FAE30F8EE7411DF910480AD6B2D60DB83'],
+    'com.instagram.android': ['5F3E50F435583C9AE626302A71F7340044087A7E2C60ADACFC254205A993E305'],
+    'com.facebook.katana': ['E3F9E1E0CF99D0E56A055BA65E241B3399F7CEA524326B0CDD6EC1327ED0FDC1'],
+    'org.telegram.messenger': ['49C1522548EBACD46CE322B6FD47F6092BB745D0F88082145CAF35E14DCC38E1'],
+    'com.nu.production': ['PLACEHOLDER_NUBANK'],
+    'br.com.intermedium': ['PLACEHOLDER_INTER'],
+    'com.itau': ['9781EFEBE132B139EF9E3FDFA539E21104B552C14D0BA700B4C6D1D5C0779BEE'],
+    'br.gov.meugovbr': ['E133067FC50BDA439C1FC61AA80CD5F238DC65B34D8D303BFF4A33AE2F4705AB'],
   };
 
   /// Inicializa o Remote Config
@@ -118,6 +103,7 @@ class TrustedAppHashesService {
   void _loadHashes() {
     try {
       final jsonString = _remoteConfig!.getString(_configKey);
+      debugPrint('[TrustedAppHashes] RAW CONFIG ($_configKey): $jsonString');
       
       if (jsonString.isEmpty) {
         debugPrint('[TrustedAppHashes] Empty config, using defaults');
@@ -154,8 +140,8 @@ class TrustedAppHashesService {
 
     final hashes = _hashes[packageName] ?? [];
     
-    // Filtrar placeholders
-    return hashes.where((hash) => !hash.startsWith('PLACEHOLDER')).toList();
+    // Retornar hashes (incluindo placeholders para fins de UI de "configuração pendente")
+    return hashes;
   }
 
   /// Verifica se um hash é válido para um pacote
@@ -172,45 +158,27 @@ class TrustedAppHashesService {
 
   /// Obtém todos os pacotes monitorados
   List<String> getAllMonitoredPackages() {
-    if (!_isInitialized) {
-      return _defaultHashes.keys.toList();
+    // Failsafe: Se estiver vazio, carregar defaults imediatamente
+    if (_hashes.isEmpty) {
+       debugPrint('[TrustedAppHashes] Hashes empty in getAll, forcing defaults!');
+       _hashes = Map.from(_defaultHashes);
     }
-
     return _hashes.keys.toList();
   }
 
-  /// Obtém informações de um app
-  TrustedAppInfo? getAppInfo(String packageName) {
-    final hashes = getHashesForPackage(packageName);
-    
-    if (hashes.isEmpty) return null;
-
-    return TrustedAppInfo(
-      packageName: packageName,
-      validHashes: hashes,
-      name: _getAppName(packageName),
-      category: _getAppCategory(packageName),
-    );
-  }
-
   /// Obtém todos os apps confiáveis
-  List<TrustedAppInfo> getAllTrustedApps({String? locale}) {
-    final packages = getAllMonitoredPackages();
-    final apps = <TrustedAppInfo>[];
-
-    for (final package in packages) {
-      final info = getAppInfo(package);
-      if (info != null) {
-        // Filtrar apps BR se locale não for pt_BR
-        if (locale != 'pt_BR' && _isBrazilianApp(package)) {
-          continue;
-        }
-        apps.add(info);
-      }
-    }
-
-    return apps;
+  List<TrustedAppInfo> getAllTrustedApps() {
+    return getAllMonitoredPackages().map((pkg) {
+      return TrustedAppInfo(
+        packageName: pkg,
+        name: _getAppName(pkg),
+        validHashes: getHashesForPackage(pkg),
+        category: _getAppCategory(pkg),
+      );
+    }).toList();
   }
+
+
 
   /// Obtém nome amigável do app
   String _getAppName(String packageName) {

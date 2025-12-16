@@ -35,6 +35,10 @@ O **MviewerPlus** é a ferramenta definitiva e **100% gratuita** para visualizar
 *   Integre sua **Chave API Groq (Grátis)** para desbloquear a análise inteligente.
 *   Peça resumos, explicações de código ou tire dúvidas sobre o conteúdo de qualquer arquivo.
 
+🛡️ **Antigravity Scanner (Novo!)**
+*   **Auditoria de Segurança:** Verifique a integridade do seu dispositivo com 18 testes avançados (Root, Debugger, Emulator, etc.).
+*   **Validação de Apps:** Confirme se seus apps críticos (WhatsApp, Instagram, Itaú, Gov.br) são autênticos e livres de modificações maliciosas via validação de assinatura SHA-256.
+
 📦 **E muito mais:**
 *   Suporte a arquivos compactados (ZIP).
 *   Busca avançada e substituição de texto.
@@ -73,6 +77,10 @@ View files, videos, audio, and spreadsheets. Analyze with AI and export to PDF.
 🤖 **AI Power Assistant**
 *   Integrate your **Free Groq API Key** to unlock smart analysis.
 *   Ask for summaries, code explanations, or questions about any file's content.
+
+🛡️ **Antigravity Scanner (New!)**
+*   **Security Audit:** Verify your device integrity with 18 advanced security tests (Root check, Debugger detection, etc.).
+*   **App Validation:** Confirm that your critical apps (WhatsApp, Instagram, Banking apps) are authentic and virus-free using SHA-256 signature validation.
 
 📦 **And much more:**
 *   Archive support (ZIP).

@@ -526,6 +526,295 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get reportCopied => 'Report copied';
+
+  @override
+  String get premium => 'Premium';
+
+  @override
+  String get goPremium => 'Seja Premium';
+
+  @override
+  String get restorePurchases => 'Restaurar Compras';
+
+  @override
+  String get premiumDesc => 'Desbloqueie acesso ilimitado e remova anúncios.';
+
+  @override
+  String get securityCheck => 'Security Check';
+
+  @override
+  String get securityCheckDesc => 'Verify device security';
+
+  @override
+  String get refresh => 'Refresh';
+
+  @override
+  String securityCheckError(Object error) {
+    return 'Error checking security: $error';
+  }
+
+  @override
+  String get noResultsAvailable => 'No results available';
+
+  @override
+  String get securityLevel => 'Security Level';
+
+  @override
+  String get riskScore => 'Risk Score';
+
+  @override
+  String get checks => 'Checks';
+
+  @override
+  String get recommendedActions => 'Recommended Actions';
+
+  @override
+  String get criticalThreats => 'Critical Threats';
+
+  @override
+  String get warnings => 'Warnings';
+
+  @override
+  String get safe => 'Safe';
+
+  @override
+  String get critical => 'Critical';
+
+  @override
+  String get warning => 'Warning';
+
+  @override
+  String get checksPerformed => 'Checks Performed';
+
+  @override
+  String get checkRootJailbreak => 'Root/Jailbreak';
+
+  @override
+  String get checkDebugger => 'Debugger';
+
+  @override
+  String get checkHooking => 'Hooking';
+
+  @override
+  String get checkIntegrity => 'App Integrity';
+
+  @override
+  String get checkOSVersion => 'Updated System';
+
+  @override
+  String get checkScreenLock => 'Screen Lock';
+
+  @override
+  String get checkRealDevice => 'Real Device';
+
+  @override
+  String get statusOk => 'OK';
+
+  @override
+  String get statusFailed => 'FAILED';
+
+  @override
+  String get understood => 'Understood';
+
+  @override
+  String get securityLevelSafe => 'Safe';
+
+  @override
+  String get securityLevelWarning => 'Warnings Detected';
+
+  @override
+  String get securityLevelCritical => 'CRITICAL THREATS';
+
+  @override
+  String get securityDescSafe => 'All security checks passed';
+
+  @override
+  String get securityDescWarning => 'Some settings can be improved';
+
+  @override
+  String get securityDescCritical =>
+      'Critical threats detected - Action required';
+
+  @override
+  String get actionRootTitle => 'Root Device Detected';
+
+  @override
+  String get actionRootDesc =>
+      'Your device has superuser privileges (root). This compromises app security.';
+
+  @override
+  String get actionRootRec => 'Remove root or use a non-rooted device.';
+
+  @override
+  String get actionDebuggerTitle => 'Debugger Detected';
+
+  @override
+  String get actionDebuggerDesc =>
+      'A debugger is attached to the application. This may indicate an attempt to analyze or modify the app.';
+
+  @override
+  String get actionDebuggerRec => 'Close all developer tools and restart.';
+
+  @override
+  String get actionHookingTitle => 'Hooking Framework Detected';
+
+  @override
+  String get actionHookingDesc =>
+      'A hooking framework (Frida, Xposed) was detected. This allows modifying app behavior.';
+
+  @override
+  String get actionHookingRec => 'Remove hooking frameworks and restart.';
+
+  @override
+  String get actionIntegrityTitle => 'Compromised App Integrity';
+
+  @override
+  String get actionIntegrityDesc =>
+      'The app signature does not match expected. The app may have been modified.';
+
+  @override
+  String get actionIntegrityRec =>
+      'Reinstall from the official store (Play Store).';
+
+  @override
+  String get actionOSTitle => 'Outdated Operating System';
+
+  @override
+  String get actionOSDesc =>
+      'Your OS is outdated and may contain vulnerabilities.';
+
+  @override
+  String get actionOSRec => 'Update your OS to the latest version.';
+
+  @override
+  String get actionLockTitle => 'No Screen Lock Configured';
+
+  @override
+  String get actionLockDesc =>
+      'Your device has no screen lock. This facilitates unauthorized access.';
+
+  @override
+  String get actionLockRec => 'Set up a PIN, password, or pattern in settings.';
+
+  @override
+  String get actionEmulatorTitle => 'Running on Emulator';
+
+  @override
+  String get actionEmulatorDesc =>
+      'The app is running on an emulator. Some features may be limited.';
+
+  @override
+  String get actionEmulatorRec =>
+      'Use a physical device for better experience.';
+
+  @override
+  String get actionUnknownSourcesTitle => 'Unknown Sources Enabled';
+
+  @override
+  String get actionUnknownSourcesDesc =>
+      'Your device allows installing apps from unknown sources. This facilitates malware installation.';
+
+  @override
+  String get actionUnknownSourcesRec =>
+      'Disable \'Install unknown apps\' in security settings.';
+
+  @override
+  String get actionLocationTitle => 'Apps with \'Always\' Location';
+
+  @override
+  String actionLocationDesc(Object count) {
+    return '$count app(s) have background location permission. This poses a privacy risk.';
+  }
+
+  @override
+  String get actionLocationRec => 'Review location permissions.';
+
+  @override
+  String get actionNotifTitle => 'Sensitive Notifications on Lock Screen';
+
+  @override
+  String get actionNotifDesc =>
+      'Sensitive notification previews (codes, messages) are visible on lock screen.';
+
+  @override
+  String get actionNotifRec =>
+      'Hide sensitive content on lock screen notifications.';
+
+  @override
+  String get actionPatchTitle => 'Outdated Security Patch';
+
+  @override
+  String get actionPatchDesc =>
+      'Security patch is older than 60 days. Known vulnerabilities may not be patched.';
+
+  @override
+  String get actionPatchRec => 'Check for system updates.';
+
+  @override
+  String get action2FATitle => 'Enable Two-Factor Authentication (2FA)';
+
+  @override
+  String get action2FADesc =>
+      '2FA adds an extra layer of security to your critical accounts (Google/Apple ID).';
+
+  @override
+  String get action2FARec => 'Enable 2FA in your account security settings.';
+
+  @override
+  String get expAppSignaturesTitle => 'App Monitoring';
+
+  @override
+  String get expAppSignaturesDesc =>
+      'Checks if sensitive apps (like banking and social media apps) are original and have not been modified by hackers.\n\n⚠️ Why is it critical?\n• Fake apps can steal your banking credentials\n• Can clone your WhatsApp\n• Can intercept 2FA codes\n\n✅ What does it mean?\nIf failed: An installed app is not the original from the official store (Play Store) and may be dangerous.';
+
+  @override
+  String get expRootTitle => 'Root/Jailbreak';
+
+  @override
+  String get expRootDesc =>
+      'Root (Android) or Jailbreak (iOS) is when someone modifies the system to gain full access.\n\n⚠️ Why is it dangerous?\n• Malicious apps can steal your passwords\n• Your banking data becomes vulnerable\n• Banking apps might not work\n\n✅ What to do?\nIf you didn\'t do this on purpose, your device may be compromised. Consider factory resetting it.';
+
+  @override
+  String get expDebuggerTitle => 'Debugger Detected';
+
+  @override
+  String get expDebuggerDesc =>
+      'A debugger is a tool used by programmers to analyze apps.\n\n⚠️ Why is it dangerous?\n• Hackers can use it to spy on the app\n• Can discover passwords and sensitive data\n• Can modify app behavior\n\n✅ What to do?\nIf you are not a developer, you shouldn\'t have an active debugger. Close developer instruments or restart the phone.';
+
+  @override
+  String get expHookingTitle => 'Hooking Framework';
+
+  @override
+  String get expHookingDesc =>
+      'Hooking is when a malicious program intercepts and modifies how apps work.\n\n⚠️ Why is it dangerous?\n• Can steal your passwords as you type\n• Can modify banking transactions\n• Can read private messages\n\n✅ What to do?\nUninstall suspicious apps, especially \'optimizers\' or \'boosters\' you don\'t recognize.';
+
+  @override
+  String get expIntegrityTitle => 'App Integrity';
+
+  @override
+  String get expIntegrityDesc =>
+      'Checks if this app has been modified after installation.\n\n⚠️ Why is it important?\n• Modified apps may contain viruses\n• Can steal your data\n• Might not work correctly\n\n✅ What does it mean?\nIf passed: The app is original and safe\nIf failed: The app may have been tampered with';
+
+  @override
+  String get expOSTitle => 'System Updated';
+
+  @override
+  String get expOSDesc =>
+      'Checks if your Android/iOS is up to date.\n\n⚠️ Why is it important?\n• Old systems have known security flaws\n• Hackers exploit these flaws\n• You are vulnerable to viruses\n\n✅ What to do?\nGo to Settings → System Update and install available updates.';
+
+  @override
+  String get expLockTitle => 'Screen Lock';
+
+  @override
+  String get expLockDesc =>
+      'Checks if you have a password, PIN, pattern, or biometrics set up.\n\n⚠️ Why is it important?\n• Anyone can take your unlocked phone\n• Can access your apps, photos, and messages\n• Can make purchases or transfers\n\n✅ What to do?\nSet up a strong password or use your fingerprint/face ID in Settings → Security.';
+
+  @override
+  String get expEmulatorTitle => 'Real Device';
+
+  @override
+  String get expEmulatorDesc =>
+      'Checks if you are using a real phone or an emulator (virtual phone on computer).\n\n⚠️ Why is it important?\n• Emulators are used by hackers to test attacks\n• Banking apps don\'t work on emulators\n• May indicate fraud attempt\n\n✅ What does it mean?\nIf you are on a real phone, you should pass this check.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1050,6 +1339,295 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get reportCopied => 'Relatório copiado';
+
+  @override
+  String get securityCheck => 'Verificação de Segurança';
+
+  @override
+  String get securityCheckDesc => 'Verificar segurança do dispositivo';
+
+  @override
+  String get refresh => 'Atualizar';
+
+  @override
+  String securityCheckError(Object error) {
+    return 'Erro ao verificar segurança: $error';
+  }
+
+  @override
+  String get noResultsAvailable => 'Nenhum resultado disponível';
+
+  @override
+  String get securityLevel => 'Nível de Segurança';
+
+  @override
+  String get riskScore => 'Pontuação de Risco';
+
+  @override
+  String get checks => 'Verificações';
+
+  @override
+  String get recommendedActions => 'Ações Recomendadas';
+
+  @override
+  String get criticalThreats => 'Ameaças Críticas';
+
+  @override
+  String get warnings => 'Avisos';
+
+  @override
+  String get safe => 'Seguro';
+
+  @override
+  String get critical => 'Crítico';
+
+  @override
+  String get warning => 'Aviso';
+
+  @override
+  String get checksPerformed => 'Verificações Realizadas';
+
+  @override
+  String get checkRootJailbreak => 'Root/Jailbreak';
+
+  @override
+  String get checkDebugger => 'Debugger';
+
+  @override
+  String get checkHooking => 'Hooking';
+
+  @override
+  String get checkIntegrity => 'Integridade do App';
+
+  @override
+  String get checkOSVersion => 'Sistema Atualizado';
+
+  @override
+  String get checkScreenLock => 'Bloqueio de Tela';
+
+  @override
+  String get checkRealDevice => 'Dispositivo Real';
+
+  @override
+  String get statusOk => 'OK';
+
+  @override
+  String get statusFailed => 'FALHOU';
+
+  @override
+  String get understood => 'Entendi';
+
+  @override
+  String get securityLevelSafe => 'Seguro';
+
+  @override
+  String get securityLevelWarning => 'Avisos Detectados';
+
+  @override
+  String get securityLevelCritical => 'AMEAÇAS CRÍTICAS';
+
+  @override
+  String get securityDescSafe => 'Todas as verificações de segurança passaram';
+
+  @override
+  String get securityDescWarning =>
+      'Algumas configurações podem ser melhoradas';
+
+  @override
+  String get securityDescCritical =>
+      'Ameaças críticas detectadas - Ação necessária';
+
+  @override
+  String get actionRootTitle => 'Dispositivo com Root Detectado';
+
+  @override
+  String get actionRootDesc =>
+      'Seu dispositivo está com privilégios de superusuário (root). Isso compromete a segurança do aplicativo.';
+
+  @override
+  String get actionRootRec =>
+      'Remova o root do dispositivo ou use um dispositivo sem root.';
+
+  @override
+  String get actionDebuggerTitle => 'Debugger Detectado';
+
+  @override
+  String get actionDebuggerDesc =>
+      'Um debugger está anexado ao aplicativo. Isso pode indicar tentativa de análise ou modificação do app.';
+
+  @override
+  String get actionDebuggerRec =>
+      'Feche todas as ferramentas de desenvolvimento e reinicie o app.';
+
+  @override
+  String get actionHookingTitle => 'Framework de Hooking Detectado';
+
+  @override
+  String get actionHookingDesc =>
+      'Foi detectado um framework de hooking (Frida, Xposed, etc.). Isso pode permitir modificação do comportamento do app.';
+
+  @override
+  String get actionHookingRec =>
+      'Remova frameworks de hooking e reinicie o dispositivo.';
+
+  @override
+  String get actionIntegrityTitle => 'Integridade do App Comprometida';
+
+  @override
+  String get actionIntegrityDesc =>
+      'A assinatura do aplicativo não corresponde à esperada. O app pode ter sido modificado.';
+
+  @override
+  String get actionIntegrityRec =>
+      'Reinstale o app da loja oficial (Google Play/App Store).';
+
+  @override
+  String get actionOSTitle => 'Sistema Operacional Desatualizado';
+
+  @override
+  String get actionOSDesc =>
+      'Seu sistema operacional está desatualizado e pode conter vulnerabilidades de segurança.';
+
+  @override
+  String get actionOSRec =>
+      'Atualize seu sistema operacional para a versão mais recente.';
+
+  @override
+  String get actionLockTitle => 'Bloqueio de Tela Não Configurado';
+
+  @override
+  String get actionLockDesc =>
+      'Seu dispositivo não possui bloqueio de tela configurado. Isso facilita acesso não autorizado.';
+
+  @override
+  String get actionLockRec =>
+      'Configure um PIN, senha, padrão ou biometria nas configurações.';
+
+  @override
+  String get actionEmulatorTitle => 'Executando em Emulador';
+
+  @override
+  String get actionEmulatorDesc =>
+      'O app está rodando em um emulador. Algumas funcionalidades podem estar limitadas.';
+
+  @override
+  String get actionEmulatorRec =>
+      'Use um dispositivo físico para melhor experiência.';
+
+  @override
+  String get actionUnknownSourcesTitle =>
+      'Instalação de Fontes Desconhecidas Habilitada';
+
+  @override
+  String get actionUnknownSourcesDesc =>
+      'Seu dispositivo permite instalação de apps de fontes desconhecidas. Isso facilita a instalação de malware e spyware.';
+
+  @override
+  String get actionUnknownSourcesRec =>
+      'Desabilite \'Instalar apps de fontes desconhecidas\' nas configurações de segurança.';
+
+  @override
+  String get actionLocationTitle =>
+      'Apps com Localização \'Sempre\' Detectados';
+
+  @override
+  String actionLocationDesc(Object count) {
+    return '$count app(s) têm permissão de rastreamento de localização em segundo plano. Isso representa risco de privacidade.';
+  }
+
+  @override
+  String get actionLocationRec =>
+      'Revise as permissões de localização e mude para \'Apenas durante o uso\' quando possível.';
+
+  @override
+  String get actionNotifTitle =>
+      'Notificações Sensíveis Visíveis na Tela de Bloqueio';
+
+  @override
+  String get actionNotifDesc =>
+      'Prévias de notificações (mensagens, códigos 2FA) são exibidas na tela de bloqueio. Isso pode permitir interceptação de dados sensíveis.';
+
+  @override
+  String get actionNotifRec =>
+      'Configure para ocultar conteúdo sensível nas notificações da tela de bloqueio.';
+
+  @override
+  String get actionPatchTitle => 'Patch de Segurança Desatualizado';
+
+  @override
+  String get actionPatchDesc =>
+      'O patch de segurança do seu dispositivo tem mais de 60 dias. Vulnerabilidades conhecidas podem não estar corrigidas.';
+
+  @override
+  String get actionPatchRec =>
+      'Verifique por atualizações do sistema nas configurações.';
+
+  @override
+  String get action2FATitle => 'Ative a Autenticação de Dois Fatores (2FA)';
+
+  @override
+  String get action2FADesc =>
+      'A autenticação de dois fatores adiciona uma camada extra de segurança às suas contas críticas (Google/Apple ID).';
+
+  @override
+  String get action2FARec =>
+      'Ative o 2FA nas configurações de segurança da sua conta.';
+
+  @override
+  String get expAppSignaturesTitle => 'Monitoramento de Apps';
+
+  @override
+  String get expAppSignaturesDesc =>
+      'Verifica se aplicativos sensíveis (como apps de banco e redes sociais) são originais e não foram modificados por hackers.\n\n⚠️ Por que é crítico?\n• Apps falsos podem roubar suas credenciais bancárias\n• Podem clonar seu WhatsApp\n• Podem interceptar códigos 2FA\n\n✅ O que significa?\nSe falhou: Algum app instalado no seu celular não é o original da loja oficial (Play Store) e pode ser perigoso.';
+
+  @override
+  String get expRootTitle => 'Root/Jailbreak';
+
+  @override
+  String get expRootDesc =>
+      'Root (Android) ou Jailbreak (iOS) é quando alguém modifica o sistema do celular para ter acesso total.\n\n⚠️ Por que é perigoso?\n• Apps maliciosos podem roubar suas senhas\n• Seus dados bancários ficam vulneráveis\n• Apps de banco podem não funcionar\n\n✅ O que fazer?\nSe você não fez isso de propósito, seu celular pode estar comprometido. Considere restaurá-lo às configurações de fábrica.';
+
+  @override
+  String get expDebuggerTitle => 'Debugger (Depurador)';
+
+  @override
+  String get expDebuggerDesc =>
+      'Um debugger é uma ferramenta usada por programadores para analisar apps.\n\n⚠️ Por que é perigoso?\n• Hackers podem usar para espionar o app\n• Podem descobrir senhas e dados sensíveis\n• Podem modificar o comportamento do app\n\n✅ O que fazer?\nSe você não é desenvolvedor, não deveria ter um debugger ativo. Feche apps de desenvolvimento ou reinicie o celular.';
+
+  @override
+  String get expHookingTitle => 'Hooking (Interceptação)';
+
+  @override
+  String get expHookingDesc =>
+      'Hooking é quando um programa malicioso intercepta e modifica o funcionamento de apps.\n\n⚠️ Por que é perigoso?\n• Pode roubar suas senhas enquanto você digita\n• Pode modificar transações bancárias\n• Pode ler mensagens privadas\n\n✅ O que fazer?\nDesinstale apps suspeitos, especialmente \"otimizadores\" ou \"aceleradores\" que você não conhece.';
+
+  @override
+  String get expIntegrityTitle => 'Integridade do App';
+
+  @override
+  String get expIntegrityDesc =>
+      'Verifica se este app foi modificado após ser instalado.\n\n⚠️ Por que é importante?\n• Apps modificados podem conter vírus\n• Podem roubar seus dados\n• Podem não funcionar corretamente\n\n✅ O que significa?\nSe passou: O app está original e seguro\nSe falhou: O app pode ter sido adulterado';
+
+  @override
+  String get expOSTitle => 'Sistema Atualizado';
+
+  @override
+  String get expOSDesc =>
+      'Verifica se seu Android/iOS está atualizado.\n\n⚠️ Por que é importante?\n• Sistemas antigos têm falhas de segurança conhecidas\n• Hackers exploram essas falhas\n• Você fica vulnerável a vírus\n\n✅ O que fazer?\nVá em Configurações → Atualização do Sistema e instale as atualizações disponíveis.';
+
+  @override
+  String get expLockTitle => 'Bloqueio de Tela';
+
+  @override
+  String get expLockDesc =>
+      'Verifica se você tem senha, PIN, padrão ou biometria configurados.\n\n⚠️ Por que é importante?\n• Qualquer pessoa pode pegar seu celular desbloqueado\n• Podem acessar seus apps, fotos e mensagens\n• Podem fazer compras ou transferências\n\n✅ O que fazer?\nConfigure uma senha forte ou use sua digital/face em Configurações → Segurança.';
+
+  @override
+  String get expEmulatorTitle => 'Dispositivo Real';
+
+  @override
+  String get expEmulatorDesc =>
+      'Verifica se você está usando um celular real ou um emulador (celular virtual no computador).\n\n⚠️ Por que é importante?\n• Emuladores são usados por hackers para testar ataques\n• Apps bancários não funcionam em emuladores\n• Pode indicar tentativa de fraude\n\n✅ O que significa?\nSe você está em um celular real, deve passar nesta verificação.';
 }
 
 /// The translations for Portuguese, as used in Portugal (`pt_PT`).
@@ -1337,4 +1915,258 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
   @override
   String get formatsContent =>
       '• Texto: .txt, .md, .log, .rtf\n• Dados: .csv, .json, .xml, .xlsx, .xls\n• Código: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Imagens: .png, .jpg, .gif\n• Multimídia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Outros: .zip, .apk';
+
+  @override
+  String get securityCheck => 'Verificação de Segurança';
+
+  @override
+  String get refresh => 'Atualizar';
+
+  @override
+  String get noResultsAvailable => 'Nenhum resultado disponível.';
+
+  @override
+  String get checksPerformed => 'Verificações Realizadas';
+
+  @override
+  String get checkRootJailbreak => 'Root/Jailbreak';
+
+  @override
+  String get checkDebugger => 'Debugger';
+
+  @override
+  String get checkHooking => 'Hooking';
+
+  @override
+  String get checkIntegrity => 'Integridade da App';
+
+  @override
+  String get checkOSVersion => 'Sistema Atualizado';
+
+  @override
+  String get checkScreenLock => 'Bloqueio de Ecrã';
+
+  @override
+  String get checkRealDevice => 'Dispositivo Real';
+
+  @override
+  String get statusOk => 'OK';
+
+  @override
+  String get statusFailed => 'FALHOU';
+
+  @override
+  String get understood => 'Entendi';
+
+  @override
+  String get securityLevelSafe => 'Seguro';
+
+  @override
+  String get securityLevelWarning => 'Avisos Detectados';
+
+  @override
+  String get securityLevelCritical => 'AMEAÇAS CRÍTICAS';
+
+  @override
+  String get securityDescSafe => 'Todas as verificações de segurança passaram';
+
+  @override
+  String get securityDescWarning =>
+      'Algumas configurações podem ser melhoradas';
+
+  @override
+  String get securityDescCritical =>
+      'Ameaças críticas detectadas - Ação necessária';
+
+  @override
+  String get actionRootTitle => 'Dispositivo com Root Detectado';
+
+  @override
+  String get actionRootDesc =>
+      'O seu dispositivo tem privilégios de superutilizador (root). Isto compromete a segurança da aplicação.';
+
+  @override
+  String get actionRootRec =>
+      'Remova o root do dispositivo ou use um dispositivo sem root.';
+
+  @override
+  String get actionDebuggerTitle => 'Debugger Detectado';
+
+  @override
+  String get actionDebuggerDesc =>
+      'Um debugger está anexado à aplicação. Isto pode indicar tentativa de análise ou modificação da app.';
+
+  @override
+  String get actionDebuggerRec =>
+      'Feche todas as ferramentas de desenvolvimento e reinicie a app.';
+
+  @override
+  String get actionHookingTitle => 'Framework de Hooking Detectado';
+
+  @override
+  String get actionHookingDesc =>
+      'Foi detectado um framework de hooking (Frida, Xposed, etc.). Isto pode permitir modificação do comportamento da app.';
+
+  @override
+  String get actionHookingRec =>
+      'Remova frameworks de hooking e reinicie o dispositivo.';
+
+  @override
+  String get actionIntegrityTitle => 'Integridade da App Comprometida';
+
+  @override
+  String get actionIntegrityDesc =>
+      'A assinatura da aplicação não corresponde à esperada. A app pode ter sido modificada.';
+
+  @override
+  String get actionIntegrityRec =>
+      'Reinstale a app da loja oficial (Google Play/App Store).';
+
+  @override
+  String get actionOSTitle => 'Sistema Operativo Desatualizado';
+
+  @override
+  String get actionOSDesc =>
+      'O seu sistema operativo está desatualizado e pode conter vulnerabilidades de segurança.';
+
+  @override
+  String get actionOSRec =>
+      'Atualize o seu sistema operativo para a versão mais recente.';
+
+  @override
+  String get actionLockTitle => 'Bloqueio de Ecrã Não Configurado';
+
+  @override
+  String get actionLockDesc =>
+      'O seu dispositivo não possui bloqueio de ecrã configurado. Isto facilita o acesso não autorizado.';
+
+  @override
+  String get actionLockRec =>
+      'Configure um PIN, palavra-passe, padrão ou biometria nas definições.';
+
+  @override
+  String get actionEmulatorTitle => 'A Executar em Emulador';
+
+  @override
+  String get actionEmulatorDesc =>
+      'A app está a correr num emulador. Algumas funcionalidades podem estar limitadas.';
+
+  @override
+  String get actionEmulatorRec =>
+      'Use um dispositivo físico para melhor experiência.';
+
+  @override
+  String get actionUnknownSourcesTitle =>
+      'Instalação de Fontes Desconhecidas Ativada';
+
+  @override
+  String get actionUnknownSourcesDesc =>
+      'O seu dispositivo permite instalação de apps de fontes desconhecidas. Isto facilita a instalação de malware.';
+
+  @override
+  String get actionUnknownSourcesRec =>
+      'Desative \'Instalar apps de fontes desconhecidas\' nas definições de segurança.';
+
+  @override
+  String get actionLocationTitle =>
+      'Apps com Localização \'Sempre\' Detectados';
+
+  @override
+  String actionLocationDesc(Object count) {
+    return '$count app(s) têm permissão de rastreio de localização em segundo plano. Isto representa risco de privacidade.';
+  }
+
+  @override
+  String get actionLocationRec =>
+      'Reveja as permissões de localização e mude para \'Apenas durante o uso\' quando possível.';
+
+  @override
+  String get actionNotifTitle =>
+      'Notificações Sensíveis Visíveis no Ecrã de Bloqueio';
+
+  @override
+  String get actionNotifDesc =>
+      'Pré-visualizações de notificações (mensagens, códigos 2FA) são exibidas no ecrã de bloqueio. Isto pode permitir interceção de dados sensíveis.';
+
+  @override
+  String get actionNotifRec =>
+      'Configure para ocultar conteúdo sensível nas notificações do ecrã de bloqueio.';
+
+  @override
+  String get actionPatchTitle => 'Patch de Segurança Desatualizado';
+
+  @override
+  String get actionPatchDesc =>
+      'O patch de segurança do seu dispositivo tem mais de 60 dias.';
+
+  @override
+  String get actionPatchRec =>
+      'Verifique por atualizações do sistema nas definições.';
+
+  @override
+  String get action2FATitle => 'Ative a Autenticação de Dois Fatores (2FA)';
+
+  @override
+  String get action2FADesc =>
+      'A autenticação de dois fatores adiciona uma camada extra de segurança às suas contas críticas.';
+
+  @override
+  String get action2FARec =>
+      'Ative o 2FA nas definições de segurança da sua conta.';
+
+  @override
+  String get expAppSignaturesTitle => 'Monitorização de Apps';
+
+  @override
+  String get expAppSignaturesDesc =>
+      'Verifica se aplicativos sensíveis são originais.\n\n⚠️ Por que é crítico?\n• Apps falsas podem roubar credenciais\n\n✅ O que significa?\nSe falhou: Alguma app pode ser perigosa.';
+
+  @override
+  String get expRootTitle => 'Root/Jailbreak';
+
+  @override
+  String get expRootDesc =>
+      'Root ou Jailbreak é quando modificam o sistema do telemóvel para ter acesso total.\n\n⚠️ Por que é perigoso?\n• Dados bancários vulneráveis\n\n✅ O que fazer?\nConsidere restaurar as configurações de fábrica.';
+
+  @override
+  String get expDebuggerTitle => 'Debugger (Depurador)';
+
+  @override
+  String get expDebuggerDesc =>
+      'Ferramenta para analisar apps.\n\n⚠️ Perigo?\n• Espionagem de dados\n\n✅ Ação?\nReinicie o telemóvel se não for programador.';
+
+  @override
+  String get expHookingTitle => 'Hooking';
+
+  @override
+  String get expHookingDesc =>
+      'Modificação de apps em tempo real.\n\n⚠️ Perigo?\n• Roubo de dados\n\n✅ Ação?\nDesinstale apps suspeitas.';
+
+  @override
+  String get expIntegrityTitle => 'Integridade da App';
+
+  @override
+  String get expIntegrityDesc =>
+      'Verifica se esta app foi modificada.\n\n⚠️ Importante:\n• Apps alteradas podem ter vírus\n\n✅ Significado:\nPassou = App original.';
+
+  @override
+  String get expOSTitle => 'Sistema Atualizado';
+
+  @override
+  String get expOSDesc =>
+      'Verifica atualizações do sistema.\n\n⚠️ Importante:\n• Sistemas antigos têm falhas\n\n✅ Ação:\nAtualize o sistema.';
+
+  @override
+  String get expLockTitle => 'Bloqueio de Ecrã';
+
+  @override
+  String get expLockDesc =>
+      'Verifica se tem senha ou biometria.\n\n⚠️ Importante:\n• Impede acesso físico não autorizado\n\n✅ Ação:\nConfigure uma senha forte.';
+
+  @override
+  String get expEmulatorTitle => 'Dispositivo Real';
+
+  @override
+  String get expEmulatorDesc =>
+      'Verifica se é um telemóvel real ou virtual.\n\n✅ Significado:\nDeve usar um telemóvel real.';
 }
