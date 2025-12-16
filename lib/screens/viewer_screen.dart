@@ -213,6 +213,21 @@ class _ViewerScreenState extends State<ViewerScreen> {
         return;
       }
 
+      // Special handling for Certificates
+      if (_fileType == FileType.certificate) {
+        if (['p12', 'pfx', 'der'].contains(_extension)) {
+           // Binary formats - don't read as string
+           if (mounted) {
+             setState(() {
+               _content = 'Este arquivo de certificado (${_extension}) é binário.\nVisualização de conteúdo bruto não suportada para este formato.';
+               _isLoading = false;
+             });
+           }
+           return;
+        }
+        // For text-based (pem, crt, cer), fall through to default readFileContent
+      }
+
       final content = await FileUtils.readFileContent(widget.file);
       
       if (_fileType == FileType.table) {
@@ -564,7 +579,7 @@ class _ViewerScreenState extends State<ViewerScreen> {
             IconButton(
               icon: const Icon(Icons.edit),
               onPressed: () {
-                if (['xlsx', 'xls', 'doc', 'zip', 'pdf'].contains(_extension) || _fileType == FileType.image || _fileType == FileType.audio || _fileType == FileType.video) {
+                if (['xlsx', 'xls', 'doc', 'zip', 'pdf'].contains(_extension) || _fileType == FileType.image || _fileType == FileType.audio || _fileType == FileType.video || _fileType == FileType.certificate) {
                    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(AppLocalizations.of(context)!.readOnlyFormat)),
                    );

@@ -190,6 +190,15 @@ class FileUtils {
       case 'txt':
         return FileType.text;
       
+      // Certificates
+      case 'crt':
+      case 'cer':
+      case 'pem':
+      case 'der':
+      case 'p12':
+      case 'pfx':
+        return FileType.certificate;
+
       default:
         return FileType.text;
     }
@@ -379,4 +388,5 @@ enum FileType {
   pdf,
   audio,
   video,
+  certificate,
 }

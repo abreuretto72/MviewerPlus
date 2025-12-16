@@ -10,8 +10,16 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:file_viewer/services/app_signature_validator.dart';
 
+import 'package:flutter/services.dart'; // Importante para SystemChrome
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Bloquear orientação na vertical (Portrait)
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   
   // Carregar variáveis de ambiente
   await dotenv.load(fileName: ".env");

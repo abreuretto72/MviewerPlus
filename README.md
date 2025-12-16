@@ -10,6 +10,7 @@
 
 ### 📁 Visualizador de Arquivos
 - Suporte para múltiplos formatos (PDF, DOCX, XLSX, CSV, TXT, Markdown, etc.)
+- **Certificados Digitais** (.crt, .cer, .pem, .der, .p12, .pfx) - *Visualização Segura*
 - Visualização de imagens, áudio e vídeo
 - Navegador web integrado
 - Modo escuro/claro

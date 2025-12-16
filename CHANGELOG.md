@@ -7,6 +7,19 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ---
 
+## [7.0.1] - 2025-12-16
+### Added
+- **Certificate Support**: Suporte leitura de arquivos de certificado (`.crt`, `.cer`, `.pem`, `.der`, `.p12`, `.pfx`).
+  - Visualização de texto para formatos PEM/CRT.
+  - Identificação de formatos binários (DER/P12).
+  - Proteção "Somente Leitura" para preservar integridade.
+
+### Changed
+- **UI Tweaks**: Ícone de "Configurações" removido do cabeçalho da tela principal (já disponível no menu lateral) para uma interface mais limpa.
+- **Build System**: Ajustes na configuração de build Android para geração de APK Release.
+
+---
+
 ## [7.0.0] - 2025-12-15
 
 ### 🎉 Major Release - Antigravity Scanner
