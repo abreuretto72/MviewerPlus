@@ -11,13 +11,17 @@ class LocaleProvider with ChangeNotifier {
   }
 
   void _loadLocale() async {
-    final prefs = await SharedPreferences.getInstance();
-    final String? languageCode = prefs.getString('languageCode');
-    final String? countryCode = prefs.getString('countryCode');
-    
-    if (languageCode != null) {
-      _locale = Locale(languageCode, countryCode);
-      notifyListeners();
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final String? languageCode = prefs.getString('languageCode');
+      final String? countryCode = prefs.getString('countryCode');
+      
+      if (languageCode != null) {
+        _locale = Locale(languageCode, countryCode);
+        notifyListeners();
+      }
+    } catch (e) {
+      debugPrint('Error loading locale: $e');
     }
   }
 
@@ -25,20 +29,28 @@ class LocaleProvider with ChangeNotifier {
     _locale = locale;
     notifyListeners();
     
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('languageCode', locale.languageCode);
-    if (locale.countryCode != null) {
-      await prefs.setString('countryCode', locale.countryCode!);
-    } else {
-      await prefs.remove('countryCode');
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('languageCode', locale.languageCode);
+      if (locale.countryCode != null) {
+        await prefs.setString('countryCode', locale.countryCode!);
+      } else {
+        await prefs.remove('countryCode');
+      }
+    } catch (e) {
+      debugPrint('Error saving locale: $e');
     }
   }
 
   void clearLocale() async {
     _locale = null;
     notifyListeners();
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('languageCode');
-    await prefs.remove('countryCode');
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('languageCode');
+      await prefs.remove('countryCode');
+    } catch (e) {
+      debugPrint('Error clearing locale: $e');
+    }
   }
 }

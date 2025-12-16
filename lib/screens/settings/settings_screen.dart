@@ -186,8 +186,16 @@ class SettingsScreen extends StatelessWidget {
 
   void _showApiKeyDialog(BuildContext context) async {
     final t = AppLocalizations.of(context)!;
-    final prefs = await SharedPreferences.getInstance();
-    final currentKey = prefs.getString('custom_groq_api_key') ?? '';
+    SharedPreferences? prefs;
+    String currentKey = '';
+    
+    try {
+      prefs = await SharedPreferences.getInstance();
+      currentKey = prefs.getString('custom_groq_api_key') ?? '';
+    } catch (e) {
+      debugPrint('Error accessing shared preferences: $e');
+    }
+    
     final controller = TextEditingController(text: currentKey);
 
     if (!context.mounted) return;
@@ -245,7 +253,12 @@ class SettingsScreen extends StatelessWidget {
           ),
           FilledButton(
             onPressed: () async {
-              await prefs.setString('custom_groq_api_key', controller.text.trim());
+              try {
+                 if (prefs == null) prefs = await SharedPreferences.getInstance();
+                 await prefs!.setString('custom_groq_api_key', controller.text.trim());
+              } catch (e) {
+                debugPrint('Error saving API key: $e');
+              }
               if (context.mounted) Navigator.pop(context);
             },
             child: Text(t.save),

@@ -265,30 +265,30 @@ class AppLocalizationsPt extends AppLocalizations {
   String get loadingTitle => 'Carregando...';
 
   @override
-  String get help => 'Help';
+  String get help => 'Ajuda';
 
   @override
-  String get helpTitle => 'Help Guide';
+  String get helpTitle => 'Guia de Ajuda do MviewerPlus';
 
   @override
-  String get featuresSection => 'Key Features';
+  String get featuresSection => 'Funcionalidades Principais';
 
   @override
   String get featuresContent =>
-      '• Quick View: Open large files instantly.\n• Edit & Search: Edit text, find and replace terms.\n• Export & Share: Generate PDFs, print, and share your files.\n• Smart Tables: View CSV and Excel with filters and sorting.\n• Code Editor: Syntax highlighting for 30+ languages.\n• AI Analysis: Enter your Groq API Key to let AI analyze file content.\n• ZIP Archives: Explore compressed file contents.';
+      '• Visualização Rápida: Abra arquivos grandes instantaneamente com performance nativa.\n• Edição e Busca: Edite textos, código e dados. Use \'Localizar e Substituir\' avançado.\n• Tabelas Inteligentes: Visualize CSVs e Excel como planilhas interativas com ordenação e filtros.\n• Editor de Código: Sintaxe colorida para mais de 30 linguagens (Dart, JS, Python, SQL...).\n• Checagem de Segurança: Verifique integridade do app, root, debuggers e assinaturas digitais.\n• Análise com IA: Conecte sua chave Groq para \'conversar\' com seus documentos.\n• Arquivos ZIP: Navegue dentro de arquivos compactados como se fossem pastas.\n• Multimídia: Player nativo para áudio e vídeo.';
 
   @override
-  String get formatsSection => 'Supported Formats';
+  String get formatsSection => 'Formatos Suportados';
 
   @override
-  String get exit => 'Exit';
+  String get exit => 'Sair';
 
   @override
-  String get exitConfirm => 'Do you want to close the app?';
+  String get exitConfirm => 'Deseja fechar o aplicativo?';
 
   @override
   String get formatsContent =>
-      '• Text: .txt, .md, .log, .rtf\n• Data: .csv, .json, .xml, .xlsx, .xls\n• Code: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Images: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Other: .zip, .apk';
+      '• Texto: .txt, .md, .log, .rtf, .json, .xml, .yaml\n• Dados: .csv, .tsv, .xlsx, .xls, .sql, .db (sqlite)\n• Código: .bat, .c, .cpp, .cs, .css, .dart, .go, .html, .java, .js, .kt, .lua, .php, .py, .rb, .sh, .swift, .ts\n• Documentos: .pdf, .docx (texto)\n• Multimídia: .mp3, .wav, .aac, .mp4, .avi, .mov, .mkv\n• Imagens: .png, .jpg, .jpeg, .gif, .bmp, .webp, .svg\n• Certificados: .cer, .pem, .crt, .der, .p12, .pfx\n• Outros: .zip, .apk';
 
   @override
   String get cookieInspector => 'Cookie Inspector';
@@ -1110,27 +1110,21 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get help => 'Ajuda';
 
   @override
-  String get helpTitle => 'Guia de Ajuda';
+  String get helpTitle => 'Guia de Ajuda do MviewerPlus';
 
   @override
   String get featuresSection => 'Funcionalidades Principais';
 
   @override
   String get featuresContent =>
-      '• Visualização Rápida: Abra arquivos grandes instantaneamente.\n• Edição e Busca: Edite o texto, localize e substitua termos.\n• Exportação: Gere PDFs, imprima e compartilhe seus arquivos.\n• Tabelas Inteligentes: Visualize CSV e Excel com filtros e ordenação.\n• Editor de Código: Sintaxe colorida para mais de 30 linguagens.\n• Análise com IA: Insira sua Chave API Groq para permitir que a IA analise o conteúdo dos arquivos.\n• Arquivos ZIP: Explore o conteúdo de arquivos compactados.';
+      '• Visualização Rápida: Abra arquivos grandes instantaneamente com performance nativa.\n• Edição e Busca: Edite textos, código e dados. Use \'Localizar e Substituir\' avançado.\n• Tabelas Inteligentes: Visualize CSVs e Excel como planilhas interativas com ordenação e filtros.\n• Editor de Código: Sintaxe colorida para mais de 30 linguagens (Dart, JS, Python, SQL...).\n• Checagem de Segurança: Verifique integridade do app, root, debuggers e assinaturas digitais.\n• Análise com IA: Conecte sua chave Groq para \'conversar\' com seus documentos.\n• Arquivos ZIP: Navegue dentro de arquivos compactados como se fossem pastas.\n• Multimídia: Player nativo para áudio e vídeo.';
 
   @override
   String get formatsSection => 'Formatos Suportados';
 
   @override
-  String get exit => 'Sair';
-
-  @override
-  String get exitConfirm => 'Deseja fechar o aplicativo?';
-
-  @override
   String get formatsContent =>
-      '• Texto: .txt, .md, .log, .rtf\n• Dados: .csv, .json, .xml, .xlsx, .xls\n• Código: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Imagens: .png, .jpg, .gif\n• Multimídia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Outros: .zip, .apk';
+      '• Texto: .txt, .md, .log, .rtf, .json, .xml, .yaml\n• Dados: .csv, .tsv, .xlsx, .xls, .sql, .db (sqlite)\n• Código: .bat, .c, .cpp, .cs, .css, .dart, .go, .html, .java, .js, .kt, .lua, .php, .py, .rb, .sh, .swift, .ts\n• Documentos: .pdf, .docx (texto)\n• Multimídia: .mp3, .wav, .aac, .mp4, .avi, .mov, .mkv\n• Imagens: .png, .jpg, .jpeg, .gif, .bmp, .webp, .svg\n• Certificados: .cer, .pem, .crt, .der, .p12, .pfx\n• Outros: .zip, .apk';
 
   @override
   String get cookieInspector => 'Inspetor de Cookies';

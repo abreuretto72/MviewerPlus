@@ -81,5 +81,13 @@
   "searchNotAvailableZip": "Busca não disponível para arquivos compactados.",
   "readOnlyFormat": "Este formato é apenas para leitura.",
   "processingWait": "Lendo arquivo, aguarde.",
-  "loadingTitle": "Carregando..."
+  "loadingTitle": "Carregando...",
+  "help": "Ajuda",
+  "helpTitle": "Guia de Ajuda do MviewerPlus",
+  "featuresSection": "Funcionalidades Principais",
+  "featuresContent": "• Visualização Rápida: Abra arquivos grandes instantaneamente com performance nativa.\n• Edição e Busca: Edite textos, código e dados. Use 'Localizar e Substituir' avançado.\n• Tabelas Inteligentes: Visualize CSVs e Excel como planilhas interativas com ordenação e filtros.\n• Editor de Código: Sintaxe colorida para mais de 30 linguagens (Dart, JS, Python, SQL...).\n• Checagem de Segurança: Verifique integridade do app, root, debuggers e assinaturas digitais.\n• Análise com IA: Conecte sua chave Groq para 'conversar' com seus documentos.\n• Arquivos ZIP: Navegue dentro de arquivos compactados como se fossem pastas.\n• Multimídia: Player nativo para áudio e vídeo.",
+  "formatsSection": "Formatos Suportados",
+  "formatsContent": "• Texto: .txt, .md, .log, .rtf, .json, .xml, .yaml\n• Dados: .csv, .tsv, .xlsx, .xls, .sql, .db (sqlite)\n• Código: .bat, .c, .cpp, .cs, .css, .dart, .go, .html, .java, .js, .kt, .lua, .php, .py, .rb, .sh, .swift, .ts\n• Documentos: .pdf, .docx (texto)\n• Multimídia: .mp3, .wav, .aac, .mp4, .avi, .mov, .mkv\n• Imagens: .png, .jpg, .jpeg, .gif, .bmp, .webp, .svg\n• Certificados: .cer, .pem, .crt, .der, .p12, .pfx\n• Outros: .zip, .apk",
+  "exit": "Sair",
+  "exitConfirm": "Deseja fechar o aplicativo?"
 }

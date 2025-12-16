@@ -73,15 +73,9 @@ class _ViewerScreenState extends State<ViewerScreen> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
-    _audioPlayer.onPlayerStateChanged.listen((state) {
-      if (mounted) setState(() => _isPlaying = state == PlayerState.playing);
-    });
-    _audioPlayer.onDurationChanged.listen((newDuration) {
-      if (mounted) setState(() => _duration = newDuration);
-    });
-    _audioPlayer.onPositionChanged.listen((newPosition) {
-      if (mounted) setState(() => _position = newPosition);
-    });
+    _audioPlayer.onPlayerStateChanged.listen((state) { if (mounted) setState(() => _isPlaying = state == PlayerState.playing); }, onError: (msg) => debugPrint('Err: $msg'));
+    _audioPlayer.onDurationChanged.listen((newDuration) { if (mounted) setState(() => _duration = newDuration); }, onError: (msg) => debugPrint('Err: $msg'));
+    _audioPlayer.onPositionChanged.listen((newPosition) { if (mounted) setState(() => _position = newPosition); }, onError: (msg) => debugPrint('Err: $msg'));
     _loadContent();
   }
 
@@ -138,32 +132,50 @@ class _ViewerScreenState extends State<ViewerScreen> {
 
       // Special handling for Excel (binary files)
       if (_extension == 'xlsx' || _extension == 'xls') {
-        final sheets = await FileUtils.parseExcel(widget.file);
-        if (mounted) {
-          setState(() {
-            _excelSheets = sheets;
-            if (sheets.isNotEmpty) {
-              _currentSheetName = sheets.keys.first;
-              _csvData = sheets[_currentSheetName]!;
-            } else {
-              _csvData = [];
-            }
-            _content = ''; // Not used for Table View
-            _isLoading = false;
-          });
+        try {
+          final sheets = await FileUtils.parseExcel(widget.file);
+          if (mounted) {
+            setState(() {
+              _excelSheets = sheets;
+              if (sheets.isNotEmpty) {
+                _currentSheetName = sheets.keys.first;
+                _csvData = sheets[_currentSheetName]!;
+              } else {
+                _csvData = [];
+              }
+              _content = ''; // Not used for Table View
+              _isLoading = false;
+            });
+          }
+        } catch (e) {
+          if (mounted) {
+            setState(() {
+              _content = 'Erro ao ler arquivo Excel:\n$e';
+              _isLoading = false;
+            });
+          }
         }
         return;
       }
 
       // Special handling for Zip (binary files)
       if (_extension == 'zip') {
-        final files = await FileUtils.parseZip(widget.file);
-        if (mounted) {
-          setState(() {
-            _zipFiles = files;
-            _content = 'Zip Archive (${files.length} files)';
-            _isLoading = false;
-          });
+        try {
+          final files = await FileUtils.parseZip(widget.file);
+          if (mounted) {
+            setState(() {
+              _zipFiles = files;
+              _content = 'Zip Archive (${files.length} files)';
+              _isLoading = false;
+            });
+          }
+        } catch (e) {
+          if (mounted) {
+            setState(() {
+              _content = 'Erro ao ler arquivo ZIP:\n$e';
+              _isLoading = false;
+            });
+          }
         }
         return;
       }
@@ -228,23 +240,33 @@ class _ViewerScreenState extends State<ViewerScreen> {
         // For text-based (pem, crt, cer), fall through to default readFileContent
       }
 
-      final content = await FileUtils.readFileContent(widget.file);
-      
-      if (_fileType == FileType.table) {
-        // Parse CSV in background isolate to keep UI responsive
-        _csvData = await FileUtils.parseCsv(content);
+      try {
+        final content = await FileUtils.readFileContent(widget.file);
         
-        // Update state with row count info
-        if (mounted) {
-          setState(() {
-            _content = content;
-            _isLoading = false;
-          });
+        if (_fileType == FileType.table) {
+          // Parse CSV in background isolate to keep UI responsive
+          _csvData = await FileUtils.parseCsv(content);
+          
+          // Update state with row count info
+          if (mounted) {
+            setState(() {
+              _content = content;
+              _isLoading = false;
+            });
+          }
+        } else {
+          if (mounted) {
+            setState(() {
+              _content = content;
+              _isLoading = false;
+            });
+          }
         }
-      } else {
+      } catch (e) {
+        debugPrint('Error reading file content: $e');
         if (mounted) {
           setState(() {
-            _content = content;
+            _content = 'Erro ao ler o arquivo:\n$e';
             _isLoading = false;
           });
         }
@@ -369,11 +391,15 @@ class _ViewerScreenState extends State<ViewerScreen> {
       }
       
       // Save path to history
-      final prefs = await SharedPreferences.getInstance();
-      final savedFiles = prefs.getStringList('saved_files') ?? [];
-      if (!savedFiles.contains(newPath)) {
-        savedFiles.add(newPath);
-        await prefs.setStringList('saved_files', savedFiles);
+      try {
+        final prefs = await SharedPreferences.getInstance();
+        final savedFiles = prefs.getStringList('saved_files') ?? [];
+        if (!savedFiles.contains(newPath)) {
+          savedFiles.add(newPath);
+          await prefs.setStringList('saved_files', savedFiles);
+        }
+      } catch (e) {
+        debugPrint('Error saving to history: $e');
       }
 
       ScaffoldMessenger.of(context).showSnackBar(

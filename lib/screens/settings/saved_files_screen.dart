@@ -24,19 +24,34 @@ class _SavedFilesScreenState extends State<SavedFilesScreen> {
   }
 
   Future<void> _loadSavedFiles() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _savedFiles = prefs.getStringList('saved_files') ?? [];
-      _isLoading = false;
-    });
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      if (mounted) {
+        setState(() {
+          _savedFiles = prefs.getStringList('saved_files') ?? [];
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      debugPrint('Error loading saved files: $e');
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
   }
 
   Future<void> _removeFile(String path) async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _savedFiles.remove(path);
-      prefs.setStringList('saved_files', _savedFiles);
-    });
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      if (mounted) {
+        setState(() {
+          _savedFiles.remove(path);
+          prefs.setStringList('saved_files', _savedFiles);
+        });
+      }
+    } catch (e) {
+      debugPrint('Error removing saved file: $e');
+    }
   }
 
   void _openFile(String path) {

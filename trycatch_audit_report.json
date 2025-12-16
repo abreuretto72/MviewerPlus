@@ -1,0 +1,222 @@
+{
+  "timestamp": "2025-12-16T08:56:58.309482",
+  "stats": {
+    "totalFiles": 40,
+    "totalIssues": 21,
+    "protected": 21,
+    "vulnerable": 0,
+    "protectionRate": "100.0%"
+  },
+  "issues": [
+    {
+      "file": "lib\\features\\cookie_scanner\\presentation\\providers\\cookie_scanner_provider.dart",
+      "line": 258,
+      "content": "final prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\features\\cookie_scanner\\presentation\\providers\\cookie_scanner_provider.dart",
+      "line": 278,
+      "content": "final prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\features\\cookie_scanner\\presentation\\providers\\cookie_scanner_provider.dart",
+      "line": 282,
+      "content": "return jsonDecode(historyJson);",
+      "rule": "JSON_DECODE",
+      "category": "PARSING",
+      "risk": "MEDIUM",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\providers\\locale_provider.dart",
+      "line": 15,
+      "content": "final prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\providers\\locale_provider.dart",
+      "line": 33,
+      "content": "final prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\providers\\locale_provider.dart",
+      "line": 49,
+      "content": "final prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\screens\\pdf_viewer_screen.dart",
+      "line": 211,
+      "content": "File(widget.filePath!).readAsBytesSync(),",
+      "rule": "FILE_READ",
+      "category": "FILE_IO",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\screens\\pdf_viewer_screen.dart",
+      "line": 211,
+      "content": "File(widget.filePath!).readAsBytesSync(),",
+      "rule": "FILE_SYNC",
+      "category": "FILE_IO",
+      "risk": "MEDIUM",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\screens\\settings\\saved_files_screen.dart",
+      "line": 28,
+      "content": "final prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\screens\\settings\\saved_files_screen.dart",
+      "line": 45,
+      "content": "final prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\screens\\settings\\settings_screen.dart",
+      "line": 193,
+      "content": "prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\screens\\settings\\settings_screen.dart",
+      "line": 257,
+      "content": "if (prefs == null) prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\screens\\viewer_screen.dart",
+      "line": 76,
+      "content": "_audioPlayer.onPlayerStateChanged.listen((state) { if (mounted) setState(() => _isPlaying = state == PlayerState.playing); }, onError: (msg) => debugPrint('Err: $msg'));",
+      "rule": "STREAM_LISTEN",
+      "category": "STREAM",
+      "risk": "MEDIUM",
+      "protected": true,
+      "protectionType": "CATCH_ERROR/ON_ERROR"
+    },
+    {
+      "file": "lib\\screens\\viewer_screen.dart",
+      "line": 77,
+      "content": "_audioPlayer.onDurationChanged.listen((newDuration) { if (mounted) setState(() => _duration = newDuration); }, onError: (msg) => debugPrint('Err: $msg'));",
+      "rule": "STREAM_LISTEN",
+      "category": "STREAM",
+      "risk": "MEDIUM",
+      "protected": true,
+      "protectionType": "CATCH_ERROR/ON_ERROR"
+    },
+    {
+      "file": "lib\\screens\\viewer_screen.dart",
+      "line": 78,
+      "content": "_audioPlayer.onPositionChanged.listen((newPosition) { if (mounted) setState(() => _position = newPosition); }, onError: (msg) => debugPrint('Err: $msg'));",
+      "rule": "STREAM_LISTEN",
+      "category": "STREAM",
+      "risk": "MEDIUM",
+      "protected": true,
+      "protectionType": "CATCH_ERROR/ON_ERROR"
+    },
+    {
+      "file": "lib\\screens\\viewer_screen.dart",
+      "line": 390,
+      "content": "await File(newPath).writeAsString(_content);",
+      "rule": "FILE_READ",
+      "category": "FILE_IO",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\screens\\viewer_screen.dart",
+      "line": 395,
+      "content": "final prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\services\\ai_service.dart",
+      "line": 69,
+      "content": "final prefs = await SharedPreferences.getInstance();",
+      "rule": "DB_OPEN",
+      "category": "DB",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\services\\ai_service.dart",
+      "line": 94,
+      "content": "final response = await http.post(",
+      "rule": "HTTP_CALL",
+      "category": "NETWORK",
+      "risk": "HIGH",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\services\\ai_service.dart",
+      "line": 108,
+      "content": "final data = jsonDecode(utf8.decode(response.bodyBytes));",
+      "rule": "JSON_DECODE",
+      "category": "PARSING",
+      "risk": "MEDIUM",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    },
+    {
+      "file": "lib\\services\\app_signature_validator.dart",
+      "line": 114,
+      "content": "final Map<String, dynamic> decoded = jsonDecode(jsonString);",
+      "rule": "JSON_DECODE",
+      "category": "PARSING",
+      "risk": "MEDIUM",
+      "protected": true,
+      "protectionType": "TRY_CATCH (Inferred)"
+    }
+  ]
+}

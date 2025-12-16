@@ -65,10 +65,14 @@ $processedContent
   }
 
   Future<String> _getApiKey() async {
-    final prefs = await SharedPreferences.getInstance();
-    final customKey = prefs.getString('custom_groq_api_key');
-    if (customKey != null && customKey.isNotEmpty) {
-      return customKey;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final customKey = prefs.getString('custom_groq_api_key');
+      if (customKey != null && customKey.isNotEmpty) {
+        return customKey;
+      }
+    } catch (e) {
+      // Return env key or empty if prefs fails
     }
     return dotenv.env['GROQ_API_KEY'] ?? '';
   }

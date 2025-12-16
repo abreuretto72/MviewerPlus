@@ -122,7 +122,7 @@ class CookieRiskResult {
       signals: (json['signals'] as List)
           .map((s) => RiskSignal.fromJson(s))
           .toList(),
-      analyzedAt: DateTime.parse(json['analyzedAt']),
+      analyzedAt: DateTime.tryParse(json['analyzedAt']) ?? DateTime.now(),
       metadata: Map<String, dynamic>.from(json['metadata'] ?? {}),
     );
   }

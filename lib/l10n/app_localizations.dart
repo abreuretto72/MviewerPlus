@@ -585,7 +585,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpTitle.
   ///
   /// In en, this message translates to:
-  /// **'Help Guide'**
+  /// **'MviewerPlus Help Guide'**
   String get helpTitle;
 
   /// No description provided for @featuresSection.
@@ -597,7 +597,7 @@ abstract class AppLocalizations {
   /// No description provided for @featuresContent.
   ///
   /// In en, this message translates to:
-  /// **'• Quick View: Open large files instantly.\n• Edit & Search: Edit text, find and replace terms.\n• Export & Share: Generate PDFs, print, and share your files.\n• Smart Tables: View CSV and Excel with filters and sorting.\n• Code Editor: Syntax highlighting for 30+ languages.\n• AI Analysis: Enter your Groq API Key to let AI analyze file content.\n• ZIP Archives: Explore compressed file contents.'**
+  /// **'• Quick View: Open large files instantly with native performance.\n• Edit & Search: Edit text, code, and data. Use advanced \'Find and Replace\'.\n• Smart Tables: View CSVs and Excel as interactive spreadsheets with sorting and filters.\n• Code Editor: Syntax highlighting for 30+ languages (Dart, JS, Python, SQL...).\n• Security Check: verify app integrity, root, debuggers, and digital signatures.\n• AI Analysis: Connect your Groq Key to \'chat\' with your documents.\n• ZIP Archives: Browse inside compressed files like folders.\n• Multimedia: Native player for audio and video.'**
   String get featuresContent;
 
   /// No description provided for @formatsSection.
@@ -621,7 +621,7 @@ abstract class AppLocalizations {
   /// No description provided for @formatsContent.
   ///
   /// In en, this message translates to:
-  /// **'• Text: .txt, .md, .log, .rtf\n• Data: .csv, .json, .xml, .xlsx, .xls\n• Code: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Images: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Other: .zip, .apk'**
+  /// **'• Text: .txt, .md, .log, .rtf, .json, .xml, .yaml\n• Data: .csv, .tsv, .xlsx, .xls, .sql, .db (sqlite)\n• Code: .bat, .c, .cpp, .cs, .css, .dart, .go, .html, .java, .js, .kt, .lua, .php, .py, .rb, .sh, .swift, .ts\n• Docs: .pdf, .docx (text)\n• Multimedia: .mp3, .wav, .aac, .mp4, .avi, .mov, .mkv\n• Images: .png, .jpg, .jpeg, .gif, .bmp, .webp, .svg\n• Certificates: .cer, .pem, .crt, .der, .p12, .pfx\n• Other: .zip, .apk'**
   String get formatsContent;
 
   /// No description provided for @cookieInspector.

@@ -11,6 +11,7 @@ class HelpScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(t.help)),
       body: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +24,7 @@ class HelpScreen extends StatelessWidget {
             _buildSection(context, t.featuresSection, t.featuresContent, Icons.stars),
             const SizedBox(height: 24),
             _buildSection(context, t.formatsSection, t.formatsContent, Icons.file_present),
-            const SizedBox(height: 24),
+            const SizedBox(height: 100),
           ],
         ),
       ),

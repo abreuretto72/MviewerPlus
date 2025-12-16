@@ -151,7 +151,7 @@ class CookieFileHit {
       path: json['path'],
       fileName: json['fileName'],
       sizeBytes: json['sizeBytes'],
-      lastModified: DateTime.parse(json['lastModified']),
+      lastModified: DateTime.tryParse(json['lastModified']) ?? DateTime.now(),
       extension: json['extension'],
       type: CookieFileType.values.firstWhere(
         (e) => e.name == json['type'],

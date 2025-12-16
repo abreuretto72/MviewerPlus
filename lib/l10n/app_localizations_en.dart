@@ -266,14 +266,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get help => 'Help';
 
   @override
-  String get helpTitle => 'Help Guide';
+  String get helpTitle => 'MviewerPlus Help Guide';
 
   @override
   String get featuresSection => 'Key Features';
 
   @override
   String get featuresContent =>
-      '• Quick View: Open large files instantly.\n• Edit & Search: Edit text, find and replace terms.\n• Export & Share: Generate PDFs, print, and share your files.\n• Smart Tables: View CSV and Excel with filters and sorting.\n• Code Editor: Syntax highlighting for 30+ languages.\n• AI Analysis: Enter your Groq API Key to let AI analyze file content.\n• ZIP Archives: Explore compressed file contents.';
+      '• Quick View: Open large files instantly with native performance.\n• Edit & Search: Edit text, code, and data. Use advanced \'Find and Replace\'.\n• Smart Tables: View CSVs and Excel as interactive spreadsheets with sorting and filters.\n• Code Editor: Syntax highlighting for 30+ languages (Dart, JS, Python, SQL...).\n• Security Check: verify app integrity, root, debuggers, and digital signatures.\n• AI Analysis: Connect your Groq Key to \'chat\' with your documents.\n• ZIP Archives: Browse inside compressed files like folders.\n• Multimedia: Native player for audio and video.';
 
   @override
   String get formatsSection => 'Supported Formats';
@@ -286,7 +286,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get formatsContent =>
-      '• Text: .txt, .md, .log, .rtf\n• Data: .csv, .json, .xml, .xlsx, .xls\n• Code: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Images: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Other: .zip, .apk';
+      '• Text: .txt, .md, .log, .rtf, .json, .xml, .yaml\n• Data: .csv, .tsv, .xlsx, .xls, .sql, .db (sqlite)\n• Code: .bat, .c, .cpp, .cs, .css, .dart, .go, .html, .java, .js, .kt, .lua, .php, .py, .rb, .sh, .swift, .ts\n• Docs: .pdf, .docx (text)\n• Multimedia: .mp3, .wav, .aac, .mp4, .avi, .mov, .mkv\n• Images: .png, .jpg, .jpeg, .gif, .bmp, .webp, .svg\n• Certificates: .cer, .pem, .crt, .der, .p12, .pfx\n• Other: .zip, .apk';
 
   @override
   String get cookieInspector => 'Cookie Inspector';

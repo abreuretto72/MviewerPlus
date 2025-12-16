@@ -135,8 +135,8 @@ class CookieScanResult {
 
   factory CookieScanResult.fromJson(Map<String, dynamic> json) {
     return CookieScanResult(
-      scanStartTime: DateTime.parse(json['scanStartTime']),
-      scanEndTime: DateTime.parse(json['scanEndTime']),
+      scanStartTime: DateTime.tryParse(json['scanStartTime']) ?? DateTime.now(),
+      scanEndTime: DateTime.tryParse(json['scanEndTime']) ?? DateTime.now(),
       filesFound: (json['filesFound'] as List)
           .map((f) => CookieFileHit.fromJson(f))
           .toList(),
