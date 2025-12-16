@@ -41,6 +41,13 @@
             border-top: 1px solid #eee;
             padding-top: 20px;
         }
+
+        .highlight {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+        }
     </style>
 </head>
 
@@ -48,65 +55,78 @@
     <h1>Política de Privacidade - MviewerPlus</h1>
     <p><strong>Última atualização: Dezembro de 2025</strong></p>
 
-    <p>Bem-vindo ao MviewerPlus. Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas
-        informações ao utilizar nosso aplicativo móvel.</p>
+    <p>Bem-vindo ao MviewerPlus. O processamento de dados do nosso aplicativo é projetado para priorizar a privacidade e
+        o processamento local.</p>
+
+    <div class="highlight">
+        <strong>Resumo Rápido para o Google Play:</strong>
+        <ul>
+            <li>Não criamos contas de usuário (sem login/cadastro).</li>
+            <li>Não vendemos dados de usuários.</li>
+            <li>Não exibimos anúncios (sem SDKs de publicidade).</li>
+            <li>Todo processamento de arquivos é local, exceto quando o usuário opta explicitamente por usar IA.</li>
+        </ul>
+    </div>
 
     <h2>1. Coleta e Uso de Informações</h2>
-    <p><strong>O MviewerPlus prioriza a sua privacidade.</strong></p>
+    <h3>1.1 Identificadores e Contas</h3>
+    <p>O MviewerPlus <strong>não possui sistema de contas</strong>. Não exigimos que você faça login, crie uma conta ou
+        forneça e-mail/telefone para usar o aplicativo. Portanto, não retemos dados de cadastro e não há necessidade de
+        procedimentos para "exclusão de conta".</p>
+
+    <h3>1.2 Processamento de Arquivos (Armazenamento)</h3>
+    <p>Para sua funcionalidade principal (visualizador e editor), o aplicativo acessa os arquivos no armazenamento do
+        seu dispositivo apenas quando você os seleciona. Este processamento é <strong>100% local e offline</strong>.
+        Nenhum arquivo é enviado para nós.</p>
+
+    <h2>2. Transmissão de Dados e Terceiros</h2>
+    <h3>2.1 Assistente de IA (Opcional)</h3>
+    <p>O aplicativo oferece uma funcionalidade de "Chat com Documentos" usando a API da <strong>Groq Inc</strong>.</p>
     <ul>
-        <li><strong>Processamento Local:</strong> A grande maioria das funcionalidades do MviewerPlus (visualização,
-            edição, conversão de arquivos) ocorre inteiramente no seu dispositivo. Não enviamos seus arquivos para
-            servidores externos para processamento básico.</li>
-        <li><strong>Zero Coleta de Dados Pessoais:</strong> Não exigimos cadastro, login ou fornecimento de informações
-            pessoais (como nome, e-mail ou telefone) para usar as funcionalidades principais do aplicativo.</li>
+        <li><strong>Dados Enviados:</strong> Apenas quando você interage com o chat, o trecho de texto do arquivo aberto
+            e sua pergunta são enviados para a Groq.</li>
+        <li><strong>Segurança:</strong> Toda comunicação é feita via <strong>HTTPS (Criptografado)</strong>.</li>
+        <li><strong>Chave de API:</strong> Você utiliza sua própria chave de API. Ela é armazenada apenas no
+            Keychain/SharedPreferences seguro do seu dispositivo e nunca é enviada para nossos servidores.</li>
     </ul>
 
-    <h2>2. Permissões do Dispositivo</h2>
-    <p>Para funcionar corretamente, o aplicativo pode solicitar as seguintes permissões:</p>
+    <h3>2.2 Firebase Remote Config</h3>
+    <p>Utilizamos o <strong>Google Firebase Remote Config</strong> para gerenciar configurações técnicas do aplicativo
+        remotamente (ex: ativar/desativar funcionalidades experimentais). Este serviço pode coletar informações técnicas
+        (como versão do app, sistema operacional e identificadores de instância anonimizados) para funcionamento
+        estritamente técnico.</p>
+    <p><strong>O Firebase Remote Config não é usado para rastrear o usuário individualmente nem para fins publicitários
+            neste aplicativo.</strong></p>
+
+    <h2>3. Publicidade e Venda de Dados</h2>
     <ul>
-        <li><strong>Armazenamento (Ler/Escrever):</strong> Necessário para abrir, salvar e modificar os arquivos que
-            você escolher.</li>
-        <li><strong>Acesso à Internet:</strong> Utilizado verificar atualizações ou acessar links externos (como esta
-            política) e para a funcionalidade de IA (descrita abaixo).</li>
+        <li><strong>Sem Anúncios:</strong> Este aplicativo não exibe anúncios e não contém SDKs de redes de publicidade
+            (como AdMob ou Facebook Audience Network).</li>
+        <li><strong>Não Venda:</strong> Não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros.</li>
     </ul>
 
-    <h2>3. Funcionalidade de Inteligência Artificial (AI Assistant)</h2>
-    <p>O MviewerPlus oferece um recurso opcional de "Assistente de IA" para analisar documentos.</p>
+    <h2>4. Permissões Solicitadas</h2>
     <ul>
-        <li><strong>Provedor Terceiro (Groq):</strong> Este recurso utiliza a API da Groq Inc.</li>
-        <li><strong>Chave de API Pessoal:</strong> Para usar esta funcionalidade, você deve fornecer sua própria Chave
-            de API (API Key) da Groq. O aplicativo armazena esta chave <em>apenas localmente</em> no seu dispositivo
-            (usando armazenamento seguro).</li>
-        <li><strong>Envio de Dados:</strong> Ao fazer uma pergunta sobre um arquivo, o conteúdo textual desse arquivo e
-            sua pergunta são enviados diretamente dos seu dispositivo para os servidores da Groq para gerar a resposta.
-        </li>
-        <li><strong>Não-Interferência:</strong> Nós (desenvolvedores do MviewerPlus) não temos acesso, não armazenamos e
-            não processamos o conteúdo dos seus arquivos ou suas chaves de API. A comunicação é direta entre seu App e a
-            Groq.</li>
+        <li><strong>READ_EXTERNAL_STORAGE / WRITE_EXTERNAL_STORAGE:</strong> Para abrir e salvar arquivos.</li>
+        <li><strong>INTERNET:</strong> Para comunicação com a API da IA (se usada) e Firebase Remote Config.</li>
+        <li><strong>USE_BIOMETRIC / USE_FINGERPRINT:</strong> Para proteger o acesso ao app (funcionalidade opcional de
+            segurança local).</li>
     </ul>
 
-    <h2>4. Segurança</h2>
-    <p>Empregamos as melhores práticas de desenvolvimento para garantir que seus dados permaneçam seguros no seu
-        dispositivo. No entanto, lembre-se que nenhum método de transmissão pela internet ou armazenamento eletrônico é
-        100% seguro.</p>
+    <h2>5. Segurança dos Dados</h2>
+    <p>Adotamos medidas de segurança robustas, incluindo o uso de <strong>HTTPS</strong> para todas as comunicações de
+        rede e armazenamento seguro para chaves de API. Seus arquivos permanecem sob seu controle no seu dispositivo.
+    </p>
 
-    <h2>5. Serviços de Terceiros e Links</h2>
-    <p>O aplicativo pode conter links para sites externos (como o console da Groq para obter chaves). Não somos
-        responsáveis pelas práticas de privacidade sites de terceiros.</p>
-
-    <h2>6. Alterações nesta Política</h2>
-    <p>Podemos atualizar nossa Política de Privacidade periodicamente. Recomendamos que você revise esta página
-        regularmente para quaisquer alterações.</p>
-
-    <h2>7. Contato</h2>
-    <p>Se você tiver dúvidas ou sugestões sobre nossa Política de Privacidade, não hesite em nos contatar:</p>
+    <h2>6. Contato do Desenvolvedor</h2>
+    <p>Para questões de privacidade ou suporte:</p>
     <p>
         <strong>Multiverso Digital</strong><br>
         E-mail: <a href="mailto:contato@multiversodigital.com.br">contato@multiversodigital.com.br</a>
     </p>
 
     <div class="footer">
-        &copy; 2025 Multiverso Digital. Todos os direitos reservados.
+        &copy; 2025 Multiverso Digital.
     </div>
 </body>
 
