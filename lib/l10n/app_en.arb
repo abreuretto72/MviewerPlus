@@ -248,5 +248,14 @@
   "expLockTitle": "Screen Lock",
   "expLockDesc": "Checks if you have a password, PIN, pattern, or biometrics set up.\n\n⚠️ Why is it important?\n• Anyone can take your unlocked phone\n• Can access your apps, photos, and messages\n• Can make purchases or transfers\n\n✅ What to do?\nSet up a strong password or use your fingerprint/face ID in Settings → Security.",
   "expEmulatorTitle": "Real Device",
-  "expEmulatorDesc": "Checks if you are using a real phone or an emulator (virtual phone on computer).\n\n⚠️ Why is it important?\n• Emulators are used by hackers to test attacks\n• Banking apps don't work on emulators\n• May indicate fraud attempt\n\n✅ What does it mean?\nIf you are on a real phone, you should pass this check."
+  "expEmulatorDesc": "Checks if you are using a real phone or an emulator (virtual phone on computer).\n\n⚠️ Why is it important?\n• Emulators are used by hackers to test attacks\n• Banking apps don't work on emulators\n• May indicate fraud attempt\n\n✅ What does it mean?\nIf you are on a real phone, you should pass this check.",
+  "securitySignatureStatus": "Signature Status ({count})",
+  "securityAppNotInstalled": "Not Installed",
+  "securityAppVerified": "Verified",
+  "securityAppPendingConfig": "Config Pending",
+  "securityAppInvalidSignature": "Invalid Signature!",
+  "securityAppUnknown": "Unknown",
+  "securityAppActualHash": "Actual:",
+  "securityAppExpectedHash": "Expected:",
+  "securityConfigNeeded": "Configure..."
 }

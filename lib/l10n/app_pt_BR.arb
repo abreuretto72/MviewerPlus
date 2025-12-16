@@ -244,5 +244,14 @@
   "expLockTitle": "Bloqueio de Tela",
   "expLockDesc": "Verifica se você tem senha, PIN, padrão ou biometria configurados.\n\n⚠️ Por que é importante?\n• Qualquer pessoa pode pegar seu celular desbloqueado\n• Podem acessar seus apps, fotos e mensagens\n• Podem fazer compras ou transferências\n\n✅ O que fazer?\nConfigure uma senha forte ou use sua digital/face em Configurações → Segurança.",
   "expEmulatorTitle": "Dispositivo Real",
-  "expEmulatorDesc": "Verifica se você está usando um celular real ou um emulador (celular virtual no computador).\n\n⚠️ Por que é importante?\n• Emuladores são usados por hackers para testar ataques\n• Apps bancários não funcionam em emuladores\n• Pode indicar tentativa de fraude\n\n✅ O que significa?\nSe você está em um celular real, deve passar nesta verificação."
+  "expEmulatorDesc": "Verifica se você está usando um celular real ou um emulador (celular virtual no computador).\n\n⚠️ Por que é importante?\n• Emuladores são usados por hackers para testar ataques\n• Apps bancários não funcionam em emuladores\n• Pode indicar tentativa de fraude\n\n✅ O que significa?\nSe você está em um celular real, deve passar nesta verificação.",
+  "securitySignatureStatus": "Status de Assinaturas ({count})",
+  "securityAppNotInstalled": "Não Instalado",
+  "securityAppVerified": "Verificado",
+  "securityAppPendingConfig": "Pendente Configuração",
+  "securityAppInvalidSignature": "Assinatura Inválida!",
+  "securityAppUnknown": "Desconhecido",
+  "securityAppActualHash": "Atual:",
+  "securityAppExpectedHash": "Esperado:",
+  "securityConfigNeeded": "Configurar..."
 }

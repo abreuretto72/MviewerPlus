@@ -3,7 +3,25 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     
     <!-- Permissões para Security Scanner -->
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <!-- Permissões para Security Scanner -->
+    <!-- REMOVIDO: QUERY_ALL_PACKAGES para conformidade com Google Play -->
+    <!-- Em vez disso, usamos <queries> para listar apenas os apps necessários -->
+    
+    <queries>
+        <!-- Apps Sociais e Comunicação -->
+        <package android:name="com.whatsapp" />
+        <package android:name="com.android.chrome" />
+        <package android:name="com.instagram.android" />
+        <package android:name="com.facebook.katana" />
+        <package android:name="org.telegram.messenger" />
+        
+        <!-- Apps Financeiros e Gov -->
+        <package android:name="com.nu.production" />
+        <package android:name="br.com.intermedium" />
+        <package android:name="com.itau" />
+        <package android:name="br.gov.meugovbr" />
+    </queries>
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application

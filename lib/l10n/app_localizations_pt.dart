@@ -815,6 +815,35 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get expEmulatorDesc =>
       'Checks if you are using a real phone or an emulator (virtual phone on computer).\n\n⚠️ Why is it important?\n• Emulators are used by hackers to test attacks\n• Banking apps don\'t work on emulators\n• May indicate fraud attempt\n\n✅ What does it mean?\nIf you are on a real phone, you should pass this check.';
+
+  @override
+  String securitySignatureStatus(Object count) {
+    return 'Signature Status ($count)';
+  }
+
+  @override
+  String get securityAppNotInstalled => 'Not Installed';
+
+  @override
+  String get securityAppVerified => 'Verified';
+
+  @override
+  String get securityAppPendingConfig => 'Config Pending';
+
+  @override
+  String get securityAppInvalidSignature => 'Invalid Signature!';
+
+  @override
+  String get securityAppUnknown => 'Unknown';
+
+  @override
+  String get securityAppActualHash => 'Actual:';
+
+  @override
+  String get securityAppExpectedHash => 'Expected:';
+
+  @override
+  String get securityConfigNeeded => 'Configure...';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1628,6 +1657,35 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get expEmulatorDesc =>
       'Verifica se você está usando um celular real ou um emulador (celular virtual no computador).\n\n⚠️ Por que é importante?\n• Emuladores são usados por hackers para testar ataques\n• Apps bancários não funcionam em emuladores\n• Pode indicar tentativa de fraude\n\n✅ O que significa?\nSe você está em um celular real, deve passar nesta verificação.';
+
+  @override
+  String securitySignatureStatus(Object count) {
+    return 'Status de Assinaturas ($count)';
+  }
+
+  @override
+  String get securityAppNotInstalled => 'Não Instalado';
+
+  @override
+  String get securityAppVerified => 'Verificado';
+
+  @override
+  String get securityAppPendingConfig => 'Pendente Configuração';
+
+  @override
+  String get securityAppInvalidSignature => 'Assinatura Inválida!';
+
+  @override
+  String get securityAppUnknown => 'Desconhecido';
+
+  @override
+  String get securityAppActualHash => 'Atual:';
+
+  @override
+  String get securityAppExpectedHash => 'Esperado:';
+
+  @override
+  String get securityConfigNeeded => 'Configurar...';
 }
 
 /// The translations for Portuguese, as used in Portugal (`pt_PT`).

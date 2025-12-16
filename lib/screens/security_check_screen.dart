@@ -186,7 +186,7 @@ class _SecurityCheckScreenState extends State<SecurityCheckScreen> {
 
     return Card(
       child: ExpansionTile(
-        title: Text('Status de Assinaturas (${apps.length})', style: const TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(AppLocalizations.of(context)!.securitySignatureStatus(apps.length), style: const TextStyle(fontWeight: FontWeight.bold)),
         children: apps.map((status) {
           final isInstalled = status['status'] == 'INSTALLED';
           final isValid = status['isValid'] == true;
@@ -200,24 +200,24 @@ class _SecurityCheckScreenState extends State<SecurityCheckScreen> {
           if (!isInstalled) {
              statusColor = Colors.grey;
              statusIcon = Icons.radio_button_unchecked;
-             statusLabel = 'Não Instalado';
+             statusLabel = AppLocalizations.of(context)!.securityAppNotInstalled;
           } else if (isValid) {
              statusColor = Colors.green;
              statusIcon = Icons.check_circle;
-             statusLabel = 'Verificado';
+             statusLabel = AppLocalizations.of(context)!.securityAppVerified;
           } else if (isPlaceholder) {
              statusColor = Colors.orange;
              statusIcon = Icons.hourglass_empty;
-             statusLabel = 'Pendente Configuração';
+             statusLabel = AppLocalizations.of(context)!.securityAppPendingConfig;
           } else {
              statusColor = Colors.red;
              statusIcon = Icons.warning;
-             statusLabel = 'Assinatura Inválida!';
+             statusLabel = AppLocalizations.of(context)!.securityAppInvalidSignature;
           }
 
           return ListTile(
             leading: Icon(statusIcon, color: statusColor),
-            title: Text(status['packageName'] ?? 'Desconhecido'),
+            title: Text(status['packageName'] ?? AppLocalizations.of(context)!.securityAppUnknown),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

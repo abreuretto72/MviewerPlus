@@ -826,4 +826,33 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get expEmulatorDesc =>
       'Verifica si es un móvil real o virtual.\n\n✅ Significado:\nDebe usar un móvil real.';
+
+  @override
+  String securitySignatureStatus(Object count) {
+    return 'Signature Status ($count)';
+  }
+
+  @override
+  String get securityAppNotInstalled => 'Not Installed';
+
+  @override
+  String get securityAppVerified => 'Verified';
+
+  @override
+  String get securityAppPendingConfig => 'Config Pending';
+
+  @override
+  String get securityAppInvalidSignature => 'Invalid Signature!';
+
+  @override
+  String get securityAppUnknown => 'Unknown';
+
+  @override
+  String get securityAppActualHash => 'Actual:';
+
+  @override
+  String get securityAppExpectedHash => 'Expected:';
+
+  @override
+  String get securityConfigNeeded => 'Configure...';
 }

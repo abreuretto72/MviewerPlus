@@ -1601,6 +1601,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Checks if you are using a real phone or an emulator (virtual phone on computer).\n\n⚠️ Why is it important?\n• Emulators are used by hackers to test attacks\n• Banking apps don\'t work on emulators\n• May indicate fraud attempt\n\n✅ What does it mean?\nIf you are on a real phone, you should pass this check.'**
   String get expEmulatorDesc;
+
+  /// No description provided for @securitySignatureStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Signature Status ({count})'**
+  String securitySignatureStatus(Object count);
+
+  /// No description provided for @securityAppNotInstalled.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Installed'**
+  String get securityAppNotInstalled;
+
+  /// No description provided for @securityAppVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get securityAppVerified;
+
+  /// No description provided for @securityAppPendingConfig.
+  ///
+  /// In en, this message translates to:
+  /// **'Config Pending'**
+  String get securityAppPendingConfig;
+
+  /// No description provided for @securityAppInvalidSignature.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Signature!'**
+  String get securityAppInvalidSignature;
+
+  /// No description provided for @securityAppUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get securityAppUnknown;
+
+  /// No description provided for @securityAppActualHash.
+  ///
+  /// In en, this message translates to:
+  /// **'Actual:'**
+  String get securityAppActualHash;
+
+  /// No description provided for @securityAppExpectedHash.
+  ///
+  /// In en, this message translates to:
+  /// **'Expected:'**
+  String get securityAppExpectedHash;
+
+  /// No description provided for @securityConfigNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure...'**
+  String get securityConfigNeeded;
 }
 
 class _AppLocalizationsDelegate
