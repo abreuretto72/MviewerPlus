@@ -706,6 +706,9 @@ class _ViewerScreenState extends State<ViewerScreen> {
       case FileType.code:
         debugPrint('Building CODE view');
         return _buildCodeView();
+      case FileType.certificate:
+        debugPrint('Building CERTIFICATE view');
+        return _buildCodeView();
       case FileType.table:
         return _buildTableView();
       case FileType.markdown:
@@ -1028,6 +1031,18 @@ class _ViewerScreenState extends State<ViewerScreen> {
       // Word documents
       case 'doc': 
       case 'docx': language = 'doc'; break;
+
+      // Certificates
+      case 'crt':
+      case 'cer':
+      case 'pem': 
+        language = 'bash'; // Use bash highlighting for PEM headers (-----BEGIN...)
+        break;
+      case 'der':
+      case 'p12':
+      case 'pfx':
+        language = 'plaintext'; // Binary usually, but if text content (base64) is shown, plaintext
+        break;
       
       default: language = 'plaintext';
     }
@@ -1067,6 +1082,9 @@ class _ViewerScreenState extends State<ViewerScreen> {
         'doc': 'Word Document',
         'docx': 'Word Document',
       };
+      if (['crt', 'cer', 'pem'].contains(_extension)) return 'Certificate (PEM)';
+      if (['p12', 'pfx', 'der'].contains(_extension)) return 'Certificate (Binary)';
+
       return names[language] ?? language.toUpperCase();
     }
 
@@ -1118,10 +1136,10 @@ class _ViewerScreenState extends State<ViewerScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.secondary.withOpacity(0.2),
+                    color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: Theme.of(context).colorScheme.secondary.withOpacity(0.5),
+                      color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.5),
                     ),
                   ),
                   child: Row(
@@ -1162,7 +1180,16 @@ class _ViewerScreenState extends State<ViewerScreen> {
                               ? _buildEmailHighlightedText()
                               : (language == 'doc' || language == 'docx')
                                   ? _buildDocxHighlightedText()
-                                  : HighlightView(
+                                  : _content.length > 100000 
+                                    ? Text(
+                                        _content,
+                                        style: GoogleFonts.firaCode(
+                                            fontSize: 14,
+                                            height: 1.6, 
+                                            color: Colors.white,
+                                        ),
+                                      )
+                                    : HighlightView(
                       _content,
                       language: language,
                       theme: draculaTheme,

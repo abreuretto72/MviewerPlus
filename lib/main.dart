@@ -10,6 +10,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:file_viewer/services/app_signature_validator.dart';
 
+import 'dart:async'; 
 import 'package:flutter/services.dart'; // Importante para SystemChrome
 
 Future<void> main() async {
@@ -33,14 +34,28 @@ Future<void> main() async {
      debugPrint('Firebase initialization failed: $e');
   }
   
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => LocaleProvider()),
-      ],
-      child: const MyApp(),
-    ),
-  );
+  // 3. Configurar tratamento global de erros (PROMPT PADRÃO)
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    debugPrint('🔴 Flutter Framework Error: ${details.exception}');
+    debugPrint('Stacktrace: ${details.stack}');
+    // Aqui poderia enviar para Sentry/Crashlytics
+  };
+
+  runZonedGuarded(() {
+    runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => LocaleProvider()),
+        ],
+        child: const MyApp(),
+      ),
+    );
+  }, (error, stack) {
+    debugPrint('🔴 Uncaught Async Error: $error');
+    debugPrint('Stacktrace: $stack');
+    // Aqui poderia enviar para Sentry/Crashlytics
+  });
 }
 
 class MyApp extends StatelessWidget {

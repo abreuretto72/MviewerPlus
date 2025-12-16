@@ -105,8 +105,11 @@ class _PdfViewerScreenState extends State<PdfViewerScreen> {
     } else if (_isZipFile) {
       recordCountStr = '${widget.zipFiles!.length} ${t.files}';
     } else {
-      recordCountStr = '${widget.content.split('\n').length} ${t.lines}';
+      recordCountStr = '${(widget.content ?? '').split('\n').length} ${t.lines}';
     }
+
+    // 0. Prepare efficient full text access
+    final String fullText = widget.content ?? '';
 
     // 1. Chat Section (Only if NOT direct file view)
     if (!_isDirectFileView) {
@@ -147,86 +150,133 @@ class _PdfViewerScreenState extends State<PdfViewerScreen> {
 
     // 2. Original File Section (if requested or direct view)
     if (_includeOriginal) {
-      // Use landscape for CSV files
-      final pageFormat = _isCsvFile ? PdfPageFormat.a4.landscape : format;
+      try {
+        // Use landscape for CSV files
+        final pageFormat = _isCsvFile ? PdfPageFormat.a4.landscape : format;
 
-      pdf.addPage(
-        pw.MultiPage(
-          maxPages: 2000,
-          pageFormat: pageFormat,
-          header: (pw.Context context) {
-            return pw.Column(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              children: [
-                pw.Row(
-                  mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                  children: [
-                    pw.Text(t.pdfReportTitle, style: pw.TextStyle(font: boldFont, fontSize: 14, color: PdfColors.blue900)),
-                    pw.Text('${t.pdfGeneratedLabel} $formattedDate', style: pw.TextStyle(font: font, fontSize: 10, color: PdfColors.grey700)),
-                  ],
+        pdf.addPage(
+          pw.MultiPage(
+            maxPages: 2000,
+            pageFormat: pageFormat,
+            header: (pw.Context context) {
+              return pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                children: [
+                  pw.Row(
+                    mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                    children: [
+                      pw.Text(t.pdfReportTitle, style: pw.TextStyle(font: boldFont, fontSize: 14, color: PdfColors.blue900)),
+                      pw.Text('${t.pdfGeneratedLabel} $formattedDate', style: pw.TextStyle(font: font, fontSize: 10, color: PdfColors.grey700)),
+                    ],
+                  ),
+                  pw.Divider(color: PdfColors.grey400, thickness: 0.5),
+                  pw.Row(
+                    mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                    children: [
+                      pw.Expanded(child: pw.Text('${t.pdfFileLabel} ${widget.fileName}', style: pw.TextStyle(font: boldFont, fontSize: 11))),
+                      pw.Text('${t.pdfSizeLabel} $fileSizeStr', style: pw.TextStyle(font: font, fontSize: 10)),
+                      pw.SizedBox(width: 16),
+                      pw.Text('${t.pdfRecordsLabel} $recordCountStr', style: pw.TextStyle(font: font, fontSize: 10)),
+                    ],
+                  ),
+                  pw.Divider(color: PdfColors.grey400, thickness: 0.5),
+                  pw.SizedBox(height: 10),
+                ],
+              );
+            },
+            footer: (pw.Context context) {
+              return pw.Container(
+                alignment: pw.Alignment.centerRight,
+                margin: const pw.EdgeInsets.only(top: 10),
+                child: pw.Text(
+                  '${t.pdfPage} ${context.pageNumber} ${t.pdfOf} ${context.pagesCount}',
+                  style: pw.TextStyle(font: font, fontSize: 10, color: PdfColors.grey600),
                 ),
-                pw.Divider(color: PdfColors.grey400, thickness: 0.5),
-                pw.Row(
-                  mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                  children: [
-                    pw.Expanded(child: pw.Text('${t.pdfFileLabel} ${widget.fileName}', style: pw.TextStyle(font: boldFont, fontSize: 11))),
-                    pw.Text('${t.pdfSizeLabel} $fileSizeStr', style: pw.TextStyle(font: font, fontSize: 10)),
-                    pw.SizedBox(width: 16),
-                    pw.Text('${t.pdfRecordsLabel} $recordCountStr', style: pw.TextStyle(font: font, fontSize: 10)),
-                  ],
-                ),
-                pw.Divider(color: PdfColors.grey400, thickness: 0.5),
-                pw.SizedBox(height: 10),
-              ],
-            );
-          },
-          footer: (pw.Context context) {
-            return pw.Container(
-              alignment: pw.Alignment.centerRight,
-              margin: const pw.EdgeInsets.only(top: 10),
-              child: pw.Text(
-                '${t.pdfPage} ${context.pageNumber} ${t.pdfOf} ${context.pagesCount}',
-                style: pw.TextStyle(font: font, fontSize: 10, color: PdfColors.grey600),
-              ),
-            );
-          },
-          build: (pw.Context context) {
-            return [
-              if (_isCsvFile)
-                ..._buildCsvTable(widget.csvData!, font, boldFont, monoFont)
-              else if (_isZipFile)
-                _buildZipTable(widget.zipFiles!, font, boldFont, monoFont, t)
-              else if (_isImageFile && widget.filePath != null)
-                pw.Center(
-                  child: pw.ConstrainedBox(
-                    constraints: pw.BoxConstraints(
-                      maxHeight: format.availableHeight - 150, // Ensure it fits within page with header/footer
-                    ),
-                    child: pw.Image(
-                      pw.MemoryImage(
-                        File(widget.filePath!).readAsBytesSync(),
+              );
+            },
+            build: (pw.Context context) {
+              return [
+                if (_isCsvFile)
+                  ..._buildCsvTable(widget.csvData!, font, boldFont, monoFont)
+                else if (_isZipFile)
+                  _buildZipTable(widget.zipFiles!, font, boldFont, monoFont, t)
+                else if (_isImageFile && widget.filePath != null)
+                  pw.Center(
+                    child: pw.ConstrainedBox(
+                      constraints: pw.BoxConstraints(
+                        maxHeight: format.availableHeight - 150,
                       ),
-                      fit: pw.BoxFit.contain,
+                      child: pw.Image(
+                        pw.MemoryImage(
+                          File(widget.filePath!).readAsBytesSync(),
+                        ),
+                        fit: pw.BoxFit.contain,
+                      ),
                     ),
-                  ),
-                )
-              else
-                pw.Paragraph(
-                  text: widget.content,
-                  style: pw.TextStyle(
-                    font: monoFont,
-                    fontSize: 9,
-                    color: PdfColors.black,
-                    height: 1.4,
-                  ),
-                ),
-            ];
-          },
-        ),
-      );
+                  )
+                else
+                  if (fullText.length > 2000)
+                    ...List.generate(
+                      ((fullText.length > 100000 ? 100000 : fullText.length) / 2000).ceil(),
+                      (index) {
+                        final start = index * 2000;
+                        final truncateLimit = 100000;
+                        final effectiveLength = fullText.length > truncateLimit ? truncateLimit : fullText.length;
+                        
+                        final end = (start + 2000 < effectiveLength) ? start + 2000 : effectiveLength;
+                        
+                        // Check if we are at the very end and need to append warning
+                         final isLastChunk = end >= effectiveLength;
+                         String chunkText = fullText.substring(start, end);
+                         
+                         if (isLastChunk && fullText.length > truncateLimit) {
+                           chunkText += '\n\n[WARNING: Content truncated due to PDF size limits. Only the first 100,000 characters are shown.]';
+                         }
+
+                        return pw.Paragraph(
+                          text: chunkText,
+                          style: pw.TextStyle(
+                            font: monoFont,
+                            fontSize: 9,
+                            color: PdfColors.black,
+                            height: 1.4,
+                          ),
+                        );
+                      },
+                    )
+                  else
+                    pw.Paragraph(
+                      text: fullText,
+                      style: pw.TextStyle(
+                        font: monoFont,
+                        fontSize: 9,
+                        color: PdfColors.black,
+                        height: 1.4,
+                      ),
+                    ),
+              ];
+            },
+          ),
+        );
+      } catch (e) {
+        debugPrint('Error generating PDF page: $e');
+        pdf.addPage(
+          pw.Page(
+            build: (pw.Context context) {
+               return pw.Center(child: pw.Text('Error generating PDF content: $e'));
+            }
+          )
+        );
+      }
     }
 
-    return pdf.save();
+    try {
+       return await pdf.save();
+    } catch (e) {
+       debugPrint('Error saving PDF: $e');
+       // Return empty bytes or handle error appropriately
+       return Uint8List(0);
+    }
   }
 
   // Build clean, readable CSV table with automatic splitting for wide tables
@@ -475,16 +525,40 @@ class _PdfViewerScreenState extends State<PdfViewerScreen> {
   }
 
   void _printPdf() async {
-    final bytes = await _generatePdf(PdfPageFormat.a4);
-    await Printing.layoutPdf(
-        onLayout: (PdfPageFormat format) async => bytes,
-        name: '${widget.fileName}_report.pdf');
+    try {
+      final bytes = await _generatePdf(PdfPageFormat.a4);
+      if (bytes.isEmpty) {
+        throw 'Erro ao gerar PDF (bytes vazios).';
+      }
+      await Printing.layoutPdf(
+          onLayout: (PdfPageFormat format) async => bytes,
+          name: '${widget.fileName}_report.pdf');
+    } catch (e) {
+      debugPrint('Erro ao imprimir PDF: $e');
+      if (mounted) {
+         ScaffoldMessenger.of(context).showSnackBar(
+           SnackBar(content: Text('Erro ao imprimir: $e')),
+         );
+      }
+    }
   }
 
   void _sharePdf() async {
-    final bytes = await _generatePdf(PdfPageFormat.a4);
-    await Printing.sharePdf(
-        bytes: bytes, filename: '${widget.fileName}_report.pdf');
+    try {
+      final bytes = await _generatePdf(PdfPageFormat.a4);
+       if (bytes.isEmpty) {
+        throw 'Erro ao gerar PDF (bytes vazios).';
+      }
+      await Printing.sharePdf(
+          bytes: bytes, filename: '${widget.fileName}_report.pdf');
+    } catch (e) {
+       debugPrint('Erro ao compartilhar PDF: $e');
+       if (mounted) {
+         ScaffoldMessenger.of(context).showSnackBar(
+           SnackBar(content: Text('Erro ao compartilhar: $e')),
+         );
+      }
+    }
   }
 
   @override
