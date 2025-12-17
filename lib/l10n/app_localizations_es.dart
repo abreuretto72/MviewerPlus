@@ -275,7 +275,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get featuresContent =>
-      '• Vista Rápida: Abre archivos grandes al instante.\n• Edición y Búsqueda: Edite texto, busque y reemplace términos.\n• Exportar y Compartir: Genere PDF, imprima y comparta archivos.\n• Tablas Inteligentes: Visualice CSV y Excel con filtros y ordenación.\n• Editor de Código: Resaltado de sintaxis para más de 30 lenguajes.\n• Análisis de IA: Ingrese su Clave API Groq para que la IA analice el contenido y responda preguntas.\n• Archivos ZIP: Explore archivos comprimidos.';
+      '• Vista Rápida: Abre archivos grandes al instante con rendimiento nativo.\n• Edición y Búsqueda: Edite texto, código y datos. Búsqueda avanzada \'Buscar y Reemplazar\'.\n• Edición Segura: Sus archivos originales nunca se modifican. Las copias se guardan en el \'Historial\' del Menú Principal.\n• Tablas Inteligentes: Visualice CSV y Excel como hojas de cálculo interactivas con filtros.\n• Editor de Código: Resaltado de sintaxis para más de 30 lenguajes (Dart, JS, Python, SQL...).\n• Verificación de Seguridad: Verifique integridad de app, root, debuggers y firmas digitales.\n• Análisis de IA: Ingrese su Clave API Groq para \'chatear\' con sus documentos.\n• Archivos ZIP: Explore dentro de archivos comprimidos como carpetas.\n• Multimedia: Reproductor nativo para audio y video.';
 
   @override
   String get formatsSection => 'Formatos Soportados';
@@ -288,7 +288,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get formatsContent =>
-      '• Texto: .txt, .md, .log, .rtf\n• Datos: .csv, .json, .xml, .xlsx, .xls\n• Código: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Imágenes: .png, .jpg, .gif\n• Multimedia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Otros: .zip, .apk';
+      '• Texto & Código: .txt, .md, .log, .json, .xml, .yaml, .yml, .html, .css, .js, .ts, .dart, .java, .kt, .swift, .py, .rb, .php, .go, .c, .cpp, .cs, .sql, .sh, .conf, .env, .ini\n• Datos & Hojas de Cálculo: .csv, .xlsx, .xls\n• Documentos: .pdf, .docx (texto)\n• Imágenes: .png, .jpg, .jpeg, .gif, .webp, .bmp\n• Audio: .mp3, .wav, .ogg, .m4a, .aac, .flac\n• Video: .mp4, .mov, .avi, .mkv, .webm, .wmv, .flv, .3gp\n• Archivos: .zip, .apk, .jar\n• Certificados: .pem, .crt, .cer, .p12, .pfx, .der';
 
   @override
   String get cookieInspector => 'Cookie Inspector';

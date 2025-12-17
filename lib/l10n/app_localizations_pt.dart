@@ -275,7 +275,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get featuresContent =>
-      '• Visualização Rápida: Abra arquivos grandes instantaneamente com performance nativa.\n• Edição e Busca: Edite textos, código e dados. Use \'Localizar e Substituir\' avançado.\n• Tabelas Inteligentes: Visualize CSVs e Excel como planilhas interativas com ordenação e filtros.\n• Editor de Código: Sintaxe colorida para mais de 30 linguagens (Dart, JS, Python, SQL...).\n• Checagem de Segurança: Verifique integridade do app, root, debuggers e assinaturas digitais.\n• Análise com IA: Conecte sua chave Groq para \'conversar\' com seus documentos.\n• Arquivos ZIP: Navegue dentro de arquivos compactados como se fossem pastas.\n• Multimídia: Player nativo para áudio e vídeo.';
+      '• Visualização Rápida: Abra arquivos grandes instantaneamente com performance nativa.\n• Edição e Busca: Edite textos, código e dados. Use \'Localizar e Substituir\' avançado.\n• Edição Segura: Seus arquivos originais nunca são alterados. O app trabalha em uma cópia, salva no \'Histórico\' do Menu Principal.\n• Tabelas Inteligentes: Visualize CSVs e Excel como planilhas interativas com ordenação e filtros.\n• Editor de Código: Sintaxe colorida para mais de 30 linguagens (Dart, JS, Python, SQL...).\n• Checagem de Segurança: Verifique integridade do app, root, debuggers e assinaturas digitais.\n• Análise com IA: Conecte sua chave Groq para \'conversar\' com seus documentos.\n• Arquivos ZIP: Navegue dentro de arquivos compactados como se fossem pastas.\n• Multimídia: Player nativo para áudio e vídeo.';
 
   @override
   String get formatsSection => 'Formatos Suportados';
@@ -288,7 +288,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get formatsContent =>
-      '• Texto: .txt, .md, .log, .rtf, .json, .xml, .yaml\n• Dados: .csv, .tsv, .xlsx, .xls, .sql, .db (sqlite)\n• Código: .bat, .c, .cpp, .cs, .css, .dart, .go, .html, .java, .js, .kt, .lua, .php, .py, .rb, .sh, .swift, .ts\n• Documentos: .pdf, .docx (texto)\n• Multimídia: .mp3, .wav, .aac, .mp4, .avi, .mov, .mkv\n• Imagens: .png, .jpg, .jpeg, .gif, .bmp, .webp, .svg\n• Certificados: .cer, .pem, .crt, .der, .p12, .pfx\n• Outros: .zip, .apk';
+      '• Texto & Código: .txt, .md, .log, .json, .xml, .yaml, .yml, .html, .css, .js, .ts, .dart, .java, .kt, .swift, .py, .rb, .php, .go, .c, .cpp, .cs, .sql, .sh, .conf, .env, .ini\n• Dados & Planilhas: .csv, .xlsx, .xls\n• Documentos: .pdf, .docx (texto)\n• Imagens: .png, .jpg, .jpeg, .gif, .webp, .bmp\n• Áudio: .mp3, .wav, .ogg, .m4a, .aac, .flac\n• Vídeo: .mp4, .mov, .avi, .mkv, .webm, .wmv, .flv, .3gp\n• Arquivos: .zip, .apk, .jar\n• Certificados: .pem, .crt, .cer, .p12, .pfx, .der';
 
   @override
   String get cookieInspector => 'Cookie Inspector';
@@ -1117,14 +1117,14 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get featuresContent =>
-      '• Visualização Rápida: Abra arquivos grandes instantaneamente com performance nativa.\n• Edição e Busca: Edite textos, código e dados. Use \'Localizar e Substituir\' avançado.\n• Tabelas Inteligentes: Visualize CSVs e Excel como planilhas interativas com ordenação e filtros.\n• Editor de Código: Sintaxe colorida para mais de 30 linguagens (Dart, JS, Python, SQL...).\n• Checagem de Segurança: Verifique integridade do app, root, debuggers e assinaturas digitais.\n• Análise com IA: Conecte sua chave Groq para \'conversar\' com seus documentos.\n• Arquivos ZIP: Navegue dentro de arquivos compactados como se fossem pastas.\n• Multimídia: Player nativo para áudio e vídeo.';
+      '• Visualização Rápida: Abra arquivos grandes instantaneamente com performance nativa.\n• Edição e Busca: Edite textos, código e dados. Use \'Localizar e Substituir\' avançado.\n• Edição Segura: Seus arquivos originais nunca são alterados. O app trabalha em uma cópia, salva no \'Histórico\' do Menu Principal.\n• Tabelas Inteligentes: Visualize CSVs e Excel como planilhas interativas com ordenação e filtros.\n• Editor de Código: Sintaxe colorida para mais de 30 linguagens (Dart, JS, Python, SQL...).\n• Checagem de Segurança: Verifique integridade do app, root, debuggers e assinaturas digitais.\n• Análise com IA: Conecte sua chave Groq para \'conversar\' com seus documentos.\n• Arquivos ZIP: Navegue dentro de arquivos compactados como se fossem pastas.\n• Multimídia: Player nativo para áudio e vídeo.';
 
   @override
   String get formatsSection => 'Formatos Suportados';
 
   @override
   String get formatsContent =>
-      '• Texto: .txt, .md, .log, .rtf, .json, .xml, .yaml\n• Dados: .csv, .tsv, .xlsx, .xls, .sql, .db (sqlite)\n• Código: .bat, .c, .cpp, .cs, .css, .dart, .go, .html, .java, .js, .kt, .lua, .php, .py, .rb, .sh, .swift, .ts\n• Documentos: .pdf, .docx (texto)\n• Multimídia: .mp3, .wav, .aac, .mp4, .avi, .mov, .mkv\n• Imagens: .png, .jpg, .jpeg, .gif, .bmp, .webp, .svg\n• Certificados: .cer, .pem, .crt, .der, .p12, .pfx\n• Outros: .zip, .apk';
+      '• Texto & Código: .txt, .md, .log, .json, .xml, .yaml, .yml, .html, .css, .js, .ts, .dart, .java, .kt, .swift, .py, .rb, .php, .go, .c, .cpp, .cs, .sql, .sh, .conf, .env, .ini\n• Dados & Planilhas: .csv, .xlsx, .xls\n• Documentos: .pdf, .docx (texto)\n• Imagens: .png, .jpg, .jpeg, .gif, .webp, .bmp\n• Áudio: .mp3, .wav, .ogg, .m4a, .aac, .flac\n• Vídeo: .mp4, .mov, .avi, .mkv, .webm, .wmv, .flv, .3gp\n• Arquivos: .zip, .apk, .jar\n• Certificados: .pem, .crt, .cer, .p12, .pfx, .der';
 
   @override
   String get cookieInspector => 'Inspetor de Cookies';
@@ -1953,7 +1953,7 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
 
   @override
   String get featuresContent =>
-      '• Visualização Rápida: Abra grandes ficheiros instantaneamente.\n• Edição e Pesquisa: Edite texto, localize e substitua termos.\n• Exportação e Partilha: Gere PDFs, imprima e partilhe ficheiros.\n• Tabelas Inteligentes: Visualize CSV e Excel com filtros e ordenação.\n• Editor de Código: Realce de sintaxe para mais de 30 linguagens.\n• Análise IA: Insira a sua Chave API Groq para que a IA analise o conteúdo dos ficheiros e responda a perguntas sobre eles.\n• Ficheiros ZIP: Explore o conteúdo de ficheiros comprimidos.';
+      '• Visualização Rápida: Abra grandes ficheiros instantaneamente com performance nativa.\n• Edição e Pesquisa: Edite texto, código e dados. Use \'Localizar e Substituir\' avançado.\n• Edição Segura: Os seus ficheiros originais nunca são alterados. As cópias são guardadas no \'Histórico\' do Menu Principal.\n• Tabelas Inteligentes: Visualize CSVs e Excel como folhas de cálculo interativas com ordenação e filtros.\n• Editor de Código: Realce de sintaxe para mais de 30 linguagens (Dart, JS, Python, SQL...).\n• Verificação de Segurança: Verifique integridade da app, root, debuggers e assinaturas digitais.\n• Análise IA: Insira a sua Chave API Groq para \'conversar\' com os seus documentos.\n• Ficheiros ZIP: Navegue dentro de ficheiros comprimidos como pastas.\n• Multimídia: Player nativo para áudio e vídeo.';
 
   @override
   String get formatsSection => 'Formatos Suportados';
@@ -1966,7 +1966,7 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
 
   @override
   String get formatsContent =>
-      '• Texto: .txt, .md, .log, .rtf\n• Dados: .csv, .json, .xml, .xlsx, .xls\n• Código: Dart, JS, Python, Java, C++, HTML, CSS, SQL...\n• Imagens: .png, .jpg, .gif\n• Multimídia: .mp3, .wav, .mp4, .avi\n• Docs: .pdf, .docx\n• Outros: .zip, .apk';
+      '• Texto & Código: .txt, .md, .log, .json, .xml, .yaml, .yml, .html, .css, .js, .ts, .dart, .java, .kt, .swift, .py, .rb, .php, .go, .c, .cpp, .cs, .sql, .sh, .conf, .env, .ini\n• Dados & Folhas de Cálculo: .csv, .xlsx, .xls\n• Documentos: .pdf, .docx (texto)\n• Imagens: .png, .jpg, .jpeg, .gif, .webp, .bmp\n• Áudio: .mp3, .wav, .ogg, .m4a, .aac, .flac\n• Vídeo: .mp4, .mov, .avi, .mkv, .webm, .wmv, .flv, .3gp\n• Arquivos: .zip, .apk, .jar\n• Certificados: .pem, .crt, .cer, .p12, .pfx, .der';
 
   @override
   String get securityCheck => 'Verificação de Segurança';
