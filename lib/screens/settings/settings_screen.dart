@@ -1,49 +1,5 @@
 import 'package:package_info_plus/package_info_plus.dart';
-
-// ... (existing imports, but add package_info_plus at top)
-
-          ListTile(
-            leading: const Icon(Icons.info),
-            title: Text(t.about),
-            onTap: () async {
-              PackageInfo packageInfo = await PackageInfo.fromPlatform();
-              String version = packageInfo.version;
-              String buildNumber = packageInfo.buildNumber;
-
-              if (!context.mounted) return;
-
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Row(
-                    children: [
-                       const Icon(Icons.folder_open, size: 24),
-                       const SizedBox(width: 12),
-                       Text(t.about),
-                    ],
-                  ),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(t.appTitle, style: Theme.of(context).textTheme.titleLarge),
-                      Text('${t.appVersion}: v$version ($buildNumber)', style: Theme.of(context).textTheme.bodyMedium),
-                      const SizedBox(height: 16),
-                      Text(t.companyName, style: const TextStyle(fontWeight: FontWeight.bold)),
-                      const SizedBox(height: 4),
-                      SelectableText(t.contactEmail),
-                    ],
-                  ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(t.close),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
+import 'package:file_viewer/l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:file_viewer/providers/locale_provider.dart';
 import 'package:file_viewer/screens/settings/help_screen.dart';
@@ -122,7 +78,13 @@ class SettingsScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.info),
             title: Text(t.about),
-            onTap: () {
+            onTap: () async {
+              PackageInfo packageInfo = await PackageInfo.fromPlatform();
+              String version = packageInfo.version;
+              String buildNumber = packageInfo.buildNumber;
+
+              if (!context.mounted) return;
+
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
@@ -138,7 +100,7 @@ class SettingsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(t.appTitle, style: Theme.of(context).textTheme.titleLarge),
-                      Text(t.appVersion, style: Theme.of(context).textTheme.bodyMedium),
+                      Text('${t.appVersion}: v$version ($buildNumber)', style: Theme.of(context).textTheme.bodyMedium),
                       const SizedBox(height: 16),
                       Text(t.companyName, style: const TextStyle(fontWeight: FontWeight.bold)),
                       const SizedBox(height: 4),
