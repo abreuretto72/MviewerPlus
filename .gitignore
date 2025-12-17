@@ -51,3 +51,10 @@ arq_testes/
 # Documentation
 *.md
 !README.md
+
+# Security/Sensitives
+key.properties
+**/*.jks
+**/*.keystore
+google-services.json
+GoogleService-Info.plist
