@@ -1969,7 +1969,259 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
       '• Texto & Código: .txt, .md, .log, .json, .xml, .yaml, .yml, .html, .css, .js, .ts, .dart, .java, .kt, .swift, .py, .rb, .php, .go, .c, .cpp, .cs, .sql, .sh, .conf, .env, .ini\n• Dados & Folhas de Cálculo: .csv, .xlsx, .xls\n• Documentos: .pdf, .docx (texto)\n• Imagens: .png, .jpg, .jpeg, .gif, .webp, .bmp\n• Áudio: .mp3, .wav, .ogg, .m4a, .aac, .flac\n• Vídeo: .mp4, .mov, .avi, .mkv, .webm, .wmv, .flv, .3gp\n• Arquivos: .zip, .apk, .jar\n• Certificados: .pem, .crt, .cer, .p12, .pfx, .der';
 
   @override
+  String get cookieInspector => 'Inspetor de Cookies';
+
+  @override
+  String get cookieInspectorDesc => 'Gerir e analisar cookies';
+
+  @override
+  String get httpCookies => 'Cookies HTTP';
+
+  @override
+  String get webviewCookies => 'Cookies WebView';
+
+  @override
+  String get securityLogs => 'Segurança e Registos';
+
+  @override
+  String get cookieWarning =>
+      'Cookies podem conter tokens de sessão. Use com cuidado.';
+
+  @override
+  String get urlOrDomain => 'URL ou Domínio';
+
+  @override
+  String get listCookies => 'Listar';
+
+  @override
+  String get exportCookies => 'Exportar';
+
+  @override
+  String get deleteAllCookies => 'Apagar Tudo';
+
+  @override
+  String get noCookiesFound => 'Nenhum cookie encontrado';
+
+  @override
+  String get enterUrlAndList => 'Insira um URL e clique em \'Listar\'';
+
+  @override
+  String get cookieName => 'Nome';
+
+  @override
+  String get cookieValue => 'Valor';
+
+  @override
+  String get cookieDomain => 'Domínio';
+
+  @override
+  String get cookiePath => 'Caminho';
+
+  @override
+  String get cookieExpires => 'Expira';
+
+  @override
+  String get cookieSecure => 'Seguro';
+
+  @override
+  String get cookieHttpOnly => 'HttpOnly';
+
+  @override
+  String get cookieSameSite => 'SameSite';
+
+  @override
+  String get cookieSensitive => 'Cookie sensível';
+
+  @override
+  String get securitySignals => 'Sinais de Segurança';
+
+  @override
+  String get copyValue => 'Copiar Valor';
+
+  @override
+  String get editCookie => 'Editar';
+
+  @override
+  String get deleteCookie => 'Apagar';
+
+  @override
+  String get revealValue => 'Revelar valor completo';
+
+  @override
+  String get confirmDeletion => 'Confirmar Eliminação';
+
+  @override
+  String deleteConfirmMsg(Object name) {
+    return 'Deseja apagar o cookie \"$name\"?';
+  }
+
+  @override
+  String get sessionWarning => 'Esta ação pode encerrar sessões ativas.';
+
+  @override
+  String get deleteAllConfirmTitle => '⚠️ Confirmar Eliminação em Massa';
+
+  @override
+  String get deleteAllConfirmMsg => 'Deseja apagar TODOS os cookies?';
+
+  @override
+  String get deleteAllWarning =>
+      'ATENÇÃO: Esta ação é irreversível!\n• Todas as sessões serão encerradas\n• Será desligado de sites\n• Definições guardadas serão perdidas';
+
+  @override
+  String get understandWarning => 'Entendo que isto pode encerrar sessões';
+
+  @override
+  String get exportFormat => 'Exportar Cookies';
+
+  @override
+  String get exportWarning => 'Este relatório contém cookies de autenticação.';
+
+  @override
+  String get exportMasked => 'Valores mascarados (recomendado)';
+
+  @override
+  String get exportMaskedDesc => 'Cookies sensíveis serão protegidos';
+
+  @override
+  String get exportReal => 'Valores reais';
+
+  @override
+  String get exportRealDesc => 'Requer autenticação adicional';
+
+  @override
+  String get statistics => '📊 Estatísticas';
+
+  @override
+  String get totalCookies => 'Total de Cookies';
+
+  @override
+  String get totalDomains => 'Total de Domínios';
+
+  @override
+  String get secureCookies => 'Cookies Seguros';
+
+  @override
+  String get httpOnlyCookies => 'Cookies HttpOnly';
+
+  @override
+  String get expiredCookies => 'Cookies Expirados';
+
+  @override
+  String get securityReport => '🔐 Relatório de Segurança';
+
+  @override
+  String get viewDetails => 'Ver Detalhes';
+
+  @override
+  String get securitySettings => '🔒 Definições de Segurança';
+
+  @override
+  String get biometricAuth => 'Autenticação Biométrica';
+
+  @override
+  String get protectSensitiveActions => 'Proteger ações sensíveis';
+
+  @override
+  String get configurePin => 'Configurar PIN';
+
+  @override
+  String get alternativePin => 'PIN de segurança alternativo';
+
+  @override
+  String get authRequired => 'Autenticação Necessária';
+
+  @override
+  String get configurePinMsg =>
+      'Configure um PIN de segurança para proteger ações sensíveis.';
+
+  @override
+  String get enterPin => 'Insira o seu PIN';
+
+  @override
+  String get pinMinLength => 'PIN (mínimo 4 dígitos)';
+
+  @override
+  String get confirmPin => 'Confirmar PIN';
+
+  @override
+  String get pinsDoNotMatch => 'Os PINs não coincidem';
+
+  @override
+  String get pinTooShort => 'O PIN deve ter pelo menos 4 dígitos';
+
+  @override
+  String get pinConfigured => 'PIN configurado';
+
+  @override
+  String get errorConfiguringPin => 'Erro ao configurar PIN';
+
+  @override
+  String get webviewLimitations =>
+      'Nota: Cookies com flags httpOnly e secure podem não ser visíveis via JavaScript. Para ver todos, use ferramentas de programador ou HTTP Cookie Manager.';
+
+  @override
+  String get webviewRequiresActive =>
+      'Esta funcionalidade requer uma WebView ativa.';
+
+  @override
+  String get valueCopied => 'Valor copiado para a área de transferência';
+
+  @override
+  String get cookieUpdated => 'Cookie atualizado';
+
+  @override
+  String get errorUpdatingCookie => 'Erro ao atualizar cookie';
+
+  @override
+  String get cookieDeleted => 'Cookie apagado';
+
+  @override
+  String get errorDeletingCookie => 'Erro ao apagar cookie';
+
+  @override
+  String get allCookiesDeleted => 'Todos os cookies foram apagados';
+
+  @override
+  String get errorDeletingCookies => 'Erro ao apagar cookies';
+
+  @override
+  String get noCookiesToExport => 'Nenhum cookie para exportar';
+
+  @override
+  String get jsonCopied => 'JSON copiado para área de transferência';
+
+  @override
+  String get csvCopied => 'CSV copiado para área de transferência';
+
+  @override
+  String errorExporting(Object error) {
+    return 'Erro ao exportar: $error';
+  }
+
+  @override
+  String get fullSecurityReport => 'Relatório de Segurança Completo';
+
+  @override
+  String get reportCopied => 'Relatório copiado';
+
+  @override
+  String get premium => 'Premium';
+
+  @override
+  String get goPremium => 'Tornar-se Premium';
+
+  @override
+  String get restorePurchases => 'Restaurar Compras';
+
+  @override
+  String get premiumDesc => 'Desbloqueie acesso ilimitado e remova anúncios.';
+
+  @override
   String get securityCheck => 'Verificação de Segurança';
+
+  @override
+  String get securityCheckDesc => 'Verificar segurança do dispositivo';
 
   @override
   String get refresh => 'Atualizar';
@@ -2221,4 +2473,33 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
   @override
   String get expEmulatorDesc =>
       'Verifica se é um telemóvel real ou virtual.\n\n✅ Significado:\nDeve usar um telemóvel real.';
+
+  @override
+  String securitySignatureStatus(Object count) {
+    return 'Estado das Assinaturas ($count)';
+  }
+
+  @override
+  String get securityAppNotInstalled => 'Não Instalado';
+
+  @override
+  String get securityAppVerified => 'Verificado';
+
+  @override
+  String get securityAppPendingConfig => 'Configuração Pendiente';
+
+  @override
+  String get securityAppInvalidSignature => 'Assinatura Inválida!';
+
+  @override
+  String get securityAppUnknown => 'Desconhecido';
+
+  @override
+  String get securityAppActualHash => 'Atual:';
+
+  @override
+  String get securityAppExpectedHash => 'Esperado:';
+
+  @override
+  String get securityConfigNeeded => 'Configurar...';
 }
