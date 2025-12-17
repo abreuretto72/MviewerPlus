@@ -7,6 +7,8 @@ import 'package:file_viewer/screens/security_check_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:file_viewer/l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:file_viewer/services/file_picker_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -40,7 +42,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   Future<void> _pickFile() async {
     try {
-      FilePickerResult? result = await FilePicker.platform.pickFiles();
+      final pickerService = context.read<FilePickerService>();
+      FilePickerResult? result = await pickerService.pickFiles();
 
       if (result != null && result.files.single.path != null) {
         if (!mounted) return;
@@ -115,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Icon(
+                   Icon(
                     Icons.folder_open_rounded,
                     size: 48,
                     color: Colors.white,
@@ -272,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     style: GoogleFonts.outfit(
                       fontSize: 12,
                       color: Colors.white38,
-                    ),
+                      ),
                     textAlign: TextAlign.center,
                   ),
                 ),

@@ -7,6 +7,16 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ---
 
+## [7.0.2] - 2025-12-17
+### Added
+- **Integration Tests**: Added `integration_test` dependency and infrastructure.
+- **Dependency Injection**: Introduced `FilePickerService` and Provider injection in `HomeScreen` for better testability.
+
+### Fixed
+- **Localization**: Completed missing translation keys for Spanish (`es`), Portuguese Portugal (`pt_PT`) and Portuguese Brazil (`pt_BR`).
+  - Resolved Google Play Console validation errors.
+- **Testing**: Fixed `GoogleFonts` runtime fetching issues in test environments.
+
 ## [7.0.1] - 2025-12-16
 ### Added
 - **Certificate Support**: Suporte leitura de arquivos de certificado (`.crt`, `.cer`, `.pem`, `.der`, `.p12`, `.pfx`).

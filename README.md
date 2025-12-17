@@ -147,6 +147,16 @@ flutter pub get
 flutter run
 ```
 
+```
+
+### Testes
+
+Para executar os testes de integração (End-to-End):
+
+```bash
+flutter test integration_test/app_test.dart
+```
+
 ---
 
 ## ⚙️ Configuração
@@ -216,12 +226,16 @@ lib/
 │   ├── native_security_checker.dart   # Platform Channels
 │   ├── security_service.dart          # Business logic
 │   ├── app_signature_validator.dart   # Firebase Remote Config
-│   └── secure_http_client.dart        # SSL Pinning
+│   ├── secure_http_client.dart        # SSL Pinning
+│   └── file_picker_service.dart       # File Picking (Testable)
 ├── screens/
 │   ├── security_check_screen.dart     # Dashboard
 │   └── home_screen.dart               # Main screen
 └── providers/
     └── locale_provider.dart           # i18n
+    
+integration_test/
+└── app_test.dart                      # End-to-End Tests
 
 android/
 └── app/src/main/kotlin/

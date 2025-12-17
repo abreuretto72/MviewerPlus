@@ -550,38 +550,38 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String securityCheckError(Object error) {
-    return 'Error checking security: $error';
+    return 'Error al verificar la seguridad: $error';
   }
 
   @override
   String get noResultsAvailable => 'No hay resultados disponibles.';
 
   @override
-  String get securityLevel => 'Security Level';
+  String get securityLevel => 'Nivel de Seguridad';
 
   @override
-  String get riskScore => 'Risk Score';
+  String get riskScore => 'Puntaje de Riesgo';
 
   @override
-  String get checks => 'Checks';
+  String get checks => 'Verificaciones';
 
   @override
-  String get recommendedActions => 'Recommended Actions';
+  String get recommendedActions => 'Acciones Recomendadas';
 
   @override
-  String get criticalThreats => 'Critical Threats';
+  String get criticalThreats => 'Amenazas Críticas';
 
   @override
-  String get warnings => 'Warnings';
+  String get warnings => 'Advertencias';
 
   @override
-  String get safe => 'Safe';
+  String get safe => 'Seguro';
 
   @override
-  String get critical => 'Critical';
+  String get critical => 'Crítico';
 
   @override
-  String get warning => 'Warning';
+  String get warning => 'Advertencia';
 
   @override
   String get checksPerformed => 'Verificaciones Realizadas';

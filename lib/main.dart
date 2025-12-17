@@ -12,6 +12,7 @@ import 'package:file_viewer/services/app_signature_validator.dart';
 
 import 'dart:async'; 
 import 'package:flutter/services.dart'; // Importante para SystemChrome
+import 'package:file_viewer/services/file_picker_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,6 +48,7 @@ Future<void> main() async {
       MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => LocaleProvider()),
+          Provider<FilePickerService>(create: (_) => FilePickerService()),
         ],
         child: const MyApp(),
       ),
@@ -59,7 +61,8 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final ThemeData? theme; // Allow overriding theme for testing
+  const MyApp({super.key, this.theme});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +71,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'MviewerPlus',
           debugShowCheckedModeBanner: false,
-          theme: AppTheme.darkTheme,
+          theme: theme ?? AppTheme.darkTheme,
           locale: localeProvider.locale, // Uses the provider's locale
           localizationsDelegates: const [
             AppLocalizations.delegate,

@@ -97,7 +97,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get privacyPolicyContent =>
-      'Última atualização: Dezembro de 2025\n\nEsta Política de Privacidade descreve como o MviewerPlus coleta, usa e divulga suas informações quando você utiliza nosso Serviço.\n\n1. Coleta de Dados\nNão coletamos dados pessoais. Os arquivos abertos neste aplicativo são processados localmente no seu dispositivo e não são enviados para nenhum servidor.\n\n2. Permissões\nO aplicativo requer permissões de armazenamento apenas para ler os arquivos que você selecionar explicitamente.\n\n3. Serviços de Terceiros\nSe você optar pela versão Gratuita, podemos usar serviços de publicidade de terceiros (ex: AdMob) que podem coletar identificadores de dispositivo para exibir anúncios relevantes. Na versão Premium, nenhum anúncio é exibido.\n\n4. Contate-nos\nSe tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco.';
+      'Última atualização: Dezembro de 2025\n\nEsta Política de Privacidade descreve como o MviewerPlus trata suas informações.\n\n1. Coleta e Processamento\nNão coletamos dados pessoais. O processamento de arquivos é local no seu dispositivo.\n\n2. Recursos de IA\nAo usar o assistente de IA, o conteúdo do arquivo é enviado para a API da Groq usando sua Chave de API pessoal. Nenhum dado é armazenado por nós.\n\n3. Modelo Gratuito\nEste aplicativo é 100% gratuito, open-source e não exibe anúncios.\n\n4. Contato\nEm caso de dúvidas, entre em contato: contato@multiversodigital.com.br';
 
   @override
   String get termsContent =>
@@ -291,59 +291,59 @@ class AppLocalizationsPt extends AppLocalizations {
       '• Texto & Código: .txt, .md, .log, .json, .xml, .yaml, .yml, .html, .css, .js, .ts, .dart, .java, .kt, .swift, .py, .rb, .php, .go, .c, .cpp, .cs, .sql, .sh, .conf, .env, .ini\n• Dados & Planilhas: .csv, .xlsx, .xls\n• Documentos: .pdf, .docx (texto)\n• Imagens: .png, .jpg, .jpeg, .gif, .webp, .bmp\n• Áudio: .mp3, .wav, .ogg, .m4a, .aac, .flac\n• Vídeo: .mp4, .mov, .avi, .mkv, .webm, .wmv, .flv, .3gp\n• Arquivos: .zip, .apk, .jar\n• Certificados: .pem, .crt, .cer, .p12, .pfx, .der';
 
   @override
-  String get cookieInspector => 'Cookie Inspector';
+  String get cookieInspector => 'Inspetor de Cookies';
 
   @override
-  String get cookieInspectorDesc => 'Manage and analyze cookies';
+  String get cookieInspectorDesc => 'Gerenciar e analisar cookies';
 
   @override
-  String get httpCookies => 'HTTP Cookies';
+  String get httpCookies => 'Cookies HTTP';
 
   @override
-  String get webviewCookies => 'WebView Cookies';
+  String get webviewCookies => 'Cookies WebView';
 
   @override
-  String get securityLogs => 'Security & Logs';
+  String get securityLogs => 'Segurança e Logs';
 
   @override
   String get cookieWarning =>
-      'Cookies may contain session and login tokens. Use with caution.';
+      'Cookies podem conter tokens de sessão e login. Use com cuidado.';
 
   @override
-  String get urlOrDomain => 'URL or Domain';
+  String get urlOrDomain => 'URL ou Domínio';
 
   @override
-  String get listCookies => 'List';
+  String get listCookies => 'Listar';
 
   @override
-  String get exportCookies => 'Export';
+  String get exportCookies => 'Exportar';
 
   @override
-  String get deleteAllCookies => 'Delete All';
+  String get deleteAllCookies => 'Excluir Todos';
 
   @override
-  String get noCookiesFound => 'No cookies found';
+  String get noCookiesFound => 'Nenhum cookie encontrado';
 
   @override
-  String get enterUrlAndList => 'Enter a URL and click \'List\'';
+  String get enterUrlAndList => 'Digite uma URL e clique em \'Listar\'';
 
   @override
-  String get cookieName => 'Name';
+  String get cookieName => 'Nome';
 
   @override
-  String get cookieValue => 'Value';
+  String get cookieValue => 'Valor';
 
   @override
-  String get cookieDomain => 'Domain';
+  String get cookieDomain => 'Domínio';
 
   @override
-  String get cookiePath => 'Path';
+  String get cookiePath => 'Caminho';
 
   @override
-  String get cookieExpires => 'Expires';
+  String get cookieExpires => 'Expira';
 
   @override
-  String get cookieSecure => 'Secure';
+  String get cookieSecure => 'Seguro';
 
   @override
   String get cookieHttpOnly => 'HttpOnly';
@@ -352,180 +352,180 @@ class AppLocalizationsPt extends AppLocalizations {
   String get cookieSameSite => 'SameSite';
 
   @override
-  String get cookieSensitive => 'Sensitive cookie';
+  String get cookieSensitive => 'Cookie sensível';
 
   @override
-  String get securitySignals => 'Security Signals';
+  String get securitySignals => 'Sinais de Segurança';
 
   @override
-  String get copyValue => 'Copy Value';
+  String get copyValue => 'Copiar Valor';
 
   @override
-  String get editCookie => 'Edit';
+  String get editCookie => 'Editar';
 
   @override
-  String get deleteCookie => 'Delete';
+  String get deleteCookie => 'Excluir';
 
   @override
-  String get revealValue => 'Reveal full value';
+  String get revealValue => 'Revelar valor completo';
 
   @override
-  String get confirmDeletion => 'Confirm Deletion';
+  String get confirmDeletion => 'Confirmar Exclusão';
 
   @override
   String deleteConfirmMsg(Object name) {
-    return 'Do you want to delete the cookie \"$name\"?';
+    return 'Deseja excluir o cookie \"$name\"?';
   }
 
   @override
-  String get sessionWarning => 'This action may end active sessions.';
+  String get sessionWarning => 'Esta ação pode encerrar sessões ativas.';
 
   @override
-  String get deleteAllConfirmTitle => '⚠️ Confirm Mass Deletion';
+  String get deleteAllConfirmTitle => '⚠️ Confirmar Exclusão em Massa';
 
   @override
-  String get deleteAllConfirmMsg => 'Do you want to delete ALL cookies?';
+  String get deleteAllConfirmMsg => 'Deseja excluir TODOS os cookies?';
 
   @override
   String get deleteAllWarning =>
-      'ATTENTION: This action is irreversible!\n• All sessions will be ended\n• You will be logged out of sites\n• Saved settings will be lost';
+      'ATENÇÃO: Esta ação é irreversível!\n• Todas as sessões serão encerradas\n• Você será desconectado de sites\n• Configurações salvas serão perdidas';
 
   @override
-  String get understandWarning => 'I understand this may end sessions';
+  String get understandWarning => 'Entendo que isso pode encerrar sessões';
 
   @override
-  String get exportFormat => 'Export Cookies';
+  String get exportFormat => 'Exportar Cookies';
 
   @override
-  String get exportWarning => 'This report contains authentication cookies.';
+  String get exportWarning => 'Este relatório contém cookies de autenticação.';
 
   @override
-  String get exportMasked => 'Masked values (recommended)';
+  String get exportMasked => 'Valores mascarados (recomendado)';
 
   @override
-  String get exportMaskedDesc => 'Sensitive cookies will be protected';
+  String get exportMaskedDesc => 'Cookies sensíveis serão protegidos';
 
   @override
-  String get exportReal => 'Real values';
+  String get exportReal => 'Valores reais';
 
   @override
-  String get exportRealDesc => 'Requires additional authentication';
+  String get exportRealDesc => 'Requer autenticação adicional';
 
   @override
-  String get statistics => '📊 Statistics';
+  String get statistics => '📊 Estatísticas';
 
   @override
-  String get totalCookies => 'Total Cookies';
+  String get totalCookies => 'Total de Cookies';
 
   @override
-  String get totalDomains => 'Total Domains';
+  String get totalDomains => 'Total de Domínios';
 
   @override
-  String get secureCookies => 'Secure Cookies';
+  String get secureCookies => 'Cookies Seguros';
 
   @override
-  String get httpOnlyCookies => 'HttpOnly Cookies';
+  String get httpOnlyCookies => 'Cookies HttpOnly';
 
   @override
-  String get expiredCookies => 'Expired Cookies';
+  String get expiredCookies => 'Cookies Expirados';
 
   @override
-  String get securityReport => '🔐 Security Report';
+  String get securityReport => '🔐 Relatório de Segurança';
 
   @override
-  String get viewDetails => 'View Details';
+  String get viewDetails => 'Ver Detalhes';
 
   @override
-  String get securitySettings => '🔒 Security Settings';
+  String get securitySettings => '🔒 Configurações de Segurança';
 
   @override
-  String get biometricAuth => 'Biometric Authentication';
+  String get biometricAuth => 'Autenticação Biométrica';
 
   @override
-  String get protectSensitiveActions => 'Protect sensitive actions';
+  String get protectSensitiveActions => 'Proteger ações sensíveis';
 
   @override
-  String get configurePin => 'Configure PIN';
+  String get configurePin => 'Configurar PIN';
 
   @override
-  String get alternativePin => 'Alternative security PIN';
+  String get alternativePin => 'PIN de segurança alternativo';
 
   @override
-  String get authRequired => 'Authentication Required';
+  String get authRequired => 'Autenticação Necessária';
 
   @override
   String get configurePinMsg =>
-      'Configure a security PIN to protect sensitive actions.';
+      'Configure um PIN de segurança para proteger ações sensíveis.';
 
   @override
-  String get enterPin => 'Enter your PIN';
+  String get enterPin => 'Digite seu PIN';
 
   @override
-  String get pinMinLength => 'PIN (minimum 4 digits)';
+  String get pinMinLength => 'PIN (mínimo 4 dígitos)';
 
   @override
-  String get confirmPin => 'Confirm PIN';
+  String get confirmPin => 'Confirmar PIN';
 
   @override
-  String get pinsDoNotMatch => 'PINs do not match';
+  String get pinsDoNotMatch => 'PINs não coincidem';
 
   @override
-  String get pinTooShort => 'PIN must be at least 4 digits';
+  String get pinTooShort => 'PIN deve ter no mínimo 4 dígitos';
 
   @override
-  String get pinConfigured => 'PIN configured';
+  String get pinConfigured => 'PIN configurado';
 
   @override
-  String get errorConfiguringPin => 'Error configuring PIN';
+  String get errorConfiguringPin => 'Erro ao configurar PIN';
 
   @override
   String get webviewLimitations =>
-      'Note: Cookies with httpOnly and secure flags may not be visible through JavaScript. To view all cookies, use browser developer tools or access via HTTP Cookie Manager.';
+      'Aviso: Cookies com flags httpOnly e secure podem não ser visíveis através do JavaScript. Para visualizar todos os cookies, use ferramentas de desenvolvedor do navegador ou acesse via HTTP Cookie Manager.';
 
   @override
   String get webviewRequiresActive =>
-      'This functionality requires an active WebView.';
+      'Esta funcionalidade requer uma WebView ativa.';
 
   @override
-  String get valueCopied => 'Value copied to clipboard';
+  String get valueCopied => 'Valor copiado para a área de transferência';
 
   @override
-  String get cookieUpdated => 'Cookie updated';
+  String get cookieUpdated => 'Cookie atualizado';
 
   @override
-  String get errorUpdatingCookie => 'Error updating cookie';
+  String get errorUpdatingCookie => 'Erro ao atualizar cookie';
 
   @override
-  String get cookieDeleted => 'Cookie deleted';
+  String get cookieDeleted => 'Cookie excluído';
 
   @override
-  String get errorDeletingCookie => 'Error deleting cookie';
+  String get errorDeletingCookie => 'Erro ao excluir cookie';
 
   @override
-  String get allCookiesDeleted => 'All cookies have been deleted';
+  String get allCookiesDeleted => 'Todos os cookies foram excluídos';
 
   @override
-  String get errorDeletingCookies => 'Error deleting cookies';
+  String get errorDeletingCookies => 'Erro ao excluir cookies';
 
   @override
-  String get noCookiesToExport => 'No cookies to export';
+  String get noCookiesToExport => 'Nenhum cookie para exportar';
 
   @override
-  String get jsonCopied => 'JSON copied to clipboard';
+  String get jsonCopied => 'JSON copiado para área de transferência';
 
   @override
-  String get csvCopied => 'CSV copied to clipboard';
+  String get csvCopied => 'CSV copiado para área de transferência';
 
   @override
   String errorExporting(Object error) {
-    return 'Error exporting: $error';
+    return 'Erro ao exportar: $error';
   }
 
   @override
-  String get fullSecurityReport => 'Full Security Report';
+  String get fullSecurityReport => 'Relatório de Segurança Completo';
 
   @override
-  String get reportCopied => 'Report copied';
+  String get reportCopied => 'Relatório copiado';
 
   @override
   String get premium => 'Premium';
@@ -540,51 +540,51 @@ class AppLocalizationsPt extends AppLocalizations {
   String get premiumDesc => 'Desbloqueie acesso ilimitado e remova anúncios.';
 
   @override
-  String get securityCheck => 'Security Check';
+  String get securityCheck => 'Verificação de Segurança';
 
   @override
-  String get securityCheckDesc => 'Verify device security';
+  String get securityCheckDesc => 'Verificar segurança do dispositivo';
 
   @override
-  String get refresh => 'Refresh';
+  String get refresh => 'Atualizar';
 
   @override
   String securityCheckError(Object error) {
-    return 'Error checking security: $error';
+    return 'Erro ao verificar segurança: $error';
   }
 
   @override
-  String get noResultsAvailable => 'No results available';
+  String get noResultsAvailable => 'Nenhum resultado disponível';
 
   @override
-  String get securityLevel => 'Security Level';
+  String get securityLevel => 'Nível de Segurança';
 
   @override
-  String get riskScore => 'Risk Score';
+  String get riskScore => 'Pontuação de Risco';
 
   @override
-  String get checks => 'Checks';
+  String get checks => 'Verificações';
 
   @override
-  String get recommendedActions => 'Recommended Actions';
+  String get recommendedActions => 'Ações Recomendadas';
 
   @override
-  String get criticalThreats => 'Critical Threats';
+  String get criticalThreats => 'Ameaças Críticas';
 
   @override
-  String get warnings => 'Warnings';
+  String get warnings => 'Avisos';
 
   @override
-  String get safe => 'Safe';
+  String get safe => 'Seguro';
 
   @override
-  String get critical => 'Critical';
+  String get critical => 'Crítico';
 
   @override
-  String get warning => 'Warning';
+  String get warning => 'Aviso';
 
   @override
-  String get checksPerformed => 'Checks Performed';
+  String get checksPerformed => 'Verificações Realizadas';
 
   @override
   String get checkRootJailbreak => 'Root/Jailbreak';
@@ -596,254 +596,266 @@ class AppLocalizationsPt extends AppLocalizations {
   String get checkHooking => 'Hooking';
 
   @override
-  String get checkIntegrity => 'App Integrity';
+  String get checkIntegrity => 'Integridade do App';
 
   @override
-  String get checkOSVersion => 'Updated System';
+  String get checkOSVersion => 'Sistema Atualizado';
 
   @override
-  String get checkScreenLock => 'Screen Lock';
+  String get checkScreenLock => 'Bloqueio de Tela';
 
   @override
-  String get checkRealDevice => 'Real Device';
+  String get checkRealDevice => 'Dispositivo Real';
 
   @override
   String get statusOk => 'OK';
 
   @override
-  String get statusFailed => 'FAILED';
+  String get statusFailed => 'FALHOU';
 
   @override
-  String get understood => 'Understood';
+  String get understood => 'Entendi';
 
   @override
-  String get securityLevelSafe => 'Safe';
+  String get securityLevelSafe => 'Seguro';
 
   @override
-  String get securityLevelWarning => 'Warnings Detected';
+  String get securityLevelWarning => 'Avisos Detectados';
 
   @override
-  String get securityLevelCritical => 'CRITICAL THREATS';
+  String get securityLevelCritical => 'AMEAÇAS CRÍTICAS';
 
   @override
-  String get securityDescSafe => 'All security checks passed';
+  String get securityDescSafe => 'Todas as verificações de segurança passaram';
 
   @override
-  String get securityDescWarning => 'Some settings can be improved';
+  String get securityDescWarning =>
+      'Algumas configurações podem ser melhoradas';
 
   @override
   String get securityDescCritical =>
-      'Critical threats detected - Action required';
+      'Ameaças críticas detectadas - Ação necessária';
 
   @override
-  String get actionRootTitle => 'Root Device Detected';
+  String get actionRootTitle => 'Dispositivo com Root Detectado';
 
   @override
   String get actionRootDesc =>
-      'Your device has superuser privileges (root). This compromises app security.';
+      'Seu dispositivo está com privilégios de superusuário (root). Isso compromete a segurança do aplicativo.';
 
   @override
-  String get actionRootRec => 'Remove root or use a non-rooted device.';
+  String get actionRootRec =>
+      'Remova o root do dispositivo ou use um dispositivo sem root.';
 
   @override
-  String get actionDebuggerTitle => 'Debugger Detected';
+  String get actionDebuggerTitle => 'Debugger Detectado';
 
   @override
   String get actionDebuggerDesc =>
-      'A debugger is attached to the application. This may indicate an attempt to analyze or modify the app.';
+      'Um debugger está anexado ao aplicativo. Isso pode indicar tentativa de análise ou modificação do app.';
 
   @override
-  String get actionDebuggerRec => 'Close all developer tools and restart.';
+  String get actionDebuggerRec =>
+      'Feche todas as ferramentas de desenvolvimento e reinicie o app.';
 
   @override
-  String get actionHookingTitle => 'Hooking Framework Detected';
+  String get actionHookingTitle => 'Framework de Hooking Detectado';
 
   @override
   String get actionHookingDesc =>
-      'A hooking framework (Frida, Xposed) was detected. This allows modifying app behavior.';
+      'Foi detectado um framework de hooking (Frida, Xposed, etc.). Isso pode permitir modificação do comportamento do app.';
 
   @override
-  String get actionHookingRec => 'Remove hooking frameworks and restart.';
+  String get actionHookingRec =>
+      'Remova frameworks de hooking e reinicie o dispositivo.';
 
   @override
-  String get actionIntegrityTitle => 'Compromised App Integrity';
+  String get actionIntegrityTitle => 'Integridade do App Comprometida';
 
   @override
   String get actionIntegrityDesc =>
-      'The app signature does not match expected. The app may have been modified.';
+      'A assinatura do aplicativo não corresponde à esperada. O app pode ter sido modificado.';
 
   @override
   String get actionIntegrityRec =>
-      'Reinstall from the official store (Play Store).';
+      'Reinstale o app da loja oficial (Google Play/App Store).';
 
   @override
-  String get actionOSTitle => 'Outdated Operating System';
+  String get actionOSTitle => 'Sistema Operacional Desatualizado';
 
   @override
   String get actionOSDesc =>
-      'Your OS is outdated and may contain vulnerabilities.';
+      'Seu sistema operacional está desatualizado e pode conter vulnerabilidades de segurança.';
 
   @override
-  String get actionOSRec => 'Update your OS to the latest version.';
+  String get actionOSRec =>
+      'Atualize seu sistema operacional para a versão mais recente.';
 
   @override
-  String get actionLockTitle => 'No Screen Lock Configured';
+  String get actionLockTitle => 'Bloqueio de Tela Não Configurado';
 
   @override
   String get actionLockDesc =>
-      'Your device has no screen lock. This facilitates unauthorized access.';
+      'Seu dispositivo não possui bloqueio de tela configurado. Isso facilita acesso não autorizado.';
 
   @override
-  String get actionLockRec => 'Set up a PIN, password, or pattern in settings.';
+  String get actionLockRec =>
+      'Configure um PIN, senha, padrão ou biometria nas configurações.';
 
   @override
-  String get actionEmulatorTitle => 'Running on Emulator';
+  String get actionEmulatorTitle => 'Executando em Emulador';
 
   @override
   String get actionEmulatorDesc =>
-      'The app is running on an emulator. Some features may be limited.';
+      'O app está rodando em um emulador. Algumas funcionalidades podem estar limitadas.';
 
   @override
   String get actionEmulatorRec =>
-      'Use a physical device for better experience.';
+      'Use um dispositivo físico para melhor experiência.';
 
   @override
-  String get actionUnknownSourcesTitle => 'Unknown Sources Enabled';
+  String get actionUnknownSourcesTitle =>
+      'Instalação de Fontes Desconhecidas Habilitada';
 
   @override
   String get actionUnknownSourcesDesc =>
-      'Your device allows installing apps from unknown sources. This facilitates malware installation.';
+      'Seu dispositivo permite instalação de apps de fontes desconhecidas. Isso facilita a instalação de malware e spyware.';
 
   @override
   String get actionUnknownSourcesRec =>
-      'Disable \'Install unknown apps\' in security settings.';
+      'Desabilite \'Instalar apps de fontes desconhecidas\' nas configurações de segurança.';
 
   @override
-  String get actionLocationTitle => 'Apps with \'Always\' Location';
+  String get actionLocationTitle =>
+      'Apps com Localização \'Sempre\' Detectados';
 
   @override
   String actionLocationDesc(Object count) {
-    return '$count app(s) have background location permission. This poses a privacy risk.';
+    return '$count app(s) têm permissão de rastreamento de localização em segundo plano. Isso representa risco de privacidade.';
   }
 
   @override
-  String get actionLocationRec => 'Review location permissions.';
+  String get actionLocationRec =>
+      'Revise as permissões de localização e mude para \'Apenas durante o uso\' quando possível.';
 
   @override
-  String get actionNotifTitle => 'Sensitive Notifications on Lock Screen';
+  String get actionNotifTitle =>
+      'Notificações Sensíveis Visíveis na Tela de Bloqueio';
 
   @override
   String get actionNotifDesc =>
-      'Sensitive notification previews (codes, messages) are visible on lock screen.';
+      'Prévias de notificações (mensagens, códigos 2FA) são exibidas na tela de bloqueio. Isso pode permitir interceptação de dados sensíveis.';
 
   @override
   String get actionNotifRec =>
-      'Hide sensitive content on lock screen notifications.';
+      'Configure para ocultar conteúdo sensível nas notificações da tela de bloqueio.';
 
   @override
-  String get actionPatchTitle => 'Outdated Security Patch';
+  String get actionPatchTitle => 'Patch de Segurança Desatualizado';
 
   @override
   String get actionPatchDesc =>
-      'Security patch is older than 60 days. Known vulnerabilities may not be patched.';
+      'O patch de segurança do seu dispositivo tem mais de 60 dias. Vulnerabilidades conhecidas podem não estar corrigidas.';
 
   @override
-  String get actionPatchRec => 'Check for system updates.';
+  String get actionPatchRec =>
+      'Verifique por atualizações do sistema nas configurações.';
 
   @override
-  String get action2FATitle => 'Enable Two-Factor Authentication (2FA)';
+  String get action2FATitle => 'Ative a Autenticação de Dois Fatores (2FA)';
 
   @override
   String get action2FADesc =>
-      '2FA adds an extra layer of security to your critical accounts (Google/Apple ID).';
+      'A autenticação de dois fatores adiciona uma camada extra de segurança às suas contas críticas (Google/Apple ID).';
 
   @override
-  String get action2FARec => 'Enable 2FA in your account security settings.';
+  String get action2FARec =>
+      'Ative o 2FA nas configurações de segurança da sua conta.';
 
   @override
-  String get expAppSignaturesTitle => 'App Monitoring';
+  String get expAppSignaturesTitle => 'Monitoramento de Apps';
 
   @override
   String get expAppSignaturesDesc =>
-      'Checks if sensitive apps (like banking and social media apps) are original and have not been modified by hackers.\n\n⚠️ Why is it critical?\n• Fake apps can steal your banking credentials\n• Can clone your WhatsApp\n• Can intercept 2FA codes\n\n✅ What does it mean?\nIf failed: An installed app is not the original from the official store (Play Store) and may be dangerous.';
+      'Verifica se aplicativos sensíveis (como apps de banco e redes sociais) são originais e não foram modificados por hackers.\n\n⚠️ Por que é crítico?\n• Apps falsos podem roubar suas credenciais bancárias\n• Podem clonar seu WhatsApp\n• Podem interceptar códigos 2FA\n\n✅ O que significa?\nSe falhou: Algum app instalado no seu celular não é o original da loja oficial (Play Store) e pode ser perigoso.';
 
   @override
   String get expRootTitle => 'Root/Jailbreak';
 
   @override
   String get expRootDesc =>
-      'Root (Android) or Jailbreak (iOS) is when someone modifies the system to gain full access.\n\n⚠️ Why is it dangerous?\n• Malicious apps can steal your passwords\n• Your banking data becomes vulnerable\n• Banking apps might not work\n\n✅ What to do?\nIf you didn\'t do this on purpose, your device may be compromised. Consider factory resetting it.';
+      'Root (Android) ou Jailbreak (iOS) é quando alguém modifica o sistema do celular para ter acesso total.\n\n⚠️ Por que é perigoso?\n• Apps maliciosos podem roubar suas senhas\n• Seus dados bancários ficam vulneráveis\n• Apps de banco podem não funcionar\n\n✅ O que fazer?\nSe você não fez isso de propósito, seu celular pode estar comprometido. Considere restaurá-lo às configurações de fábrica.';
 
   @override
-  String get expDebuggerTitle => 'Debugger Detected';
+  String get expDebuggerTitle => 'Debugger (Depurador)';
 
   @override
   String get expDebuggerDesc =>
-      'A debugger is a tool used by programmers to analyze apps.\n\n⚠️ Why is it dangerous?\n• Hackers can use it to spy on the app\n• Can discover passwords and sensitive data\n• Can modify app behavior\n\n✅ What to do?\nIf you are not a developer, you shouldn\'t have an active debugger. Close developer instruments or restart the phone.';
+      'Um debugger é uma ferramenta usada por programadores para analisar apps.\n\n⚠️ Por que é perigoso?\n• Hackers podem usar para espionar o app\n• Podem descobrir senhas e dados sensíveis\n• Podem modificar o comportamento do app\n\n✅ O que fazer?\nSe você não é desenvolvedor, não deveria ter um debugger ativo. Feche apps de desenvolvimento ou reinicie o celular.';
 
   @override
-  String get expHookingTitle => 'Hooking Framework';
+  String get expHookingTitle => 'Hooking (Interceptação)';
 
   @override
   String get expHookingDesc =>
-      'Hooking is when a malicious program intercepts and modifies how apps work.\n\n⚠️ Why is it dangerous?\n• Can steal your passwords as you type\n• Can modify banking transactions\n• Can read private messages\n\n✅ What to do?\nUninstall suspicious apps, especially \'optimizers\' or \'boosters\' you don\'t recognize.';
+      'Hooking é quando um programa malicioso intercepta e modifica o funcionamento de apps.\n\n⚠️ Por que é perigoso?\n• Pode roubar suas senhas enquanto você digita\n• Pode modificar transações bancárias\n• Pode ler mensagens privadas\n\n✅ O que fazer?\nDesinstale apps suspeitos, especialmente \"otimizadores\" ou \"aceleradores\" que você não conhece.';
 
   @override
-  String get expIntegrityTitle => 'App Integrity';
+  String get expIntegrityTitle => 'Integridade do App';
 
   @override
   String get expIntegrityDesc =>
-      'Checks if this app has been modified after installation.\n\n⚠️ Why is it important?\n• Modified apps may contain viruses\n• Can steal your data\n• Might not work correctly\n\n✅ What does it mean?\nIf passed: The app is original and safe\nIf failed: The app may have been tampered with';
+      'Verifica se este app foi modificado após ser instalado.\n\n⚠️ Por que é importante?\n• Apps modificados podem conter vírus\n• Podem roubar seus dados\n• Podem não funcionar corretamente\n\n✅ O que significa?\nSe passou: O app está original e seguro\nSe falhou: O app pode ter sido adulterado';
 
   @override
-  String get expOSTitle => 'System Updated';
+  String get expOSTitle => 'Sistema Atualizado';
 
   @override
   String get expOSDesc =>
-      'Checks if your Android/iOS is up to date.\n\n⚠️ Why is it important?\n• Old systems have known security flaws\n• Hackers exploit these flaws\n• You are vulnerable to viruses\n\n✅ What to do?\nGo to Settings → System Update and install available updates.';
+      'Verifica se seu Android/iOS está atualizado.\n\n⚠️ Por que é importante?\n• Sistemas antigos têm falhas de segurança conhecidas\n• Hackers exploram essas falhas\n• Você fica vulnerável a vírus\n\n✅ O que fazer?\nVá em Configurações → Atualização do Sistema e instale as atualizações disponíveis.';
 
   @override
-  String get expLockTitle => 'Screen Lock';
+  String get expLockTitle => 'Bloqueio de Tela';
 
   @override
   String get expLockDesc =>
-      'Checks if you have a password, PIN, pattern, or biometrics set up.\n\n⚠️ Why is it important?\n• Anyone can take your unlocked phone\n• Can access your apps, photos, and messages\n• Can make purchases or transfers\n\n✅ What to do?\nSet up a strong password or use your fingerprint/face ID in Settings → Security.';
+      'Verifica se você tem senha, PIN, padrão ou biometria configurados.\n\n⚠️ Por que é importante?\n• Qualquer pessoa pode pegar seu celular desbloqueado\n• Podem acessar seus apps, fotos e mensagens\n• Podem fazer compras ou transferências\n\n✅ O que fazer?\nConfigure uma senha forte ou use sua digital/face em Configurações → Segurança.';
 
   @override
-  String get expEmulatorTitle => 'Real Device';
+  String get expEmulatorTitle => 'Dispositivo Real';
 
   @override
   String get expEmulatorDesc =>
-      'Checks if you are using a real phone or an emulator (virtual phone on computer).\n\n⚠️ Why is it important?\n• Emulators are used by hackers to test attacks\n• Banking apps don\'t work on emulators\n• May indicate fraud attempt\n\n✅ What does it mean?\nIf you are on a real phone, you should pass this check.';
+      'Verifica se você está usando um celular real ou um emulador (celular virtual no computador).\n\n⚠️ Por que é importante?\n• Emuladores são usados por hackers para testar ataques\n• Apps bancários não funcionam em emuladores\n• Pode indicar tentativa de fraude\n\n✅ O que significa?\nSe você está em um celular real, deve passar nesta verificação.';
 
   @override
   String securitySignatureStatus(Object count) {
-    return 'Signature Status ($count)';
+    return 'Status de Assinaturas ($count)';
   }
 
   @override
-  String get securityAppNotInstalled => 'Not Installed';
+  String get securityAppNotInstalled => 'Não Instalado';
 
   @override
-  String get securityAppVerified => 'Verified';
+  String get securityAppVerified => 'Verificado';
 
   @override
-  String get securityAppPendingConfig => 'Config Pending';
+  String get securityAppPendingConfig => 'Pendente Configuração';
 
   @override
-  String get securityAppInvalidSignature => 'Invalid Signature!';
+  String get securityAppInvalidSignature => 'Assinatura Inválida!';
 
   @override
-  String get securityAppUnknown => 'Unknown';
+  String get securityAppUnknown => 'Desconhecido';
 
   @override
-  String get securityAppActualHash => 'Actual:';
+  String get securityAppActualHash => 'Atual:';
 
   @override
-  String get securityAppExpectedHash => 'Expected:';
+  String get securityAppExpectedHash => 'Esperado:';
 
   @override
-  String get securityConfigNeeded => 'Configure...';
+  String get securityConfigNeeded => 'Configurar...';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1123,6 +1135,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get formatsSection => 'Formatos Suportados';
 
   @override
+  String get exit => 'Sair';
+
+  @override
+  String get exitConfirm => 'Deseja fechar o aplicativo?';
+
+  @override
   String get formatsContent =>
       '• Texto & Código: .txt, .md, .log, .json, .xml, .yaml, .yml, .html, .css, .js, .ts, .dart, .java, .kt, .swift, .py, .rb, .php, .go, .c, .cpp, .cs, .sql, .sh, .conf, .env, .ini\n• Dados & Planilhas: .csv, .xlsx, .xls\n• Documentos: .pdf, .docx (texto)\n• Imagens: .png, .jpg, .jpeg, .gif, .webp, .bmp\n• Áudio: .mp3, .wav, .ogg, .m4a, .aac, .flac\n• Vídeo: .mp4, .mov, .avi, .mkv, .webm, .wmv, .flv, .3gp\n• Arquivos: .zip, .apk, .jar\n• Certificados: .pem, .crt, .cer, .p12, .pfx, .der';
 
@@ -1362,6 +1380,18 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get reportCopied => 'Relatório copiado';
+
+  @override
+  String get premium => 'Premium';
+
+  @override
+  String get goPremium => 'Seja Premium';
+
+  @override
+  String get restorePurchases => 'Restaurar Compras';
+
+  @override
+  String get premiumDesc => 'Desbloqueie acesso ilimitado e remova anúncios.';
 
   @override
   String get securityCheck => 'Verificação de Segurança';
@@ -2227,7 +2257,39 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
   String get refresh => 'Atualizar';
 
   @override
+  String securityCheckError(Object error) {
+    return 'Erro ao verificar a segurança: $error';
+  }
+
+  @override
   String get noResultsAvailable => 'Nenhum resultado disponível.';
+
+  @override
+  String get securityLevel => 'Nível de Segurança';
+
+  @override
+  String get riskScore => 'Pontuação de Risco';
+
+  @override
+  String get checks => 'Verificações';
+
+  @override
+  String get recommendedActions => 'Ações Recomendadas';
+
+  @override
+  String get criticalThreats => 'Ameaças Críticas';
+
+  @override
+  String get warnings => 'Avisos';
+
+  @override
+  String get safe => 'Seguro';
+
+  @override
+  String get critical => 'Crítico';
+
+  @override
+  String get warning => 'Aviso';
 
   @override
   String get checksPerformed => 'Verificações Realizadas';
