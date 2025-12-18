@@ -1,0 +1,82 @@
+# Relatório de Conformidade e Auditoria (MviewerPlus)
+**Data:** 18 de Dezembro de 2025
+**Auditor:** Antigravity (AI Agent)
+**Versão Auditada:** 1.0.0+1
+
+Este relatório detalha os resultados da auditoria de conformidade com a Google Play Store e Internacionalização.
+
+## 🚨 Resumo Executivo
+O aplicativo **MviewerPlus** encontra-se em um estado **híbrido**. Ele é estruturalmente um **Visualizador de Arquivos** com capacidades de IA, mas o prompt de auditoria sugeria funcionalidades de "Agenda/Medicamentos" (VozAmigaPlus) que **não existem** neste código.
+
+**Estado Crítico:** 🔴 **NÃO PRONTO PARA UPLOAD**
+Existem strings hardcoded em excesso, faltam avisos obrigatórios de IA e há discrepâncias fundamentais entre a expectativa de funcionalidade (Voz/Agenda) e a realidade do código (File Viewer).
+
+---
+
+## 🏛️ PILAR 1: Políticas da Google Play
+
+### 1. Permissões Sensíveis
+| Permissão | Status no Código | Veredito |
+|-----------|------------------|----------|
+| **RECORD_AUDIO** | ❌ Ausente | **Correto** (para o código atual). O app NÃO possui funcionalidade de voz implementada (sem `speech_to_text`/`flutter_tts`). Se o objetivo era ter voz, a funcionalidade está faltando. |
+| **SCHEDULE_EXACT_ALARM** | ❌ Ausente | **Correto**. Não há lógica de Agenda ou Alarmes no código. Adicionar essa permissão sem a funcionalidade causaria rejeição. |
+| **MANAGE_EXTERNAL_STORAGE** | ⚠️ Risco | O app tenta salvar arquivos diretamente em `/storage/emulated/0/Download/` (`viewer_screen.dart`). Isso falhará ou será rejeitado no Android 11+ sem tratamento via Scoped Storage ou permissão especial (que é difícil de conseguir para apps que não são gerenciadores de arquivos totais). |
+
+### 2. Segurança de Dados
+*   **Hive**: O app **não utiliza Hive**. Utiliza `SharedPreferences` para persistência simples.
+*   **Groq API Key**: A chave é carregada via `.env` ou `SharedPreferences`. O código faz chamadas HTTP diretas para a Groq.
+    *   ⚠️ **Risco**: Chaves em `.env` empacotadas no APK podem ser extraídas. Recomendado usar Remote Config ou Backend Proxy para produção.
+*   **Envio de Dados**: Não foi detectado envio de dados sensíveis para servidores desconhecidos, apenas para a API da Groq (conteúdo de arquivos para análise).
+    *   ✅ **Aviso Necessário**: A Política de Privacidade DEVE mencionar explicitamente que "o conteúdo dos arquivos é enviado para processamento por IA de terceiros (Groq) e não é retido".
+
+### 3. Regras de IA Generativa (Google Play Policy)
+O Google Play exige estritamente transparência para apps com IA.
+*   ❌ **Falta Aviso de Isenção**: A UI do Chat (`ai_chat_screen.dart`) **não exibe** o aviso obrigatório: *"A IA pode cometer erros. Verifique informações importantes."*.
+*   ❌ **Falta Mecanismo de Denúncia**: Não há botão para denunciar ou bloquear respostas ofensivas. Isso é **obrigatório** para apps de Chatbot Generativo.
+
+---
+
+## 🌍 PILAR 2: Internacionalização (i18n) e Localização (l10n)
+
+### 1. Strings 'Hardcoded' (Soltas no Código)
+Foram encontradas diversas mensagens em português ou inglês fixo, que quebrarão a experiência para usuários de outros idiomas.
+
+#### 📂 `lib/screens/viewer_screen.dart` (Crítico)
+*   Linha 106: `'Visualização de arquivos .doc ... não é suportada...'`
+*   Linha 114: `'O arquivo parece vazio...'`
+*   Linha 117: `'Erro de Formato:...'`
+*   Linha 168: `'Zip Archive ...'`
+*   Linha 573: `'Unknown'` (Tamanho de arquivo)
+*   Linha 563: Tooltips `'Show Formatted'`, `'Show Raw'`
+
+#### 📂 `lib/services/ai_service.dart`
+*   Linha 36: `'File is too large...'`
+*   Linha 83: `'Error: API Key is missing...'`
+*   Linha 117: `'Error communicating with AI...'`
+*   **System Prompt**: O System Prompt está hardcoded em Inglês (`You are an intelligent File Assistant...`). Embora instrua a responder no idioma do usuário, mensagens de erro do sistema sairão em inglês.
+
+#### 📂 `lib/main.dart`
+*   Logs de debug (aceitável, mas ideal remover em produção ou usar logs internos).
+
+### 2. Formatação Dinâmica
+*   **Moeda**: Não se aplica (app não exibe valores monetários).
+*   **Datas**: Uso de `DateFormat('yyyyMMdd_HHmmss')` para nomes de arquivos (Técnico, aceitável).
+*   **Unidades**: `B`, `KB`, `MB` em `viewer_screen.dart` estão hardcoded. Deveria usar formatação localizada se possível (ex: vírgula vs ponto decimal no tamanho).
+
+### 3. IA e Voz Multilíngue
+*   ❌ **Funcionalidade Inexistente**: O código para `SpeechToText` e `FlutterTTS` **não existe** no projeto. O suporte a voz mencionado no checklist é uma alucinação em relação ao código atual.
+
+---
+
+## 🛠️ Plano de Correção Imediata
+
+1.  **Compliance IA**:
+    *   Adicionar aviso fixo na `AiChatScreen`: "IA generated content may be inaccurate." (Localizado).
+    *   Adicionar validação de conteúdo ou disclaimer nos Termos de Uso.
+2.  **i18n**:
+    *   Extrair **TODAS** as strings identificadas acima para `app_pt.arb` e `app_en.arb`.
+    *   Substituir no código por `AppLocalizations.of(context)!.chave`.
+3.  **Android Storage**:
+    *   Revisar o salvamento de arquivos em `viewer_screen.dart` para usar **SAF (Storage Access Framework)** ou apenas diretórios internos compartilháveis, evitando crashes no Android 11+.
+
+**Conclusão**: O app MviewerPlus é promissor como visualizador, mas falha nos critérios de **Universalidade** (i18n incompleto) e **Compliance de IA** (faltam avisos). A ausência de funcionalidades de voz/agenda torna as permissões irrelevantes, mas indica que o escopo do projeto pode estar desalinhado com o esperado.

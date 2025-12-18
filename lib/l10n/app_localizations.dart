@@ -1655,6 +1655,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Configure...'**
   String get securityConfigNeeded;
+
+  /// No description provided for @viewerDocUnsupported.
+  ///
+  /// In en, this message translates to:
+  /// **'Viewing .doc files (Word 97-2003) is not yet supported due to technical limitations.\n\nPlease save the file as .docx to view.'**
+  String get viewerDocUnsupported;
+
+  /// No description provided for @viewerDocEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'The file appears empty or text could not be extracted.\n\nNote: Images and complex formatting are not displayed.'**
+  String get viewerDocEmpty;
+
+  /// No description provided for @viewerDocInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Format Error:\nThis is not a valid DOCX file.\n1. It might be an old .doc file manually renamed.\n2. It might be corrupted.\n\nSolution: Open in Word and use \'Save As\' -> \'.docx\'.'**
+  String get viewerDocInvalid;
+
+  /// No description provided for @viewerDocError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error reading DOCX document:\n{error}'**
+  String viewerDocError(Object error);
+
+  /// No description provided for @viewerExcelError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error reading Excel file:\n{error}'**
+  String viewerExcelError(Object error);
+
+  /// No description provided for @viewerZipError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error reading ZIP file:\n{error}'**
+  String viewerZipError(Object error);
+
+  /// No description provided for @viewerCertificateBinary.
+  ///
+  /// In en, this message translates to:
+  /// **'This certificate file ({extension}) is binary.\nRaw content view is not supported for this format.'**
+  String viewerCertificateBinary(Object extension);
+
+  /// No description provided for @viewerFileError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error reading file:\n{error}'**
+  String viewerFileError(Object error);
+
+  /// No description provided for @viewerSaveError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error saving: {error}'**
+  String viewerSaveError(Object error);
+
+  /// No description provided for @viewerTooltipShowFormatted.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Formatted'**
+  String get viewerTooltipShowFormatted;
+
+  /// No description provided for @viewerTooltipShowRaw.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Raw'**
+  String get viewerTooltipShowRaw;
+
+  /// No description provided for @aiErrorKeyMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'Error: API Key is missing. Please configure it in Settings.'**
+  String get aiErrorKeyMissing;
+
+  /// No description provided for @aiErrorCommunication.
+  ///
+  /// In en, this message translates to:
+  /// **'Error communicating with AI: {error}'**
+  String aiErrorCommunication(Object error);
+
+  /// No description provided for @aiSystemPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'You are an intelligent File Assistant integrated into MviewerPlus. Your task is to analyze the file content provided and help the user. Answer in language: {language}.'**
+  String aiSystemPrompt(Object language);
+
+  /// No description provided for @aiDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'AI can make mistakes. Check important info.'**
+  String get aiDisclaimer;
+
+  /// No description provided for @reportContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Report'**
+  String get reportContent;
+
+  /// No description provided for @reportContentDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report Content'**
+  String get reportContentDialogTitle;
+
+  /// No description provided for @reportContentDialogDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to report and clear this conversation due to inappropriate content?'**
+  String get reportContentDialogDesc;
+
+  /// No description provided for @reportActionClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Report & Clear'**
+  String get reportActionClear;
+
+  /// No description provided for @reportThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for your report. Content has been removed.'**
+  String get reportThanks;
+
+  /// No description provided for @unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get unknown;
+
+  /// No description provided for @videoError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error playing video: {error}'**
+  String videoError(Object error);
+
+  /// No description provided for @videoLoadingError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load video'**
+  String get videoLoadingError;
+
+  /// No description provided for @globalErrorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Oops, something went wrong.'**
+  String get globalErrorTitle;
+
+  /// No description provided for @globalErrorDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t worry, your data is safe.'**
+  String get globalErrorDesc;
+
+  /// No description provided for @backToHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Home'**
+  String get backToHome;
 }
 
 class _AppLocalizationsDelegate

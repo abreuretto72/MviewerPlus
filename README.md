@@ -254,13 +254,19 @@ android/
 
 ---
 
-## 🌍 Internacionalização
-
-Idiomas suportados:
-- 🇺🇸 Inglês (en)
-- 🇧🇷 Português Brasil (pt_BR)
-- 🇵🇹 Português Portugal (pt_PT)
-- 🇪🇸 Espanhol (es)
+## 🌍 Internacionalização e Compliance
+ 
+O app segue rigorosamente os padrões globais:
+ 
+- **Idiomas suportados:**
+  - 🇺🇸 Inglês (en)
+  - 🇧🇷 Português Brasil (pt_BR)
+  - 🇵🇹 Português Portugal (pt_PT)
+  - 🇪🇸 Espanhol (es)
+- **Formatação Dinâmica:** Moedas e números ajustados ao locale do usuário (ex: 1.200,50 vs 1,200.50).
+- **Compliance Google Play:** DIsclaimer de IA obrigatório e sistema de reporte de conteúdo ofensivo.
+- **Armazenamento Seguro:** Uso mandatório de *Scoped Storage* (SAF) no Android 11+ para salvar edições na pasta de documentos do app.
+- **Anti-Crash:** Protocolo de "Blindagem Total" com `runZonedGuarded` e telas de erro amigáveis em produção.
 
 ---
 

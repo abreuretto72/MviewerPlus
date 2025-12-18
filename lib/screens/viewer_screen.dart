@@ -19,6 +19,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:file_viewer/l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:path_provider/path_provider.dart'; // Added import
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ViewerScreen extends StatefulWidget {
@@ -101,9 +102,10 @@ class _ViewerScreenState extends State<ViewerScreen> {
       
       // Special handling for DOC/DOCX (binary files)
       if (_extension == 'doc' || _extension == 'docx') {
+        final t = AppLocalizations.of(context)!;
         String extractedText;
         if (_extension == 'doc') {
-          extractedText = 'Visualização de arquivos .doc (Word 97-2003) ainda não é suportada por limitações técnicas.\n\nPor favor, salve o arquivo como .docx para visualizar.';
+          extractedText = t.viewerDocUnsupported;
         } else {
           try {
             final bytes = await widget.file.readAsBytes();
@@ -111,13 +113,13 @@ class _ViewerScreenState extends State<ViewerScreen> {
             if (bytes.length > 2 && bytes[0] == 0x50 && bytes[1] == 0x4B) {
                extractedText = docxToText(bytes);
                if (extractedText.isEmpty) {
-                 extractedText = 'O arquivo parece vazio ou o texto não pôde ser extraído.\n\nNota: Imagens e formatações complexas não são exibidas.';
+                 extractedText = t.viewerDocEmpty;
                }
             } else {
-               extractedText = 'Erro de Formato:\nEste arquivo não é um DOCX válido.\n1. Pode ser um arquivo .doc antigo (Word 97-2003) renomeado manualmente.\n2. Pode estar corrompido.\n\nSolução: Abra no Word e use "Salvar Como" -> ".docx".';
+               extractedText = t.viewerDocInvalid;
             }
           } catch (e) {
-            extractedText = 'Erro ao ler o documento DOCX:\n$e';
+            extractedText = t.viewerDocError(e.toString());
           }
         }
 
@@ -149,8 +151,9 @@ class _ViewerScreenState extends State<ViewerScreen> {
           }
         } catch (e) {
           if (mounted) {
+            final t = AppLocalizations.of(context)!;
             setState(() {
-              _content = 'Erro ao ler arquivo Excel:\n$e';
+              _content = t.viewerExcelError(e.toString());
               _isLoading = false;
             });
           }
@@ -163,16 +166,18 @@ class _ViewerScreenState extends State<ViewerScreen> {
         try {
           final files = await FileUtils.parseZip(widget.file);
           if (mounted) {
+            final t = AppLocalizations.of(context)!;
             setState(() {
               _zipFiles = files;
-              _content = 'Zip Archive (${files.length} files)';
+              _content = t.zipArchiveInfo(files.length.toString());
               _isLoading = false;
             });
           }
         } catch (e) {
           if (mounted) {
+            final t = AppLocalizations.of(context)!;
             setState(() {
-              _content = 'Erro ao ler arquivo ZIP:\n$e';
+              _content = t.viewerZipError(e.toString());
               _isLoading = false;
             });
           }
@@ -230,8 +235,9 @@ class _ViewerScreenState extends State<ViewerScreen> {
         if (['p12', 'pfx', 'der'].contains(_extension)) {
            // Binary formats - don't read as string
            if (mounted) {
+             final t = AppLocalizations.of(context)!;
              setState(() {
-               _content = 'Este arquivo de certificado (${_extension}) é binário.\nVisualização de conteúdo bruto não suportada para este formato.';
+               _content = t.viewerCertificateBinary(_extension);
                _isLoading = false;
              });
            }
@@ -265,8 +271,9 @@ class _ViewerScreenState extends State<ViewerScreen> {
       } catch (e) {
         debugPrint('Error reading file content: $e');
         if (mounted) {
+          final t = AppLocalizations.of(context)!;
           setState(() {
-            _content = 'Erro ao ler o arquivo:\n$e';
+            _content = t.viewerFileError(e.toString());
             _isLoading = false;
           });
         }
@@ -340,8 +347,6 @@ class _ViewerScreenState extends State<ViewerScreen> {
       );
 
       if (confirmed != true) {
-         // Reset editing state if cancelled? Or just return?
-         // User might want to continue editing.
          return; 
       }
       
@@ -359,36 +364,12 @@ class _ViewerScreenState extends State<ViewerScreen> {
       final timestamp = DateFormat('yyyyMMdd_HHmmss').format(DateTime.now());
       final newName = '${baseName}_$timestamp.$ext';
       
-      // Try to save to Public Downloads folder
-      String newPath;
-      if (Platform.isAndroid) {
-         newPath = '/storage/emulated/0/Download/$newName';
-      } else {
-         // Fallback for other platforms (e.g. Windows) to same directory or specialized logic
-         // For now, let's try same directory if not Android, or a known Downloads path
-         newPath = '${widget.file.parent.path}${Platform.pathSeparator}$newName';
-      }
+      // Use Application Documents Directory (Safe for all Android versions)
+      final directory = await getApplicationDocumentsDirectory();
+      final newPath = '${directory.path}${Platform.pathSeparator}$newName';
 
       final newFile = File(newPath);
-      
-      // Ensure directory exists (mostly for non-standard paths)
-      if (!await newFile.parent.exists()) {
-        try {
-           await newFile.parent.create(recursive: true);
-        } catch (_) {
-           // Fallback to local app storage parent if public fails permissions
-           newPath = '${widget.file.parent.path}${Platform.pathSeparator}$newName';
-        }
-      }
-
-      try {
-         await newFile.writeAsString(_content);
-      } catch (e) {
-         // Fallback if permission denied
-         debugPrint('Failed to write to primary target: $e');
-         newPath = '${widget.file.parent.path}${Platform.pathSeparator}$newName';
-         await File(newPath).writeAsString(_content);
-      }
+      await newFile.writeAsString(_content);
       
       // Save path to history
       try {
@@ -408,7 +389,7 @@ class _ViewerScreenState extends State<ViewerScreen> {
       setState(() {});
     } catch (e) {
        ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error saving: $e')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.viewerSaveError(e.toString()))),
       );
     }
   }
@@ -560,7 +541,7 @@ class _ViewerScreenState extends State<ViewerScreen> {
               },
             ),
             IconButton(
-              tooltip: _isRaw ? 'Show Formatted' : 'Show Raw',
+              tooltip: _isRaw ? t.viewerTooltipShowFormatted : t.viewerTooltipShowRaw,
               icon: Icon(_isRaw ? Icons.code_off : Icons.code),
               onPressed: _toggleView,
             ),
@@ -573,15 +554,29 @@ class _ViewerScreenState extends State<ViewerScreen> {
                 String fileSize = 'Unknown';
                 try {
                   final size = await widget.file.length();
+                  final locale = Localizations.localeOf(context).toString();
+                  final numberFormat = NumberFormat.decimalPattern(locale);
+                  
                   if (size < 1024) {
                     fileSize = '$size B';
                   } else if (size < 1024 * 1024) {
-                    fileSize = '${(size / 1024).toStringAsFixed(2)} KB';
+                    // For KB, MB we generally want 2 decimal places. 
+                    // NumberFormat.decimalPattern might give 3 or 0 depending on usage, 
+                    // usually for currency or plain numbers.
+                    // For specific 2 decimal places with locale, we can use simpleCurrency with no symbol 
+                    // or better: NumberFormat.compact(locale: locale) or define custom pattern.
+                    // Let's stick to strict requirement: "accept comma and dot".
+                    // NumberFormat.decimalPattern() is good for display.
+                    // To force 2 decimals in a localized way:
+                    final formatter = NumberFormat.currency(locale: locale, symbol: '', decimalDigits: 2);
+                    fileSize = '${formatter.format(size / 1024).trim()} KB';
                   } else {
-                    fileSize = '${(size / (1024 * 1024)).toStringAsFixed(2)} MB';
+                    final formatter = NumberFormat.currency(locale: locale, symbol: '', decimalDigits: 2);
+                    fileSize = '${formatter.format(size / (1024 * 1024)).trim()} MB';
                   }
                 } catch (e) {
                   debugPrint('Error getting file size: $e');
+                  fileSize = AppLocalizations.of(context)!.unknown;
                 }
 
                 if (!mounted) return;
@@ -802,10 +797,10 @@ class _ViewerScreenState extends State<ViewerScreen> {
         autoPlay: false,
         looping: false,
         aspectRatio: _videoPlayerController!.value.aspectRatio,
-        errorBuilder: (context, errorMessage) {
+      errorBuilder: (context, errorMessage) {
           return Center(
             child: Text(
-              'Erro ao reproduzir vídeo: $errorMessage',
+              AppLocalizations.of(context)!.videoError(errorMessage),
               style: const TextStyle(color: Colors.white),
             ),
           );
@@ -831,7 +826,12 @@ class _ViewerScreenState extends State<ViewerScreen> {
          ),
        );
     } else {
-       if (!_isLoading) return const Center(child: Text("Falha ao carregar vídeo", style: TextStyle(color: Colors.white)));
+       if (!_isLoading) {
+          return Center(child: Text(
+              AppLocalizations.of(context)!.videoLoadingError, 
+              style: const TextStyle(color: Colors.white)
+          ));
+       }
        return const Center(child: CircularProgressIndicator());
     }
   }

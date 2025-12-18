@@ -842,4 +842,106 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get securityConfigNeeded => 'Configure...';
+
+  @override
+  String get viewerDocUnsupported =>
+      'Viewing .doc files (Word 97-2003) is not yet supported due to technical limitations.\n\nPlease save the file as .docx to view.';
+
+  @override
+  String get viewerDocEmpty =>
+      'The file appears empty or text could not be extracted.\n\nNote: Images and complex formatting are not displayed.';
+
+  @override
+  String get viewerDocInvalid =>
+      'Format Error:\nThis is not a valid DOCX file.\n1. It might be an old .doc file manually renamed.\n2. It might be corrupted.\n\nSolution: Open in Word and use \'Save As\' -> \'.docx\'.';
+
+  @override
+  String viewerDocError(Object error) {
+    return 'Error reading DOCX document:\n$error';
+  }
+
+  @override
+  String viewerExcelError(Object error) {
+    return 'Error reading Excel file:\n$error';
+  }
+
+  @override
+  String viewerZipError(Object error) {
+    return 'Error reading ZIP file:\n$error';
+  }
+
+  @override
+  String viewerCertificateBinary(Object extension) {
+    return 'This certificate file ($extension) is binary.\nRaw content view is not supported for this format.';
+  }
+
+  @override
+  String viewerFileError(Object error) {
+    return 'Error reading file:\n$error';
+  }
+
+  @override
+  String viewerSaveError(Object error) {
+    return 'Error saving: $error';
+  }
+
+  @override
+  String get viewerTooltipShowFormatted => 'Show Formatted';
+
+  @override
+  String get viewerTooltipShowRaw => 'Show Raw';
+
+  @override
+  String get aiErrorKeyMissing =>
+      'Error: API Key is missing. Please configure it in Settings.';
+
+  @override
+  String aiErrorCommunication(Object error) {
+    return 'Error communicating with AI: $error';
+  }
+
+  @override
+  String aiSystemPrompt(Object language) {
+    return 'You are an intelligent File Assistant integrated into MviewerPlus. Your task is to analyze the file content provided and help the user. Answer in language: $language.';
+  }
+
+  @override
+  String get aiDisclaimer => 'AI can make mistakes. Check important info.';
+
+  @override
+  String get reportContent => 'Report';
+
+  @override
+  String get reportContentDialogTitle => 'Report Content';
+
+  @override
+  String get reportContentDialogDesc =>
+      'Do you want to report and clear this conversation due to inappropriate content?';
+
+  @override
+  String get reportActionClear => 'Report & Clear';
+
+  @override
+  String get reportThanks =>
+      'Thank you for your report. Content has been removed.';
+
+  @override
+  String get unknown => 'Unknown';
+
+  @override
+  String videoError(Object error) {
+    return 'Error playing video: $error';
+  }
+
+  @override
+  String get videoLoadingError => 'Failed to load video';
+
+  @override
+  String get globalErrorTitle => 'Oops, something went wrong.';
+
+  @override
+  String get globalErrorDesc => 'Don\'t worry, your data is safe.';
+
+  @override
+  String get backToHome => 'Back to Home';
 }

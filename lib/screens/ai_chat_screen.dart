@@ -57,7 +57,6 @@ class _AiChatScreenState extends State<AiChatScreen> {
   void _initializeChat() {
     // Only init if not already loaded or loading (handled by didChangeDependencies check)
     // But we need to allow re-init on language change.
-    // Separating logic:
     
     final t = AppLocalizations.of(context)!;
     setState(() => _isLoading = true);
@@ -67,6 +66,7 @@ class _AiChatScreenState extends State<AiChatScreen> {
         widget.fileName,
         widget.fileType,
         widget.content,
+        t.aiSystemPrompt(_selectedLanguage), // Fixed: executing the function
         language: _selectedLanguage,
       );
       
@@ -77,12 +77,8 @@ class _AiChatScreenState extends State<AiChatScreen> {
         
         // Prepare localized warning if applicable
         String? displayWarning;
-        if (warning != null) {
-          if (warning.contains('File is too large')) {
+        if (warning != null && warning.contains('Truncated')) {
              displayWarning = t.fileTooLarge;
-          } else {
-             displayWarning = warning; 
-          }
         }
 
         if (displayWarning != null) {
@@ -102,6 +98,7 @@ class _AiChatScreenState extends State<AiChatScreen> {
   }
 
   Future<void> _handleSend() async {
+    final t = AppLocalizations.of(context)!;
     final text = _textController.text.trim();
     if (text.isEmpty) return;
 
@@ -112,7 +109,16 @@ class _AiChatScreenState extends State<AiChatScreen> {
     });
     _scrollToBottom();
 
-    final response = await _aiService.sendMessage(text);
+    String response;
+    try {
+      response = await _aiService.sendMessage(text);
+    } catch (e) {
+      if (e.toString().contains('API_KEY_MISSING')) {
+        response = t.aiErrorKeyMissing;
+      } else {
+        response = t.aiErrorCommunication(e.toString());
+      }
+    }
 
     if (!mounted) return;
     setState(() {
@@ -144,7 +150,36 @@ class _AiChatScreenState extends State<AiChatScreen> {
     }
   }
 
-
+  void _reportContent() {
+    final t = AppLocalizations.of(context)!;
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(t.reportContentDialogTitle),
+        content: Text(t.reportContentDialogDesc),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(t.cancel),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: Colors.red),
+            onPressed: () {
+              Navigator.pop(context);
+              setState(() {
+                _messages.clear();
+                _initializeChat();
+              });
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(t.reportThanks)),
+              );
+            },
+            child: Text(t.reportActionClear),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,11 +190,11 @@ class _AiChatScreenState extends State<AiChatScreen> {
           children: [
             const Icon(Icons.auto_awesome, color: Color(0xFF00E5FF)),
             const SizedBox(width: 8),
-            Expanded( // Use Expanded to allow text to take remaining space but not overflow
+            Expanded( 
               child: Text(
                 t.aiAssistant,
                 style: GoogleFonts.outfit(fontWeight: FontWeight.bold),
-                overflow: TextOverflow.ellipsis, // Add ellipsis for long titles
+                overflow: TextOverflow.ellipsis, 
               ),
             ),
           ],
@@ -181,28 +216,52 @@ class _AiChatScreenState extends State<AiChatScreen> {
               );
             },
           ),
-          IconButton(
-            icon: const Icon(Icons.info_outline),
-            tooltip: t.getApiKeyHelpBtn,
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text(t.getApiKeyDialogTitle),
-                  content: SingleChildScrollView(
-                    child: Text(t.getApiKeyDialogContent),
-                  ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(t.close),
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              if (value == 'report') _reportContent();
+              if (value == 'apikey') {
+                 showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text(t.getApiKeyDialogTitle),
+                    content: SingleChildScrollView(
+                      child: Text(t.getApiKeyDialogContent),
                     ),
-                  ],
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: Text(t.close),
+                      ),
+                    ],
+                  ),
+                );
+              }
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  value: 'apikey',
+                  child: Row(
+                    children: [
+                       const Icon(Icons.key, color: Colors.grey),
+                       const SizedBox(width: 8),
+                       Text(t.apiKey),
+                    ],
+                  ),
                 ),
-              );
+                PopupMenuItem(
+                  value: 'report',
+                  child: Row(
+                    children: [
+                       const Icon(Icons.flag, color: Colors.red),
+                       const SizedBox(width: 8),
+                       Text(t.reportContent),
+                    ],
+                  ),
+                ),
+              ];
             },
           ),
-
           const SizedBox(width: 8),
         ],
         bottom: PreferredSize(
@@ -231,6 +290,17 @@ class _AiChatScreenState extends State<AiChatScreen> {
               child: LinearProgressIndicator(backgroundColor: Colors.transparent),
             ),
           _buildInputArea(t),
+          // AI Disclaimer Footer
+          Container(
+             width: double.infinity,
+             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+             color: Colors.black12,
+             child: Text(
+               t.aiDisclaimer,
+               textAlign: TextAlign.center,
+               style: const TextStyle(fontSize: 10, color: Colors.white38),
+             ),
+          ),
         ],
       ),
     );

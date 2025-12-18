@@ -855,4 +855,107 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get securityConfigNeeded => 'Configurar...';
+
+  @override
+  String get viewerDocUnsupported =>
+      'La visualización de archivos .doc (Word 97-2003) aún no es compatible por limitaciones técnicas.\n\nPor favor, guarde el archivo como .docx para verlo.';
+
+  @override
+  String get viewerDocEmpty =>
+      'El archivo parece vacío o no se pudo extraer el texto.\n\nNota: No se muestran imágenes ni formatos complejos.';
+
+  @override
+  String get viewerDocInvalid =>
+      'Erro de Formato:\nEste archivo no es un DOCX válido.\n1. Puede ser un archivo .doc antiguo renombrado manualmente.\n2. Puede estar corrupto.\n\nSolución: Abra en Word y use \'Guardar Como\' -> \'.docx\'.';
+
+  @override
+  String viewerDocError(Object error) {
+    return 'Error al leer documento DOCX:\n$error';
+  }
+
+  @override
+  String viewerExcelError(Object error) {
+    return 'Error al leer archivo Excel:\n$error';
+  }
+
+  @override
+  String viewerZipError(Object error) {
+    return 'Error al leer archivo ZIP:\n$error';
+  }
+
+  @override
+  String viewerCertificateBinary(Object extension) {
+    return 'Este archivo de certificado ($extension) es binario.\nNo se admite la vista de contenido sin procesar para este formato.';
+  }
+
+  @override
+  String viewerFileError(Object error) {
+    return 'Error al leer el archivo:\n$error';
+  }
+
+  @override
+  String viewerSaveError(Object error) {
+    return 'Error al guardar: $error';
+  }
+
+  @override
+  String get viewerTooltipShowFormatted => 'Mostrar Formateado';
+
+  @override
+  String get viewerTooltipShowRaw => 'Mostrar Crudo';
+
+  @override
+  String get aiErrorKeyMissing =>
+      'Error: Falta la clave API. Por favor configure en Configuración.';
+
+  @override
+  String aiErrorCommunication(Object error) {
+    return 'Error de comunicación con IA: $error';
+  }
+
+  @override
+  String aiSystemPrompt(Object language) {
+    return 'Eres un Asistente de Archivos inteligente integrado en MviewerPlus. Tu tarea es analizar el contenido del archivo proporcionado y ayudar al usuario. Responde en el idioma: $language.';
+  }
+
+  @override
+  String get aiDisclaimer =>
+      'La IA puede cometer errores. Verifique info importante.';
+
+  @override
+  String get reportContent => 'Reportar';
+
+  @override
+  String get reportContentDialogTitle => 'Reportar Contenido';
+
+  @override
+  String get reportContentDialogDesc =>
+      '¿Desea reportar y limpiar esta conversación por contenido inapropiado?';
+
+  @override
+  String get reportActionClear => 'Reportar y Limpiar';
+
+  @override
+  String get reportThanks =>
+      'Gracias por su reporte. El contenido ha sido eliminado.';
+
+  @override
+  String get unknown => 'Desconocido';
+
+  @override
+  String videoError(Object error) {
+    return 'Error al reproducir video: $error';
+  }
+
+  @override
+  String get videoLoadingError => 'Error al cargar video';
+
+  @override
+  String get globalErrorTitle => 'Ups, algo salió mal.';
+
+  @override
+  String get globalErrorDesc => 'No te preocupes, tus datos están seguros.';
+
+  @override
+  String get backToHome => 'Volver al Inicio';
 }

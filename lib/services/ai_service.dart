@@ -26,20 +26,19 @@ To get your free Groq API Key:
   }
 
   /// Initializes the chat with the file content as context.
+  /// [systemPromptTemplate] should be a localized string carrying the instructions.
   /// Returns a warning message if the file was truncated, null otherwise.
-  String? initChatWithFile(String fileName, String fileType, String content, {String language = 'English'}) {
+  String? initChatWithFile(String fileName, String fileType, String content, String systemPromptTemplate, {String language = 'English'}) {
     String? warning;
     String processedContent = content;
 
     if (content.length > _maxCharCount) {
       processedContent = content.substring(0, _maxCharCount);
-      warning = 'File is too large. Content has truncated for analysis.';
+      warning = 'File is too large. Truncated.'; // Simple internal flag, UI handles localization
     }
 
     _systemPrompt = '''
-You are an intelligent File Assistant integrated into MviewerPlus.
-Your task is to analyze the content of the file provided below and help the user with their questions.
-IMPORTANT: You must output your responses in $language.
+$systemPromptTemplate
 
 File Name: $fileName
 File Type: $fileType
@@ -58,13 +57,10 @@ $processedContent
 ''';
     
     _history.clear();
-
-
-    // Verification moved to sendMessage to support async SharedPreferences
     return warning;
   }
 
-  Future<String> _getApiKey() async {
+  Future<String?> _getApiKey() async {
     try {
       final prefs = await SharedPreferences.getInstance();
       final customKey = prefs.getString('custom_groq_api_key');
@@ -74,13 +70,13 @@ $processedContent
     } catch (e) {
       // Return env key or empty if prefs fails
     }
-    return dotenv.env['GROQ_API_KEY'] ?? '';
+    return dotenv.env['GROQ_API_KEY'];
   }
 
   Future<String> sendMessage(String message) async {
     final apiKey = await _getApiKey();
-    if (apiKey.isEmpty) {
-      return 'Error: API Key is missing. Please configure it in Settings.';
+    if (apiKey == null || apiKey.isEmpty) {
+      throw Exception('API_KEY_MISSING');
     }
 
     _history.add({'role': 'user', 'content': message});
@@ -114,7 +110,7 @@ $processedContent
         return 'Error ${response.statusCode}: ${response.body}';
       }
     } catch (e) {
-      return 'Error communicating with AI: $e';
+      return 'Error: $e';
     }
   }
 }

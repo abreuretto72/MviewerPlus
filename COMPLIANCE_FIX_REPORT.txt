@@ -1,0 +1,46 @@
+Relatório de Correções de Compliance e Internacionalização
+=========================================================
+
+Este documento detalha as ações realizadas para adequar o MviewerPlus às políticas da Google Play Store e garantir suporte completo a múltiplos idiomas.
+
+1. Compliance Google Play (IA Generativa)
+-----------------------------------------
+Para atender às exigências para aplicativos com conteúdo gerado por IA:
+
+- Disclaimer Obrigatório Implementado:
+  Adicionado rodapé fixo na tela de Chat (AiChatScreen) com a mensagem: "A IA pode cometer erros. Verifique informações importantes." (Localizado).
+
+- Mecanismo de Denúncia:
+  Adicionado menu "Reportar Conteúdo" na AppBar do Chat. O usuário pode reportar e limpar a conversa se encontrar conteúdo ofensivo.
+
+- Transparência de Dados:
+  O sistema agora utiliza um System Prompt dinâmico e localizado, garantindo que a IA receba instruções no idioma correto do usuário.
+  Implementado tratamento amigável para falta de API Key, guiando o usuário às configurações em vez de falhar silenciosamente.
+
+2. Internacionalização (i18n) Completa
+--------------------------------------
+Todos os textos hardcoded identificados foram extraídos para arquivos de localização (app_pt.arb e app_en.arb).
+
+- ViewerScreen:
+  - Mensagens de erro de arquivos (.doc, .zip, .xlsx) traduzidas.
+  - Unidades de medida (B, KB, MB) padronizadas.
+  - Tooltips e botões de interface ("Mostrar Bruto", "Salvar") traduzidos.
+  - Mensagens de erro de Vídeo e Áudio traduzidas.
+
+- AiService / Chat:
+  - System Prompts agora são traduzidos.
+  - Mensagens de erro de comunicação com a API traduzidas.
+
+- Global Error Handling:
+  - A tela de "Crash" (_GlobalErrorWidget) agora suporta localização e exibe mensagens amigáveis no idioma do dispositivo.
+
+3. Segurança e Armazenamento (Android 11+)
+------------------------------------------
+Refatorada a lógica de salvamento de arquivos editados para conformidade com Scoped Storage:
+
+- Antes: Tentativa de escrita direta em /storage/emulated/0/Download/ (Proibido/Instável no Android 11+).
+- Agora: Os arquivos são salvos na Pasta de Documentos do App (getApplicationDocumentsDirectory).
+  - Isso garante sucesso no salvamento sem permissões intrusivas.
+  - O caminho é salvo no Histórico do app, permitindo acesso futuro pelo usuário dentro do próprio MviewerPlus.
+
+Status: Pronto para Testes de Pré-Lançamento.

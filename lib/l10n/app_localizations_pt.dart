@@ -855,7 +855,110 @@ class AppLocalizationsPt extends AppLocalizations {
   String get securityAppExpectedHash => 'Esperado:';
 
   @override
-  String get securityConfigNeeded => 'Configurar...';
+  String get securityConfigNeeded => 'Configure...';
+
+  @override
+  String get viewerDocUnsupported =>
+      'Visualização de arquivos .doc (Word 97-2003) ainda não é suportada por limitações técnicas.\n\nPor favor, salve o arquivo como .docx para visualizar.';
+
+  @override
+  String get viewerDocEmpty =>
+      'O arquivo parece vazio ou o texto não pôde ser extraído.\n\nNota: Imagens e formatações complexas não são exibidas.';
+
+  @override
+  String get viewerDocInvalid =>
+      'Erro de Formato:\nEste arquivo não é um DOCX válido.\n1. Pode ser um arquivo .doc antigo (Word 97-2003) renomeado manualmente.\n2. Pode estar corrompido.\n\nSolução: Abra no Word e use \'Salvar Como\' -> \'.docx\'.';
+
+  @override
+  String viewerDocError(Object error) {
+    return 'Erro ao ler o documento DOCX:\n$error';
+  }
+
+  @override
+  String viewerExcelError(Object error) {
+    return 'Erro ao ler arquivo Excel:\n$error';
+  }
+
+  @override
+  String viewerZipError(Object error) {
+    return 'Erro ao ler arquivo ZIP:\n$error';
+  }
+
+  @override
+  String viewerCertificateBinary(Object extension) {
+    return 'Este arquivo de certificado ($extension) é binário.\nVisualização de conteúdo bruto não suportada para este formato.';
+  }
+
+  @override
+  String viewerFileError(Object error) {
+    return 'Erro ao ler o arquivo:\n$error';
+  }
+
+  @override
+  String viewerSaveError(Object error) {
+    return 'Erro ao salvar: $error';
+  }
+
+  @override
+  String get viewerTooltipShowFormatted => 'Mostrar Formatado';
+
+  @override
+  String get viewerTooltipShowRaw => 'Mostrar Bruto';
+
+  @override
+  String get aiErrorKeyMissing =>
+      'Erro: Chave de API ausente. Por favor configure nas Configurações.';
+
+  @override
+  String aiErrorCommunication(Object error) {
+    return 'Erro de comunicação com IA: $error';
+  }
+
+  @override
+  String aiSystemPrompt(Object language) {
+    return 'Você é um Assistente de Arquivos inteligente integrado ao MviewerPlus. Sua tarefa é analisar o conteúdo do arquivo fornecido e ajudar o usuário. Responda no idioma: $language.';
+  }
+
+  @override
+  String get aiDisclaimer =>
+      'A IA pode cometer erros. Verifique informações importantes.';
+
+  @override
+  String get reportContent => 'Reportar';
+
+  @override
+  String get reportContentDialogTitle => 'Reportar Conteúdo';
+
+  @override
+  String get reportContentDialogDesc =>
+      'Deseja reportar e limpar esta conversa por conteúdo inapropriado?';
+
+  @override
+  String get reportActionClear => 'Reportar e Limpar';
+
+  @override
+  String get reportThanks =>
+      'Obrigado pelo seu reporte. O conteúdo foi removido.';
+
+  @override
+  String get unknown => 'Desconhecido';
+
+  @override
+  String videoError(Object error) {
+    return 'Erro ao reproduzir vídeo: $error';
+  }
+
+  @override
+  String get videoLoadingError => 'Falha ao carregar vídeo';
+
+  @override
+  String get globalErrorTitle => 'Ops, algo não saiu como esperado.';
+
+  @override
+  String get globalErrorDesc => 'Não se preocupe, seus dados estão seguros.';
+
+  @override
+  String get backToHome => 'Voltar para o Início';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -1709,7 +1812,110 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get securityAppExpectedHash => 'Esperado:';
 
   @override
-  String get securityConfigNeeded => 'Configurar...';
+  String get securityConfigNeeded => 'Configure...';
+
+  @override
+  String get viewerDocUnsupported =>
+      'Visualização de arquivos .doc (Word 97-2003) ainda não é suportada por limitações técnicas.\n\nPor favor, salve o arquivo como .docx para visualizar.';
+
+  @override
+  String get viewerDocEmpty =>
+      'O arquivo parece vazio ou o texto não pôde ser extraído.\n\nNota: Imagens e formatações complexas não são exibidas.';
+
+  @override
+  String get viewerDocInvalid =>
+      'Erro de Formato:\nEste arquivo não é um DOCX válido.\n1. Pode ser um arquivo .doc antigo (Word 97-2003) renomeado manualmente.\n2. Pode estar corrompido.\n\nSolução: Abra no Word e use \'Salvar Como\' -> \'.docx\'.';
+
+  @override
+  String viewerDocError(Object error) {
+    return 'Erro ao ler o documento DOCX:\n$error';
+  }
+
+  @override
+  String viewerExcelError(Object error) {
+    return 'Erro ao ler arquivo Excel:\n$error';
+  }
+
+  @override
+  String viewerZipError(Object error) {
+    return 'Erro ao ler arquivo ZIP:\n$error';
+  }
+
+  @override
+  String viewerCertificateBinary(Object extension) {
+    return 'Este arquivo de certificado ($extension) é binário.\nVisualização de conteúdo bruto não suportada para este formato.';
+  }
+
+  @override
+  String viewerFileError(Object error) {
+    return 'Erro ao ler o arquivo:\n$error';
+  }
+
+  @override
+  String viewerSaveError(Object error) {
+    return 'Erro ao salvar: $error';
+  }
+
+  @override
+  String get viewerTooltipShowFormatted => 'Mostrar Formatado';
+
+  @override
+  String get viewerTooltipShowRaw => 'Mostrar Bruto';
+
+  @override
+  String get aiErrorKeyMissing =>
+      'Erro: Chave de API ausente. Por favor configure nas Configurações.';
+
+  @override
+  String aiErrorCommunication(Object error) {
+    return 'Erro de comunicação com IA: $error';
+  }
+
+  @override
+  String aiSystemPrompt(Object language) {
+    return 'Você é um Assistente de Arquivos inteligente integrado ao MviewerPlus. Sua tarefa é analisar o conteúdo do arquivo fornecido e ajudar o usuário. Responda no idioma: $language.';
+  }
+
+  @override
+  String get aiDisclaimer =>
+      'A IA pode cometer erros. Verifique informações importantes.';
+
+  @override
+  String get reportContent => 'Reportar';
+
+  @override
+  String get reportContentDialogTitle => 'Reportar Conteúdo';
+
+  @override
+  String get reportContentDialogDesc =>
+      'Deseja reportar e limpar esta conversa por conteúdo inapropriado?';
+
+  @override
+  String get reportActionClear => 'Reportar e Limpar';
+
+  @override
+  String get reportThanks =>
+      'Obrigado pelo seu reporte. O conteúdo foi removido.';
+
+  @override
+  String get unknown => 'Desconhecido';
+
+  @override
+  String videoError(Object error) {
+    return 'Erro ao reproduzir vídeo: $error';
+  }
+
+  @override
+  String get videoLoadingError => 'Falha ao carregar vídeo';
+
+  @override
+  String get globalErrorTitle => 'Ops, algo não saiu como esperado.';
+
+  @override
+  String get globalErrorDesc => 'Não se preocupe, seus dados estão seguros.';
+
+  @override
+  String get backToHome => 'Voltar para o Início';
 }
 
 /// The translations for Portuguese, as used in Portugal (`pt_PT`).
@@ -2564,4 +2770,107 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
 
   @override
   String get securityConfigNeeded => 'Configurar...';
+
+  @override
+  String get viewerDocUnsupported =>
+      'Visualização de ficheiros .doc (Word 97-2003) ainda não é suportada por limitações técnicas.\n\nPor favor, guarde o ficheiro como .docx para visualizar.';
+
+  @override
+  String get viewerDocEmpty =>
+      'O ficheiro parece vazio ou o texto não pôde ser extraído.\n\nNota: Imagens e formatações complexas não são exibidas.';
+
+  @override
+  String get viewerDocInvalid =>
+      'Erro de Formato:\nEste ficheiro não é um DOCX válido.\n1. Pode ser um ficheiro .doc antigo renomeado manualmente.\n2. Pode estar corrompido.\n\nSolução: Abra no Word e use \'Guardar Como\' -> \'.docx\'.';
+
+  @override
+  String viewerDocError(Object error) {
+    return 'Erro ao ler o documento DOCX:\n$error';
+  }
+
+  @override
+  String viewerExcelError(Object error) {
+    return 'Erro ao ler ficheiro Excel:\n$error';
+  }
+
+  @override
+  String viewerZipError(Object error) {
+    return 'Erro ao ler ficheiro ZIP:\n$error';
+  }
+
+  @override
+  String viewerCertificateBinary(Object extension) {
+    return 'Este ficheiro de certificado ($extension) é binario.\nVisualização de conteúdo bruto não suportada para este formato.';
+  }
+
+  @override
+  String viewerFileError(Object error) {
+    return 'Erro ao ler o ficheiro:\n$error';
+  }
+
+  @override
+  String viewerSaveError(Object error) {
+    return 'Erro ao guardar: $error';
+  }
+
+  @override
+  String get viewerTooltipShowFormatted => 'Mostrar Formatado';
+
+  @override
+  String get viewerTooltipShowRaw => 'Mostrar Bruto';
+
+  @override
+  String get aiErrorKeyMissing =>
+      'Erro: Chave de API em falta. Por favor configure nas Definições.';
+
+  @override
+  String aiErrorCommunication(Object error) {
+    return 'Erro de comunicação com IA: $error';
+  }
+
+  @override
+  String aiSystemPrompt(Object language) {
+    return 'És um Assistente de Ficheiros inteligente integrado no MviewerPlus. A tua tarefa é analisar o conteúdo do ficheiro fornecido e ajudar o utilizador. Responde no idioma: $language.';
+  }
+
+  @override
+  String get aiDisclaimer =>
+      'A IA pode cometer erros. Verifique informações importantes.';
+
+  @override
+  String get reportContent => 'Denunciar';
+
+  @override
+  String get reportContentDialogTitle => 'Denunciar Conteúdo';
+
+  @override
+  String get reportContentDialogDesc =>
+      'Deseja denunciar e limpar esta conversa por conteúdo inapropriado?';
+
+  @override
+  String get reportActionClear => 'Denunciar e Limpar';
+
+  @override
+  String get reportThanks =>
+      'Obrigado pela sua denúncia. O conteúdo foi removido.';
+
+  @override
+  String get unknown => 'Desconhecido';
+
+  @override
+  String videoError(Object error) {
+    return 'Erro ao reproduzir vídeo: $error';
+  }
+
+  @override
+  String get videoLoadingError => 'Falha ao carregar vídeo';
+
+  @override
+  String get globalErrorTitle => 'Ops, algo correu mal.';
+
+  @override
+  String get globalErrorDesc => 'Não se preocupe, os seus dados estão seguros.';
+
+  @override
+  String get backToHome => 'Voltar ao Início';
 }
